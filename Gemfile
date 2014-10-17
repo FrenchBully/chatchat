@@ -15,7 +15,7 @@ group :development do
   gem "binding_of_caller"
 end
 
-
+gem 'pry'
 
 gem 'omniauth'
 gem 'omniauth-meetup', '~> 0.0.2'

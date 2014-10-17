@@ -14,3 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+var ready = function() {
+
+	function getLocation() {
+		console.log("yo")
+		alert("getLocation");
+	    navigator.geolocation.getCurrentPosition(showPosition);
+	}
+
+	function showPosition(position) {
+		alert("duhhhh");
+	    $('#lat').val(position.coords.latitude); 
+	    $('#lon').val(position.coords.longitude); 
+	}
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
