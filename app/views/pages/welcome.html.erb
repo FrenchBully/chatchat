@@ -1,7 +1,7 @@
 <%= form_for :random, url: '/api_test' do |f| %>
 <%= f.text_field :meetup_id %> 
-<%=f.text_field :lon, id: 'lon'%>
 <%=f.text_field :lat, id: 'lat'%>
+<%=f.text_field :lon, id: 'lon'%>
 <%= f.submit "Next", :onclick => "getLocation()" %>
 <% end %>
 

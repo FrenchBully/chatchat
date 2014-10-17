@@ -1,6 +1,14 @@
-Next Event for: <%= @member["results"][0]["name"] %> from <%= @member["results"][0]["city"] %>
+<p>Next Event for:</p>
+<%= image_tag @member["results"][0]["photo"]["thumb_link"], class: 'photo' %><p><%= @member["results"][0]["name"] %> of <%= @member["results"][0]["city"] %></p>
+<%= params[:random][:lat] %>, <%= params[:random][:lon] %>
 
+
+
+<% if @events["results"].length > 0 %>
 <h1><%= link_to @events["results"][0]["name"], @events["results"][0]["event_url"] %></h1>
+<p><%= @events["results"][0]["venue"]["name"] %> - <%= @events["results"][0]["venue"]["lat"] %>, <%= @events["results"][0]["venue"]["lon"] %></p>
 <p><%= @events["results"][0]["group"]["name"] %></p>
 <p><%= @events["results"][0]["description"] %></p>
-
+<% else %>
+<p>Sorry, no upcoming events for <%= @member["results"][0]["name"] %></p>
+<% end %>

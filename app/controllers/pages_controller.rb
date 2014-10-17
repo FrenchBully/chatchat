@@ -37,14 +37,14 @@ class PagesController < ApplicationController
 
 	def api_test
 		params1 = { 
-	      member_id: params[:user][:meetup_id]
+	      member_id: params[:random][:meetup_id]
 		}
 
 	    meetup_api = MeetupApi.new
 
 	    @events = meetup_api.events(params1)
 	    @member = meetup_api.members(params1)
+	    # @photos = meetup_api.photos(params1)
 
-		# binding.pry
 	end
 end
