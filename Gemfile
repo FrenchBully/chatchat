@@ -10,8 +10,7 @@ gem 'devise'
 
 gem 'thin'
 
-gem 'omniauth-oauth2', '~> 1.2.0'
-gem 'meetup_client', '~> 0.0.6'
+gem 'omniauth'
 gem 'omniauth-meetup', '~> 0.0.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
