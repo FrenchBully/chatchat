@@ -1,6 +1,28 @@
 <%= form_for :random, url: '/api_test' do |f| %>
 <%= f.text_field :meetup_id %> 
-<%#= f.text_field :lat, :id => 'lat' %>
-<%#= f.text_field :lon, :id => 'lon' %>
+<%=f.text_field :lon, id: 'lon'%>
+<%=f.text_field :lat, id: 'lat'%>
 <%= f.submit "Next", :onclick => "getLocation()" %>
 <% end %>
+
+
+
+
+
+
+<script>
+
+$(function(){
+	function getLocation() {
+	    if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(showPosition);
+	    } 
+	}
+
+	function showPosition(position) {
+		$("#lon").val(position.coords.latitude);
+		$("#lat").val(position.coords.longitude);
+	}
+	getLocation();
+});
+</script>
