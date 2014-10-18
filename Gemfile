@@ -12,6 +12,13 @@ gem 'thin'
 gem 'binding_of_caller', '~> 0.7.2'
 gem 'better_errors', '~> 2.0.0'
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
+gem 'pry'
+
 gem 'omniauth'
 gem 'omniauth-meetup', '~> 0.0.2'
 # Use SCSS for stylesheets
@@ -22,7 +29,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-
+gem 'meetup_client'
+gem 'ruby_meetup2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

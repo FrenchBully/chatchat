@@ -1,0 +1,19 @@
+<h1><%= @open_events["results"][0]["name"] %></h1>
+<p><strong>Date/Time:</strong> <%= @time %></p>
+<p><strong>Distance:</strong> <%= @open_events["results"][0]["distance"].round(1) %> miles away</p>
+<p><strong>Presented by:</strong> <%= @open_events["results"][0]["group"]["name"] %></p>
+<p><strong>Expected:</strong> <%= @open_events["results"][0]["yes_rsvp_count"] %></p>
+<p><strong>About:</strong> <%= @open_events["results"][0]["description"] %></p>
+
+
+
+
+
+<h1><%= @events["results"][0]["name"] %></h1>
+<p><%= @events["results"][0]["group"]["name"] %></p>
+
+<h1><%= @events["results"][1]["name"] %></h1>
+<p><%= @events["results"][1]["group"]["name"] %></p>
+
+<h1><%= @events["results"][2]["name"] %></h1>
+<p><%= @events["results"][2]["group"]["name"] %></p>
