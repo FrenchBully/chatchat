@@ -32,7 +32,7 @@ class PagesController < ApplicationController
 	    # call it with: <%= @events["results"][0] %>
 
 	    seconds = @open_events["results"][0]["time"]/1000
-	@time = Time.at(seconds).strftime("%H:%M:%S")
+	@time = Time.at(seconds).strftime("%m/%d/%Y")
 	end
 
 	def welcome
@@ -57,6 +57,10 @@ class PagesController < ApplicationController
 	    @events = meetup_api.events(options)
 	    @member = meetup_api.members(options)
 	    @venue = meetup_api.venues(options)
+	    if @events["results"].length > 0
+		    seconds = @events["results"][0]["time"]/1000
+			@date = Time.at(seconds).strftime("%m/%d/%Y")
+		end
 
 	end
 

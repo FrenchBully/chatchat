@@ -1,7 +1,7 @@
 <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <%= form_for @user, url: '/get_meetup_info', method: :post do |f| %>
 	<%= f.text_field :meetup_id %> 
-	<%=f.text_field :lat, id: 'lat'%>
-	<%=f.text_field :lon, id: 'lon'%>
+	<%=f.hidden_field :lat, id: 'lat'%>
+	<%=f.hidden_field :lon, id: 'lon'%>
 	<%= f.submit "Next", id: 'meetup' %>
 <% end %>

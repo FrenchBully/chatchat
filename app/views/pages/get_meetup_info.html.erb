@@ -1,19 +1,21 @@
 <% if @member["results"].length > 0 %>
 	<p>Next Event for:</p>
-	<%= image_tag @member["results"][0]["photo"]["thumb_link"], class: 'photo' if @member["results"][0]["photo"] %><p><%= @member["results"][0]["name"].titleize %> of <%= @member["results"][0]["city"] %> (Currently at: <%= params[:user][:lat] %>, <%= params[:user][:lon] %>)</p>
+	<%= image_tag @member["results"][0]["photo"]["thumb_link"], class: 'photo' if @member["results"][0]["photo"] %><p><%= @member["results"][0]["name"].titleize %> of <%= @member["results"][0]["city"] %> <!-- (Currently at: <%#= params[:user][:lat] %>, <%#= params[:user][:lon] %>)</p> -->
 <% else %>
 	Sorry, a user with the id: <%= params[:user][:meetup_id] %> was not found.
 <% end %>
 
-<%= @user.distance([@user.lat, @user.lon],[@events["results"][0]["venue"]["lat"], @events["results"][0]["venue"]["lon"]]) %> miles away
 
 
 <% if @events["results"].length > 0 %>
-	<h1><%= link_to @events["results"][0]["name"], @events["results"][0]["event_url"] %></h1>
-	<p><%#= @venue.inspect %></p>
-	<p><%= @events["results"][0]["venue"]["name"] %> (<%= @events["results"][0]["venue"]["lat"] %>, <%= @events["results"][0]["venue"]["lon"] %>)</p>
+	<h1><%= link_to @events["results"][0]["name"], @events["results"][0]["event_url"] %></h1> <%= @date %>
+	<p><%#= @events["results"][0]["venue"].inspect %></p>
+	<% if @events["results"][0]["venue"]["lat"] > 0 %>
+	<p>at <%= @events["results"][0]["venue"]["name"] %> (<%= @user.distance([@user.lat, @user.lon],[@events["results"][0]["venue"]["lat"], @events["results"][0]["venue"]["lon"]]) if @events["results"] %> miles away) <!-- (<%#= @events["results"][0]["venue"]["lat"] %>, <%#= @events["results"][0]["venue"]["lon"] %>)</p> -->
+	<% end %>
 	<p><%= @events["results"][0]["description"] %></p>
 	<p>Organized by <%= @events["results"][0]["group"]["name"] %></p>
+	
 <% else %>
 	<p>Sorry, <%= @member["results"][0]["name"] %>'s upcoming events are not public</p>
 <% end %>
