@@ -9,6 +9,8 @@ gem 'pg'
 gem 'devise'
 
 gem 'thin'
+gem 'binding_of_caller', '~> 0.7.2'
+gem 'better_errors', '~> 2.0.0'
 
 gem 'omniauth'
 gem 'omniauth-meetup', '~> 0.0.2'
