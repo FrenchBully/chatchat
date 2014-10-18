@@ -168,13 +168,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-  better_errors (~> 2.0.0)
-  binding_of_caller (~> 0.7.2)
-=======
   better_errors
   binding_of_caller
->>>>>>> 26aef37b0919c1e6c0ceb0f643c7325870ef50ef
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)
