@@ -13,9 +13,16 @@ gem 'thin'
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  # gem "rspec"
+end
+
+group :development, :test do
+  gem 'rspec-rails'
 end
 
 gem 'pry'
+
+# gem 'rspec', '~> 3.1.0'
 
 gem 'omniauth'
 gem 'omniauth-meetup', '~> 0.0.2'

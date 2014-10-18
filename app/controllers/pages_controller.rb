@@ -42,6 +42,7 @@ class PagesController < ApplicationController
 	def get_meetup_info
 		options = { 
 	      member_id: params[:user][:meetup_id],
+	      # rsvp: 'yes', 
 	      lat: params[:user][:lat],
 		  lon: params[:user][:lon]
 		}

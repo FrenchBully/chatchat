@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :interests, through: :interests_users
-
+  validates :name, :presence => true
+  validates :meetup_id, :presence => true
+  
   def distance a, b
 	  rad_per_deg = Math::PI/180  # PI / 180
 	  rkm = 6371                  # Earth radius in kilometers
