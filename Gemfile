@@ -22,7 +22,7 @@ end
 
 gem 'pry'
 
-# gem 'rspec', '~> 3.1.0'
+gem 'rails_12factor', group: :production
 
 gem 'omniauth'
 gem 'omniauth-meetup', '~> 0.0.2'
@@ -60,3 +60,4 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+ruby "2.1.2"

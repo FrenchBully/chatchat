@@ -32,4 +32,8 @@ describe User do
 		it { is_expected.to respond_with 401 }
 	end
 
+	it "should have many interests" do
+		expect(user).to have_many(:interests)
+	end
+
 end
