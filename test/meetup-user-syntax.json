@@ -1,0 +1,64 @@
+{"results"=>
+	[
+		{
+			"lon"=>-118.49, 
+			"status"=>"active", 
+			"link"=>"http://www.meetup.com/members/128690972", 
+			"state"=>"CA", 
+			"self"=>
+				{"common"=>{}
+				}, 
+			"city"=>"Santa Monica", 
+			"country"=>"us", 
+			"visited"=>1413580437000, 
+			"id"=>128690972, 
+			"topics"=>
+				[
+					{
+						"id"=>8476, 
+						"urlkey"=>"education", 
+						"name"=>"Education"
+					}, 
+					{
+						"id"=>20629, 
+						"urlkey"=>"courses-and-workshops", 
+						"name"=>"Courses and Workshops"
+					}, 
+					{
+						"id"=>15585, 
+						"urlkey"=>"online-marketing", 
+						"name"=>"Online Marketing"
+					}, 
+					{
+						"id"=>108403, 
+						"urlkey"=>"technology-startups", 
+						"name"=>"Technology Startups"
+					}, 
+					{
+						"id"=>9696, 
+						"urlkey"=>"newtech", 
+						"name"=>"New Technology"
+					}, 
+					{
+						"id"=>21681, 
+						"urlkey"=>"startup-businesses", 
+						"name"=>"Startup Businesses"
+					}, 
+					{
+						"id"=>19882, 
+						"urlkey"=>"entrepreneurship", 
+						"name"=>"Entrepreneurship"
+					}, 
+					{
+						"id"=>38660, 
+						"urlkey"=>"lean-startup", 
+						"name"=>"Lean Startup"
+					}
+				], 
+			"joined"=>1389996565000, 
+			"name"=>"Natalie", 
+			"other_services"=>{}, 
+			"lat"=>34.03
+		}
+	], 
+	"meta"=>{"lon"=>"", "count"=>1, "link"=>"http://api.meetup.com/2/members", "next"=>"", "total_count"=>1, "url"=>"http://api.meetup.com/2/members?key=b7d767765272d2b2b13c25e744e13&order=name&member_id=128690972&offset=0&format=json&page=200", "id"=>"", "title"=>"Meetup Members v2", "updated"=>1389996664000, "description"=>"API method for accessing members of Meetup Groups", "method"=>"Members", "lat"=>""}}

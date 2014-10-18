@@ -34,3 +34,18 @@
 // $(document).ready(ready);
 // $(document).on('page:load', ready);
 
+
+$( document ).ready(function(){
+		function getLocation() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(showPosition);
+		    } 
+		}
+
+		function showPosition(position) {
+			$("#lat").val(position.coords.latitude);
+			$("#lon").val(position.coords.longitude);
+		}
+		getLocation();
+});
+

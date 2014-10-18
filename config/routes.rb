@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
  
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'users/edit'
+
   devise_for :users
 
  # The priority is based upon order of creation: first created -> highest priority.
@@ -8,7 +14,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#welcome'
 
-  post '/api_test' => 'pages#api_test'
+  post '/get_meetup_info' => 'pages#get_meetup_info'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

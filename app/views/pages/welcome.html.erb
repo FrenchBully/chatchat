@@ -1,28 +1,7 @@
-<%= form_for :random, url: '/api_test' do |f| %>
-<%= f.text_field :meetup_id %> 
-<%=f.text_field :lat, id: 'lat'%>
-<%=f.text_field :lon, id: 'lon'%>
-<%= f.submit "Next", :onclick => "getLocation()" %>
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<%= form_for @user, url: '/get_meetup_info', method: :post do |f| %>
+	<%= f.text_field :meetup_id %> 
+	<%=f.text_field :lat, id: 'lat'%>
+	<%=f.text_field :lon, id: 'lon'%>
+	<%= f.submit "Next", id: 'meetup' %>
 <% end %>
-
-
-
-
-
-
-<script>
-
-$(function(){
-	function getLocation() {
-	    if (navigator.geolocation) {
-	        navigator.geolocation.getCurrentPosition(showPosition);
-	    } 
-	}
-
-	function showPosition(position) {
-		$("#lon").val(position.coords.latitude);
-		$("#lat").val(position.coords.longitude);
-	}
-	getLocation();
-});
-</script>

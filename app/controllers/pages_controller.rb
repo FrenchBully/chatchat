@@ -35,16 +35,33 @@ class PagesController < ApplicationController
 	@time = Time.at(seconds).strftime("%H:%M:%S")
 	end
 
-	def api_test
-		params1 = { 
-	      member_id: params[:random][:meetup_id]
+	def welcome
+		@user = current_user
+	end
+
+	def get_meetup_info
+		options = { 
+	      member_id: params[:user][:meetup_id],
+	      lat: params[:user][:lat],
+		  lon: params[:user][:lon]
 		}
+
+		@user = current_user
+		@user.meetup_id = params[:user][:meetup_id]
+		@user.lat = params[:user][:lat]
+		@user.lon = params[:user][:lon]
+		@user.save
 
 	    meetup_api = MeetupApi.new
 
-	    @events = meetup_api.events(params1)
-	    @member = meetup_api.members(params1)
-	    # @photos = meetup_api.photos(params1)
+	    @events = meetup_api.events(options)
+	    @member = meetup_api.members(options)
+	    @venue = meetup_api.venues(options)
 
 	end
+
+
 end
+
+# member = User.find_by(meetup_id: params[:random][:meetup_id])
+# @member = member.get_meetup_info(params[:random][:lon], params[:random][lat])
