@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'pages#welcome'
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
+  # resources :users
 
   resources :interests
   get '/users' => 'users#index'
@@ -10,4 +11,5 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+
 end

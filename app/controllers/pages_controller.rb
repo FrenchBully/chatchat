@@ -40,18 +40,21 @@ class PagesController < ApplicationController
 	end
 
 	def get_meetup_info
-		options = { 
-	      member_id: params[:user][:meetup_id],
-	      # rsvp: 'yes', 
-	      lat: params[:user][:lat],
-		  lon: params[:user][:lon]
-		}
+
 
 		@user = current_user
-		@user.meetup_id = params[:user][:meetup_id]
+		@user.meetup_id = params[:user][:uid]
 		@user.lat = params[:user][:lat]
 		@user.lon = params[:user][:lon]
 		@user.save
+
+		options = { 
+	      member_id: params[:user][:uid],
+	      rsvp: 'yes', 
+	      lat: params[:user][:lat],
+		  lon: params[:user][:lon],
+		  access_token: @user.auth_token
+		}
 
 	    meetup_api = MeetupApi.new
 
