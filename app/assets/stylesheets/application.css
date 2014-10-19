@@ -272,7 +272,23 @@ input[type="text"] {
 }
 
 .notice {
-	background-color: #FF0000;
+	background-color: #DFF1D7;
+	padding: 15px;
+	border: 1px solid #3d793b;
+	border-radius: 5px;
+	font-size: 11px;
+	color: #3d793b;
+	margin-top: 0px;
+}
+
+.alert {
+	background-color: #FCF9E2;
+	padding: 15px;
+	border: 1px solid #8a6e37;
+	border-radius: 5px;
+	font-size: 11px;
+	color: #8a6e37;
+	margin-top: 0px;
 }
 
 #logo {

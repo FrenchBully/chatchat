@@ -4,7 +4,8 @@
   <title>MetaMeetup - Meet the right people</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- strange that data-no-turbolink didn't work. Had to comment this out instead -->
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   
   <%= csrf_meta_tags %>
 
@@ -14,11 +15,13 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 
 </head>
-<body>
-	
-	<p class="notice"><%= notice %></p>
+<body data-no-turbolink>
+	<% if flash[:alert] %>
     <p class="alert"><%= alert %></p>
-
+	<% end %>
+	<% if flash[:notice] %>
+    <p class="notice"><%= alert %></p>
+	<% end %>
 
 
     <div class="container">
