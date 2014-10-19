@@ -33,9 +33,6 @@ class User < ActiveRecord::Base
 	  miles.round(1)
 	end
 
-# puts distance [46.3625, 15.114444],[46.055556, 14.508333]
-# => 57794.35510874037
-
 
   def self.from_omniauth(auth)
     # gets and sets auth token for user
