@@ -16,6 +16,7 @@
 
 
 
+
 .chatbox {
     position: fixed;
     position: expression("absolute");
@@ -184,4 +185,126 @@
  
 .chatboxtitle {
     float: left;
+}
+/*end of chat styling*/
+
+
+body {
+	background-color: #323232;
+}
+
+p {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+	color: #2ea1d0
+}
+
+a:hover {
+	color: #2c7a99
+}
+
+h2 {
+	font-family: 'Roboto', sans-serif;
+}
+
+label {
+	color: #DDD;
+	font-family: 'Roboto', sans-serif;
+	font-size: 11px;
+}
+
+input[type="email"] {
+	width: 100%;
+	height: 40px;
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+input[type="password"] {
+	width: 100%;
+	height: 40px;
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+input[type="text"] {
+	width: 100%;
+	height: 40px;
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+.container {
+	margin: 20px;
+}
+
+.button {
+	position: relative;
+	background-color: #2ea1d0;
+	padding: 20px 40px 20px 40px;
+	border: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	color: #FFF;
+	margin: 10px 0px 10px 0px;
+	outline: none;
+}
+
+.button:hover {
+	background-color: #2c7a99;
+	color: #FFF;
+}
+
+.expand {
+	width: 100%;
+}
+
+.center {
+	text-align: center;
+}
+
+.top-margin {
+	margin-top: 50px;
+}
+
+.notice {
+	background-color: #FF0000;
+}
+
+#logo {
+	font-family: 'Roboto', sans-serif;
+	font-size: 60px;
+	color: #FFF;
+	position: relative;
+}
+
+#tagline {
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+	font-size: 14px;
+	color: #DDD;
+	position: relative;
+	margin-top: -15px;
+}
+
+#devise-links {
+	margin-top: 60px;
+}
+
+#no-meetup {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	color: #FFF;
+	position: relative;
+	margin-top: 60px;
+}
+
+.photo {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
 }
