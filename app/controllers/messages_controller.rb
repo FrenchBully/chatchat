@@ -3,11 +3,15 @@ class MessagesController < ApplicationController
  
   def create
     @conversation = Conversation.find(params[:conversation_id])
-    @message = @conversation.messages.build(message_params)
+    # message_params gets the text to be passed 
+    @message = @conversation.messages.new(message_params)
     @message.user_id = current_user.id
     @message.save!
  
     @path = conversation_path(@conversation)
+    # executes create.js.erb file
+    # which uses faye to publish(push) to the channel the 
+    # new message
   end
  
   private

@@ -4,6 +4,10 @@ class ConversationsController < ApplicationController
   layout false
  
   def create
+    # look for conversation
+    # our case we find the conversation 
+    # based on event id from meetups
+    # create it if it doesn't exist
     if Conversation.between(params[:sender_id],params[:recipient_id]).present?
       @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
     else
@@ -15,7 +19,10 @@ class ConversationsController < ApplicationController
  
   def show
     @conversation = Conversation.find(params[:id])
+
+    # work with
     @reciever = interlocutor(@conversation)
+
     @messages = @conversation.messages
     @message = Message.new
   end

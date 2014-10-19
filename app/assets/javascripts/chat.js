@@ -44,8 +44,8 @@ var ready = function () {
          */
  
         notify: function () {
-            var audioplayer = $('#chatAudio')[0];
-            audioplayer.play();
+            // var audioplayer = $('#chatAudio')[0];
+            // audioplayer.play();
         },
  
         /**
@@ -53,7 +53,8 @@ var ready = function () {
          * added or removed from the view, it restructures them so that they appear
          * neatly aligned on the page
          */
- 
+    
+        // for lining up chat boxes
         restructure: function () {
             align = 0;
             for (x in chatBoxes) {
@@ -93,14 +94,18 @@ var ready = function () {
                 $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
                 return;
             }
- 
+            
+            // adds chatbox with unique id
             $("body").append('<div id="chatbox_' + conversation_id + '" class="chatbox"></div>')
  
             $.get("conversations/" + conversation_id, function (data) {
+                // the data returned here is the chatbox with all info
+                // unique id added on plus chatboxcontent class added
+                // 
                 $('#chatbox_' + conversation_id).html(data);
                 $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
             }, "html");
- 
+            
             $("#chatbox_" + conversation_id).css('bottom', '0px');
  
             chatBoxeslength = 0;

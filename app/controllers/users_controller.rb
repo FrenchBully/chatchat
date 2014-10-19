@@ -3,8 +3,4 @@ class UsersController < ApplicationController
     # binding.pry
     @users = User.all
   end
-
-  def test
-    
-  end
 end
