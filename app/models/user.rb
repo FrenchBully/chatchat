@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :interests, through: :interests_users
-  validates :name, :presence => true
-  validates :meetup_id, :presence => true
+  # validates :name, :presence => true
+
   
   def distance a, b
 	  rad_per_deg = Math::PI/180  # PI / 180
@@ -37,6 +37,9 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid.to_s
       user.auth_token = auth.credentials.token
+      user.name = auth.info.name
+      user.photo = auth.info.photo
+
     end
   end
 
