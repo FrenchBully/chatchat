@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20141018005120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversation_users", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+  end
+
+  create_table "conversations", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "category"
+    t.integer  "meetup_id"
+  end
 
   create_table "interests", force: true do |t|
     t.integer  "user_id"
@@ -29,6 +44,23 @@ ActiveRecord::Schema.define(version: 20141018005120) do
     t.integer "event_id"
     t.integer "user_id"
   end
+
+  create_table "meetups", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "meetup_name"
+  end
+
+  create_table "messages", force: true do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_and_belongs_to_many :interests, through: :interests_users
+
+  # used for chats
+  has_many :conversation_users
+  has_many :conversations, through: :conversation_users
+  has_many :messages
+
   validates :name, :presence => true
   # validates :meetup_id, :presence => true
   
