@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   # using for testing chat
-  get 'users/index'
 
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
@@ -20,9 +19,7 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
 
-  devise_for :users
-
-  get '/' => 'users#index'
+  get '/users' => 'users#index'
 
 
   resources :conversations do
