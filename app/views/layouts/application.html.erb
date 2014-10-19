@@ -16,7 +16,6 @@
 
 </head>
 <body data-no-turbolink>
-    <div class="container">
   		<% if flash[:alert] %>
 		    <p class="alert"><%= alert %></p>
 		<% end %>
@@ -24,6 +23,5 @@
 		    <p class="notice"><%= alert %></p>
 		<% end %>
 	  <%= yield %>
-	</div>
 </body>
 </html>

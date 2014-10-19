@@ -37,6 +37,11 @@ class PagesController < ApplicationController
 
 	def welcome
 		@user = current_user
+		if !@user
+			redirect_to new_user_session_path
+		end
+		
+
 	end
 
 	def get_meetup_info
@@ -50,10 +55,10 @@ class PagesController < ApplicationController
 
 		options = { 
 	      member_id: params[:user][:uid],
-	      rsvp: 'yes', 
+	      # rsvp: 'yes', 
 	      lat: params[:user][:lat],
 		  lon: params[:user][:lon],
-		  access_token: @user.auth_token
+		  # access_token: @user.auth_token
 		}
 
 	    meetup_api = MeetupApi.new

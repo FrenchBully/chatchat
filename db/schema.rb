@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019043552) do
+ActiveRecord::Schema.define(version: 20141019204037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20141019043552) do
   add_index "interests", ["user_id"], name: "index_interests_on_user_id", using: :btree
 
   create_table "interests_users", force: true do |t|
-    t.integer "event_id"
     t.integer "user_id"
+    t.integer "interest_id"
   end
 
   create_table "meetups", force: true do |t|
@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 20141019043552) do
     t.string   "provider"
     t.string   "auth_token"
     t.string   "uid"
+    t.boolean  "private_messages"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

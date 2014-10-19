@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'pages#welcome'
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
-  # resources :users
+  resources :users
 
   resources :interests
   get '/users' => 'users#index'
