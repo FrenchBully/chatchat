@@ -20,7 +20,7 @@ body {
 
 p {
 	font-family: 'Roboto', sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 a {
@@ -94,6 +94,10 @@ input[type="text"] {
 
 .top-margin {
 	margin-top: 50px;
+}
+
+.notice {
+	background-color: #FF0000;
 }
 
 #logo {
