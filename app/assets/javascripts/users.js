@@ -14,11 +14,14 @@ var ready = function () {
         // grabs data out of the item that was clicked which is setup through html tags
         
         
-        var sender_id = $(this).data('sid');
-        var recipient_id = $(this).data('rip');
+        var category = $(this).data('category');
+
+        
+        var meetup_id = $(this).data('meetup_id');
  
-        $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
+        $.post("/conversations", { category: category, meetup_id: meetup_id }, function (data) {
             console.log(data);
+            console.log("posted to create");
             chatBox.chatWith(data.conversation_id);
         });
     });

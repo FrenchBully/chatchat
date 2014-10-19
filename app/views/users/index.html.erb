@@ -3,6 +3,7 @@
     <tr>
       <td><%= user.email %></td>
       <td>
+      	<!-- it starts with start conversation -->
         <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
                     "data-sid" => current_user.id, "data-rip" => user.id %>
       </td>
@@ -11,3 +12,6 @@
 <% end %>
 
 <h3>Chat Room</h3>
+<%=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-conversation", "data-category" => "angularjs", "data-meetup_id" => 1%>
+
+ <%#=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.id, "data-rip" => user.id%>
