@@ -41,7 +41,8 @@ class User < ActiveRecord::Base
       user.uid = auth.uid.to_s
       user.auth_token = auth.credentials.token
       user.name = auth.info.name
-      user.photo = auth.info.photo
+      user.photo = auth.info.photo_url
+      user.location = auth.info.location
 
     end
   end
@@ -59,6 +60,10 @@ class User < ActiveRecord::Base
 
   def password_required?
     super && provider.blank?
+  end
+
+  def remove_interest(topic)
+    @user.interests.delete(topic)
   end
 
 end

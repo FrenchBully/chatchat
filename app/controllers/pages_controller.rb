@@ -54,7 +54,7 @@ class PagesController < ApplicationController
 	      # rsvp: 'yes', 
 	      lat: params[:user][:lat],
 		  lon: params[:user][:lon],
-		  access_token: @user.auth_token
+		  # access_token: @user.auth_token
 		}
 
 	    meetup_api = MeetupApi.new

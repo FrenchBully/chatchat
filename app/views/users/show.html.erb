@@ -5,18 +5,21 @@
 		</div>
 		<div id='profile-info-container'>
 			<h1 id='name'><%= @user.name %></h1>
-			<p id='bio'><%= truncate(@user.bio, :length => 80) %></p>
+			<p id='location'><%= @user.location %></p>
+			<p><%= @user.private_messages? ? (link_to " Send Private Message", users_path, class: 'private-message fa fa-envelope') : "" %></p>
 		</div>
 	</section>
+	<label>Bio</label>
+	<p id='bio'><%= truncate(@user.bio, :length => 140) %></p>
 	<section id='interests'>
-		<label>Chat with <%= @user.name %> about:</label>
+		<label>Interests</label>
 		<ul class='interest-cloud'>
 			<% @user.interests.each do |interest| %>
-				<li class="interest"><%= link_to interest.name, interest_path(interest), class: 'button' %></li>
+				<li class="interest"><%= link_to ("#" + interest.name), interest_path(interest), class: 'button' %></li>
 			<% end %>
 		</ul>
 	</section>
 	<section>
-		<p><%= @user.private_messages? ? (link_to "Send Private Message", users_path, class: 'button private-message') : "Not accepting private messages" %></p>
+		
 	</section>
 </div>
