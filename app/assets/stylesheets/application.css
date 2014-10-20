@@ -42,30 +42,31 @@ h2 {
 }
 
 label {
-	color: #DDD;
+	color: #AAA;
 	font-family: 'Roboto', sans-serif;
 	font-size: 11px;
 }
 
 input[type="email"] {
-	width: 100%;
+	width: 95%;
 	height: 40px;
 	font-size: 22px;
 	margin-bottom: 10px;
 }
 
 input[type="password"] {
-	width: 100%;
+	width: 95%;
 	height: 40px;
 	font-size: 22px;
 	margin-bottom: 10px;
 }
 
 input[type="text"] {
-	width: 100%;
+	width: 95%;
 	height: 40px;
 	font-size: 22px;
 	margin-bottom: 10px;
+    /*margin-right: 50px;*/
 }
 
 .container {
@@ -152,9 +153,10 @@ input[type="text"] {
 }
 
 .photo {
-	width: 60px;
-	height: 60px;
-	border-radius: 30px;
+	width: 80px;
+	height: 80px;
+	border-radius: 40px;
+    border: 2px solid #FFF;
 }
 
 .profile {
@@ -166,13 +168,13 @@ input[type="text"] {
     margin-bottom: 20px;
 }
 #photo-container {
-    width: 70px;
+    width: 100px;
     /*height: 100px;*/
     float: left;
 }
 #profile-info-container {
     /*margin-left: 60px;*/
-    height: 60px;
+    height: 80px;
     /*padding-left: 30px;*/
     width: 100%;
 }
@@ -184,13 +186,24 @@ input[type="text"] {
     margin: 0px;
 }
 
-#profile-info-container > #bio {
+#profile-info-container > #location {
     color: #AAA;
     font-size: 12px;
     font-weight: normal;
     padding-right: 20px;
-
     margin: 0;
+}
+
+#bio {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+#private-message {
+
 }
 
 .interest-cloud {

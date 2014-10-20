@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
       user.expires_at = auth.credentials.expires_at
       user.name = auth.info.name
       user.photo = auth.info.photo_url
+      user.location = auth.info.location
 
     end
   end
@@ -61,6 +62,10 @@ class User < ActiveRecord::Base
 
   def password_required?
     super && provider.blank?
+  end
+
+  def remove_interest(topic)
+    @user.interests.delete(topic)
   end
 
 end

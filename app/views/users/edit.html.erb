@@ -1,1 +1,35 @@
-<%= render '/devise/registrations/edit' %>
+<%#= render '/devise/registrations/edit' %>
+<div class="container profile">
+	<section id='profile-details'>
+		<div id='photo-container'>
+			<%= image_tag @user.photo, class: 'photo' %>
+		</div>
+		<div id='profile-info-container'>
+			<h1 id='name'><%= @user.name %> <%#= link_to "Edit", edit_user_registration_path %></h1>
+			<p id='bio'><%= truncate(@user.bio, :length => 80) %></p>
+		</div>
+		
+	</section>
+	<section id='interests'>
+		<%= form_tag @user, method: :patch do %>
+		<%= text_field_tag :interests, nil, placeholder: "Enter an interest" %>	
+		<%#= submit_tag "Add", class: "button" %>
+		<% end %>
+
+
+		<div>
+			<label>I would like to discuss:</label>
+			<ul class='interest-cloud'>
+				<% @user.interests.each do |interest| %>
+					<li class="interest"><%= link_to interest.name + " X", interest_path(interest), class: 'button' %></li>
+				<% end %>
+		</div>
+		<div>
+			<label>Popular topics at this Meetup:</label>
+			</ul>
+			<ul class='popular-interests'>
+				<li></li>
+			</ul>
+		</div>
+	</section>
+</div>

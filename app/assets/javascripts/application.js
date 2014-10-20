@@ -54,7 +54,13 @@ $( document ).ready(function(){
 		}
 		getLocation();
 		$("#meetup-auth").click(getLocation());
-});
 
+		$("#interests").keypress(function(e) {
+			if(e.which == 13) {
+		        // alert('You pressed enter!');
+		    }
+		})
+});
+    
 
 
