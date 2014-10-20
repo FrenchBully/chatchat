@@ -44,7 +44,9 @@ class PagesController < ApplicationController
 
 	def get_meetup_info
 		@user = current_user
-		@user.meetup_id = params[:user][:uid]
+
+		# Deleted this from table, rename in the future?
+		# @user.meetup_id = params[:user][:uid]
 		@user.lat = params[:user][:lat]
 		@user.lon = params[:user][:lon]
 		@user.save
