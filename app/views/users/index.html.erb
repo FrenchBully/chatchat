@@ -5,8 +5,7 @@
     <tr>
       <td><%= link_to user.email, user_path(user) %></td>
       <td>
-      	<!-- it starts with start conversation -->
-        <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+        <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-chat",
                     "data-sid" => current_user.id, "data-rip" => user.id %>
       </td>
       <br>
@@ -14,7 +13,7 @@
 <% end %>
 
 <h3>Chat Room</h3>
-<%=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-conversation", "data-category" => "angularjs", "data-meetup_id" => 1%>
+<%=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-chat", "data-category" => "angularjs", "data-meetup_id" => 1%>
 
- <%#=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-conversation", "data-sid" => current_user.id, "data-rip" => user.id%>
+ <%#=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-chat", "data-sid" => current_user.id, "data-rip" => user.id%>
 

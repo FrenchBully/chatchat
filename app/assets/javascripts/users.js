@@ -6,7 +6,7 @@ var ready = function () {
      * recipient_id
      */
  
-    $('.start-conversation').click(function (e) {
+    $('.start-chat').click(function (e) {
         e.preventDefault();
         console.log(e.preventDefault);
         
@@ -17,12 +17,12 @@ var ready = function () {
         var category = $(this).data('category');
 
         
-        var meetup_id = $(this).data('meetup_id');
+        var event_id = $(this).data('event_id');
  
-        $.post("/conversations", { category: category, meetup_id: meetup_id }, function (data) {
+        $.post("/chats", { category: category, event_id: event_id }, function (data) {
             console.log(data);
             console.log("posted to create");
-            chatBox.chatWith(data.conversation_id);
+            chatBox.chatWith(data.chat_id);
         });
     });
  
@@ -61,15 +61,15 @@ var ready = function () {
     });
  
     /**
-     * When a conversation link is clicked show up the respective
-     * conversation chatbox
+     * When a chat link is clicked show up the respective
+     * chat chatbox
      */
  
-    $('a.conversation').click(function (e) {
+    $('a.chat').click(function (e) {
         e.preventDefault();
  
-        var conversation_id = $(this).data('cid');
-        chatBox.chatWith(conversation_id);
+        var chat_id = $(this).data('cid');
+        chatBox.chatWith(chat_id);
     });
  
  
