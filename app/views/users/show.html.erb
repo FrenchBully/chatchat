@@ -17,6 +17,6 @@
 		</ul>
 	</section>
 	<section>
-		<%= @user.private_messages? ? (link_to "Send Private Message", users_path, class: 'button private-message') : "Not accepting private messages" %>
+		<p><%= @user.private_messages? ? (link_to "Send Private Message", users_path, class: 'button private-message') : "Not accepting private messages" %></p>
 	</section>
 </div>

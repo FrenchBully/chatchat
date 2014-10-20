@@ -195,19 +195,15 @@ input[type="text"] {
 
 .interest-cloud {
     list-style-type: none;
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 50px 0px;
     padding: 0;
+
 }
 
 .interest {
     margin-right: 10px;
     display: inline;
 
-}
-
-.private-message {
-    /*width: 100%;*/
-    /*background-color: green;*/
 }
 
 .chatbox {
