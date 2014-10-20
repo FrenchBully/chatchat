@@ -73,9 +73,10 @@ class User < ActiveRecord::Base
 # converts the token attributes into a hash with key names
   def to_params
     {'refresh_token' => refresh_token,
-     'client_id' => ENV['CLIENT_ID'],
-     'client_secret' => ENV['CLIENT_SECRET'],
-     'grant_type' => "refresh_token"}
+     'client_id' => 'n5qbl8a65gcmjlp8v779sm66o4',
+     'client_secret' => 'enqesvtmg4d9h7kojk91bn0cb4',
+     'grant_type' => 'refresh_token'}
+    
   end
 
 # makes a http POST request to Meetup API
@@ -89,8 +90,9 @@ class User < ActiveRecord::Base
     response = request_token_from_meetup
     data = JSON.parse(response.body)
     update_attributes(
-    auth_token: data['auth_token'],
+    auth_token: data['access_token'],
     expires_at: Time.now + (data['expires_in'].to_i).seconds)
+    
   end
 
 # returns true if your access token smells like spoiled milk
