@@ -99,7 +99,9 @@ var ready = function () {
             
             // adds chatbox with unique id
             $("body").append('<div id="chatbox_' + conversation_id + '" class="chatbox"></div>')
- 
+            
+            console.log("getting the conversation show template");
+            
             $.get("conversations/" + conversation_id, function (data) {
                 // the data returned here is the chatbox with all info
                 // unique id added on plus chatboxcontent class added
