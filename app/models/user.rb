@@ -40,6 +40,8 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid.to_s
       user.auth_token = auth.credentials.token
+      user.refresh_token = auth.credentials.refresh_token
+      user.expires_at = auth.credentials.expires_at
       user.name = auth.info.name
       user.photo = auth.info.photo_url
       user.location = auth.info.location
