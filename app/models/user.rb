@@ -68,6 +68,39 @@ class User < ActiveRecord::Base
     @user.interests.delete(topic)
   end
 
+# converts the token attributes into a hash with key names
+  def to_params
+    {'refresh_token' => refresh_token,
+     'client_id' => ENV['CLIENT_ID'],
+     'client_secret' => ENV['CLIENT_SECRET'],
+     'grant_type' => "refresh_token"}
+  end
+
+# makes a http POST request to Meetup API
+  def request_token_from_meetup
+    url = URI('https://secure.meetup.com/oauth2/access')
+    Net::HTTP.post_form(url, self.to_params)
+  end
+
+# request the token from Meetup, parses JSON response and updates database 
+  def refresh!
+    response = request_token_from_meetup
+    data = JSON.parse(response.body)
+    update_attributes(
+    auth_token: data['auth_token'],
+    expires_at: Time.now + (data['expires_in'].to_i).seconds)
+  end
+
+# returns true if your access token smells like spoiled milk
+  def expired?
+      expires_at < Time.now
+  end
+
+# returns a fresh token and a gallon of milk
+  def fresh_token
+    refresh! if expired?
+    auth_token
+  end
 end
 
 
