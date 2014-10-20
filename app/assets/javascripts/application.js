@@ -64,6 +64,13 @@ $( document ).ready(function(){
 		        // alert('You pressed enter!');
 		    }
 		})
+		$(".notice").click(function(){
+			$(this).hide();
+		});
+		$(".alert").click(function(){
+			$(this).hide();
+		});
+
 });
     
 
