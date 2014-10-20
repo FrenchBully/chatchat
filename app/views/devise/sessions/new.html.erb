@@ -1,23 +1,27 @@
 <div class="container center">
 	<div id="logo" class="top-margin"><strong>Meta</strong>Meetup</div>
 	<div id="tagline">meet the right people</div>
+	<p class="fa fa-location-arrow detecting-location"> Detecting Location...</p>
 	<div id="devise-links">
-		<%= render "devise/shared/links" %>
-	</div>
+		<div id="devise"><%= render "devise/shared/links" %></div>
+	
 	<div id="no-meetup">Don't have a Meetup account? <a href="http://meetup.com">Sign up</a></div>
+	</div>
 </div>
 
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
+<!-- 
 
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.email_field :email, autofocus: true, placeholder: "email" %></div>
-  <div><%= f.password_field :password, autocomplete: "off", placeholder: "password" %></div>
-  <div><%= f.submit "Log in", class: "button", id: 'latlon' %></div>
-<% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div><%#= f.email_field :email, autofocus: true, placeholder: "email" %></div>
+  <div><%#= f.password_field :password, autocomplete: "off", placeholder: "password" %></div>
+  <div><%#= f.submit "Log in", class: "button" %></div>
+<%# end %> -->

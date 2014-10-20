@@ -44,6 +44,8 @@ $( document ).ready(function(){
 
 		function getLocation() {
 		    if (navigator.geolocation) {
+		    	$(".detecting-location").show();
+		    	$("#devise-links").hide();
 		        navigator.geolocation.getCurrentPosition(showPosition);
 		    } 
 		}
@@ -51,9 +53,12 @@ $( document ).ready(function(){
 		function showPosition(position) {
 			$("#lat").val(position.coords.latitude);
 			$("#lon").val(position.coords.longitude);
+			console.log("location logged");
+			$(".detecting-location").hide();
+			$("#devise-links").show();
 		}
 		getLocation();
-		$("#meetup-auth").click(getLocation());
+		// $("#meetup-auth").click(getLocation());
 
 		$("#interests").keypress(function(e) {
 			if(e.which == 13) {
