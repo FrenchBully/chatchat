@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
       user.expires_at = auth.credentials.expires_at
       user.name = auth.info.name
       user.photo = auth.info.photo_url
-      user.location = auth.extra.city
+      user.location = auth.extra.raw_info.city
       user.private_messages = true
 
     end
