@@ -74,19 +74,19 @@ ActiveRecord::Schema.define(version: 20141020024942) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "provider"
-    t.string   "auth_token"
-    t.string   "uid"
     t.integer  "meetup_id"
     t.float    "lat"
     t.float    "lon"
     t.string   "name"
     t.string   "photo"
+    t.string   "provider"
+    t.string   "auth_token"
+    t.string   "uid"
     t.boolean  "private_messages"
     t.text     "bio"
+    t.string   "location"
     t.string   "refresh_token"
     t.integer  "expires_at"
-    t.string   "location"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

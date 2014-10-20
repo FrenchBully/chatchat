@@ -1,15 +1,16 @@
-<%#= render '/devise/registrations/edit' %>
 <div class="container profile">
 	<section id='profile-details'>
 		<div id='photo-container'>
 			<%= image_tag @user.photo, class: 'photo' %>
 		</div>
 		<div id='profile-info-container'>
-			<h1 id='name'><%= @user.name %> <%#= link_to "Edit", edit_user_registration_path %></h1>
-			<p id='bio'><%= truncate(@user.bio, :length => 80) %></p>
+			<h1 id='name'><%= @user.name %></h1>
+			<p id='location'><%= @user.location %><%#= link_to " Edit Profile", edit_user_registration_path %></p>
+			<p><%= check_box(@user.private_messages?, :patch, options = {}, checked_value = "1") %><label>Receive private messages</label></p>
 		</div>
-		
 	</section>
+	<label>Bio</label>
+	<p id='bio'><%= truncate(@user.bio, :length => 140) %></p>
 	<section id='interests'>
 		<%= form_tag @user, method: :patch do %>
 		<%= text_field_tag :interests, nil, placeholder: "Enter an interest" %>	
@@ -24,10 +25,10 @@
 					<li class="interest"><%= link_to interest.name + " X", interest_path(interest), class: 'button' %></li>
 				<% end %>
 		</div>
-		<div>
+		<div class="popular-interests">
 			<label>Popular topics at this Meetup:</label>
 			</ul>
-			<ul class='popular-interests'>
+			<ul>
 				<li></li>
 			</ul>
 		</div>
