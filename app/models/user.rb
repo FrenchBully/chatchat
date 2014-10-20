@@ -44,7 +44,8 @@ class User < ActiveRecord::Base
       user.expires_at = auth.credentials.expires_at
       user.name = auth.info.name
       user.photo = auth.info.photo_url
-      user.location = auth.info.location
+      user.location = auth.extra.city
+      user.private_messages = true
 
     end
   end
@@ -64,6 +65,7 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
+# not yet implemented
   def remove_interest(topic)
     @user.interests.delete(topic)
   end

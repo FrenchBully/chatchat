@@ -52,8 +52,10 @@ class PagesController < ApplicationController
 		options = { 
 	      member_id: params[:user][:uid],
 	      # rsvp: 'yes', 
-	      lat: params[:user][:lat],
-		  lon: params[:user][:lon],
+	      # lat: params[:user][:lat],
+		  # lon: params[:user][:lon],
+		  lat: @user.lat,
+		  lon: @user.lon,
 		  # access_token: @user.auth_token
 		}
 
