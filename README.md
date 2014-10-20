@@ -11,6 +11,7 @@ The following markups are supported.  The dependencies listed are required to be
 * gem 'thin' - A Ruby server that uses Mongrel parser/Event Machine/Rack
 * gem 'omniauth' - Library that standardizes multi-provider authentication
 * gem 'omniauth-meetup', '~> 0.0.2 - Authentication for meetup
+* gem 'private_pub' - facilitates use of websockets for chat
 
 
 #Installation
