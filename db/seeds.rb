@@ -8,3 +8,4 @@
 
 
 Meetup.create(meetup_name: "angularjs")
+User.create(name: "Bellamy", provider: "meetup", uid: "148698232", email: "fake@fake.com", encrypted_password: "$2a$10$Lz7HstvxoiiUMxFBhaeCwuycuarHQ0gHt8Rnjq63yPudZwXkrUeM.")

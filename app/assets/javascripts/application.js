@@ -40,8 +40,8 @@
 // $(document).ready(ready);
 // $(document).on('page:load', ready);
 
-
 $( document ).ready(function(){
+
 		function getLocation() {
 		    if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition(showPosition);
@@ -53,5 +53,8 @@ $( document ).ready(function(){
 			$("#lon").val(position.coords.longitude);
 		}
 		getLocation();
+		$("#meetup-auth").click(getLocation());
 });
+
+
 

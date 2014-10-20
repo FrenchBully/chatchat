@@ -1,2 +1,22 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container profile">
+	<section id='profile-details'>
+		<div id='photo-container'>
+			<%= image_tag @user.photo, class: 'photo' %>
+		</div>
+		<div id='profile-info-container'>
+			<h1 id='name'><%= @user.name %></h1>
+			<p id='bio'><%= truncate(@user.bio, :length => 80) %></p>
+		</div>
+	</section>
+	<section id='interests'>
+		<label>Chat with <%= @user.name %> about:</label>
+		<ul class='interest-cloud'>
+			<% @user.interests.each do |interest| %>
+				<li class="interest"><%= link_to interest.name, interest_path(interest), class: 'button' %></li>
+			<% end %>
+		</ul>
+	</section>
+	<section>
+		<p><%= @user.private_messages? ? (link_to "Send Private Message", users_path, class: 'button private-message') : "Not accepting private messages" %></p>
+	</section>
+</div>
