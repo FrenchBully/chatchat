@@ -53,7 +53,6 @@ $( document ).ready(function(){
 		function showPosition(position) {
 			$("#lat").val(position.coords.latitude);
 			$("#lon").val(position.coords.longitude);
-			console.log("location logged");
 			$(".detecting-location").hide();
 			$("#devise-links").show();
 		}
