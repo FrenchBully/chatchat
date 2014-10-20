@@ -11,23 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020024942) do
+ActiveRecord::Schema.define(version: 20141020162151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "conversation_users", force: true do |t|
+  create_table "chat_users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "conversation_id"
+    t.integer  "chat_id"
     t.integer  "user_id"
   end
 
-  create_table "conversations", force: true do |t|
+  create_table "chats", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
-    t.integer  "meetup_id"
+    t.integer  "event_id"
+  end
+
+  create_table "events", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "interests", force: true do |t|
@@ -44,21 +50,15 @@ ActiveRecord::Schema.define(version: 20141020024942) do
     t.integer "interest_id"
   end
 
-  create_table "meetups", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "meetup_name"
-  end
-
   create_table "messages", force: true do |t|
     t.text     "body"
-    t.integer  "conversation_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "chat_id"
   end
 
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+  add_index "messages", ["chat_id"], name: "index_messages_on_chat_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
@@ -74,18 +74,17 @@ ActiveRecord::Schema.define(version: 20141020024942) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "meetup_id"
+    t.string   "provider"
+    t.string   "auth_token"
+    t.string   "uid"
     t.float    "lat"
     t.float    "lon"
     t.string   "name"
     t.string   "photo"
-    t.string   "provider"
-    t.string   "auth_token"
-    t.string   "uid"
     t.boolean  "private_messages"
     t.text     "bio"
-    t.string   "location"
     t.string   "refresh_token"
+    t.string   "location"
     t.integer  "expires_at"
   end
 

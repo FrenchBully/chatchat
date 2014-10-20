@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/users' => 'users#index'
   post '/get_meetup_info' => 'pages#get_meetup_info'
 
-  resources :conversations do
+  resources :chats do
     resources :messages
   end
 

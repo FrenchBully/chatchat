@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :interests, through: :interests_users
 
   # used for chats
-  has_many :conversation_users
-  has_many :conversations, through: :conversation_users
+  has_many :chat_users
+  has_many :chats, through: :chat_users
   has_many :messages
 
   validates :name, :presence => true
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
       user.expires_at = auth.credentials.expires_at
       user.name = auth.info.name
       user.photo = auth.info.photo_url
-      user.location = auth.extra.city
+      user.location = auth.extra.raw_info.city
       user.private_messages = true
 
     end

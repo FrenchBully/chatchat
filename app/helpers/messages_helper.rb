@@ -7,6 +7,6 @@ module MessagesHelper
   def message_interlocutor(message)
     # add who's email to id chat
     message.user
-    # message.user == message.conversation.sender ? message.conversation.sender : message.conversation.recipient
+    # message.user == message.chat.sender ? message.chat.sender : message.chat.recipient
   end
 end
