@@ -8,18 +8,18 @@ class ChatsController < ApplicationController
     # our case we find the chat 
     # based on event id from meetups
     # create it if it doesn't exist
-    if chat.existing_chat(params[:event_id],params[:category]).present?
-      @chat = chat.existing_chat(params[:event_id],params[:category])
+    if Chat.existing_chat(params[:event_id],params[:category]).present?
+      @chat = Chat.existing_chat(params[:event_id],params[:category])
     else
       # makes a chat with key values of sender and recipient ids
-      @chat = chat.create!(chat_params)
+      @chat = Chat.create!(chat_params)
     end
-  
+    
     render json: { chat_id: @chat.id }
   end
   
   def show
-    @chat = chat.find(params[:id])
+    @chat = Chat.find(params[:id])
 
     # message with
     # @reciever = interlocutor(@chat)

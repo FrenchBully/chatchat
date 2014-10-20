@@ -68,8 +68,8 @@ class PagesController < ApplicationController
 	    @venue = meetup_api.venues(options)
 	    if @events["results"].length > 0
 		    seconds = @events["results"][0]["time"]/1000
-			@date = Time.at(seconds).strftime("%m/%d/%Y")
-		end
+				@date = Time.at(seconds).strftime("%m/%d/%Y")
+			end
 	end
 end
 
