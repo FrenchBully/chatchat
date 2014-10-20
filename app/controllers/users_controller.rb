@@ -12,11 +12,11 @@ class UsersController < ApplicationController
   end
 
   def update
-  	@user = User.find(params[:id])
-  	if @user.update(params.require(:user).permit(:interests))
-  		@user.save
-  	else
-  		render 'edit'
-  	end
+  	# @user = User.find(params[:id])
+  	# if @user.update(params.require(:user).permit(:interests))
+  	# 	@user.save
+  	# else
+  	# 	render 'edit'
+  	# end
   end
 end

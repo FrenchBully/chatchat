@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'pages#welcome'
+  # devise_for :users, controllers: { sessions: "sessions"}
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
   resources :users
 

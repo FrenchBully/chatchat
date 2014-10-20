@@ -43,8 +43,14 @@ class PagesController < ApplicationController
 	end
 
 	def get_meetup_info
+
+		MeetupClient.configure do |config|
+  # Ran's => config.api_key = 'b7d767765272d2b2b13c25e744e13'
+  config.api_key = 'd342618183a7f21122ef1b3f2541'
+end
+
 		@user = current_user
-		@user.meetup_id = params[:user][:uid]
+		@user.uid = params[:user][:uid]
 		@user.lat = params[:user][:lat]
 		@user.lon = params[:user][:lon]
 		@user.save
@@ -54,9 +60,11 @@ class PagesController < ApplicationController
 	      # rsvp: 'yes', 
 	      # lat: params[:user][:lat],
 		  # lon: params[:user][:lon],
-		  lat: @user.lat,
-		  lon: @user.lon,
+		  # lat: @user.lat,
+		  # lon: @user.lon,
 		  # access_token: @user.auth_token
+		  # sig_id: '6961025',
+		  # sig: '95aabc5371d7fc5d07a19d0f95c62931f194e332'
 		}
 
 	    meetup_api = MeetupApi.new
