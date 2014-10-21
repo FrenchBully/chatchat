@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'pages#welcome'
+  devise_scope :user do
+    root :to => 'devise/sessions#new'
+  end
+  
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
   resources :users
 
