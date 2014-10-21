@@ -30,20 +30,6 @@ ActiveRecord::Schema.define(version: 20141020162151) do
     t.integer  "event_id"
   end
 
-  create_table "conversation_users", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "conversation_id"
-    t.integer  "user_id"
-  end
-
-  create_table "conversations", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "category"
-    t.integer  "meetup_id"
-  end
-
   create_table "events", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,12 +48,6 @@ ActiveRecord::Schema.define(version: 20141020162151) do
   create_table "interests_users", force: true do |t|
     t.integer "user_id"
     t.integer "interest_id"
-  end
-
-  create_table "meetups", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "meetup_name"
   end
 
   create_table "messages", force: true do |t|
@@ -104,8 +84,8 @@ ActiveRecord::Schema.define(version: 20141020162151) do
     t.boolean  "private_messages"
     t.text     "bio"
     t.string   "refresh_token"
-    t.integer  "expires_at"
     t.string   "location"
+    t.integer  "expires_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

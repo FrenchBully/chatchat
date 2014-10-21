@@ -1,35 +1,24 @@
 var ready = function () {
  
-    /**
-     * When the send message link on our home page is clicked
-     * send an ajax request to our rails app with the sender_id and
-     * recipient_id
-     */
- 
+
+    // On click open conversation 
     $('.start-chat').click(function (e) {
         e.preventDefault();
-        console.log(e.preventDefault);
-        
+        console.log("starting chat box");
         
         // grabs data out of the item that was clicked which is setup through html tags
-        
-        
-        var category = $(this).data('category');
-
-        
+        var category = $(this).data('category');  
         var event_id = $(this).data('event_id');
  
         $.post("/chats", { category: category, event_id: event_id }, function (data) {
-            console.log(data);
-            console.log("posted to create");
+            // console.log(data);
+            console.log("posted to create/found chat");
             chatBox.chatWith(data.chat_id);
         });
     });
  
-    /**
-     * Used to minimize the chatbox
-     */
- 
+
+    // Minimizes chat box, cid = @chat.id from view
     $(document).on('click', '.toggleChatBox', function (e) {
         e.preventDefault();
  
@@ -37,10 +26,7 @@ var ready = function () {
         chatBox.toggleChatBoxGrowth(id);
     });
  
-    /**
-     * Used to close the chatbox
-     */
- 
+    // Close chat box 
     $(document).on('click', '.closeChat', function (e) {
         e.preventDefault();
  
@@ -48,12 +34,8 @@ var ready = function () {
         chatBox.close(id);
     });
  
- 
-    /**
-     * Listen on keypress' in our chat textarea and call the
-     * chatInputKey in chat.js for inspection
-     */
- 
+    // On key down in chat input text area
+    // Call checkInputKey in chat.js
     $(document).on('keydown', '.chatboxtextarea', function (event) {
  
         var id = $(this).data('cid');
@@ -64,13 +46,12 @@ var ready = function () {
      * When a chat link is clicked show up the respective
      * chat chatbox
      */
+    // $('a.chat').click(function (e) {
+    //     e.preventDefault();
  
-    $('a.chat').click(function (e) {
-        e.preventDefault();
- 
-        var chat_id = $(this).data('cid');
-        chatBox.chatWith(chat_id);
-    });
+    //     var chat_id = $(this).data('cid');
+    //     chatBox.chatWith(chat_id);
+    // });
  
  
 }
