@@ -105,7 +105,7 @@ var ready = function () {
             $.get("chats/" + chat_id, function (data) {
                 // the data returned here is the chatbox with all info
                 // unique id added on plus chatboxcontent class added
-                // 
+                console.log("got chat data");
                 $('#chatbox_' + chat_id).html(data);
                 $("#chatbox_" + chat_id + " .chatboxcontent").scrollTop($("#chatbox_" + chat_id + " .chatboxcontent")[0].scrollHeight);
             }, "html");
