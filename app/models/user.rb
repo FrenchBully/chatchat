@@ -70,41 +70,42 @@ class User < ActiveRecord::Base
     @user.interests.delete(topic)
   end
 
-# converts the token attributes into a hash with key names
-  def to_params
-    {'refresh_token' => refresh_token,
-     'client_id' => 'n5qbl8a65gcmjlp8v779sm66o4',
-     'client_secret' => 'enqesvtmg4d9h7kojk91bn0cb4',
-     'grant_type' => 'refresh_token'}
+# # converts the token attributes into a hash with key names
+#   def to_params
+#     {'refresh_token' => refresh_token,
+#      'client_id' => 'n5qbl8a65gcmjlp8v779sm66o4',
+#      'client_secret' => 'enqesvtmg4d9h7kojk91bn0cb4',
+#      'grant_type' => 'refresh_token'}
     
-  end
+#   end
 
-# makes a http POST request to Meetup API
-  def request_token_from_meetup
-    url = URI('https://secure.meetup.com/oauth2/access')
-    Net::HTTP.post_form(url, self.to_params)
-  end
+# # makes a http POST request to Meetup API
+#   def request_token_from_meetup
+#     url = URI('https://secure.meetup.com/oauth2/access')
+#     Net::HTTP.post_form(url, self.to_params)
+#   end
 
-# request the token from Meetup, parses JSON response and updates database 
-  def refresh!
-    response = request_token_from_meetup
-    data = JSON.parse(response.body)
-    update_attributes(
-    auth_token: data['access_token'],
-    expires_at: Time.now + (data['expires_in'].to_i).seconds)
+# # request the token from Meetup, parses JSON response and updates database 
+#   def refresh!
+#     response = request_token_from_meetup
+#     data = JSON.parse(response.body)
     
-  end
+#     update_attributes(
+#     auth_token: data['access_token'],
+#     expires_at: Time.now + (data['expires_in'].to_i).seconds)
+    
+#   end
 
-# returns true if your access token smells like spoiled milk
-  def expired?
-      expires_at < Time.now
-  end
+# # returns true if your access token smells like spoiled milk
+#   def expired?
+#       expires_at < Time.now
+#   end
 
-# returns a fresh token and a gallon of milk
-  def fresh_token
-    refresh! if expired?
-    auth_token
-  end
+# # returns a fresh token and a gallon of milk
+#   def fresh_token
+#     refresh! if expired?
+#     auth_token
+#   end
 end
 
 
