@@ -1,7 +1,7 @@
 <div class="chatboxhead">
   <div class="chatboxtitle">
-    <i class="fa fa-comments"></i>
-    <h1><%= @chat.category %> </h1>
+   <!--  <i class="fa fa-comments"></i> -->
+    <h1><%= @chat.category %> (number of peeps) </h1>
   </div>
   <div class="chatboxoptions">
     <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @chat.id %>

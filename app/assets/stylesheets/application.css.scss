@@ -282,7 +282,7 @@ input[type="text"] {
     border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     border-bottom: 1px solid #eeeeee;
-    background: #e5e5e5;
+    background: white;
     line-height: 1.3em;
     list-style: none;
 }
@@ -294,13 +294,14 @@ input[type="text"] {
 }
  
 .chatboxcontent .avatar {
-    width: 40px;
+    width: 50px;
     position: relative;
 }
  
 .chatboxcontent .avatar img {
     display: block;
     width: 100%;
+    border-radius:100px;
 }
  
 .other .avatar:after {
@@ -346,9 +347,10 @@ input[type="text"] {
 .chatboxmessagecontent {
     background: white;
     padding: 10px;
-    border-radius: 0 2px 2px 2px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    /*border-radius: 0 2px 2px 2px;*/
+    /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);*/
     width:100%;
+    border-bottom:1px solid rgba(200,200,200,1);
 }
  
 .chatboxmessagecontent p {
