@@ -102,6 +102,8 @@ class PagesController < ApplicationController
 		 #    seconds = @events["results"][0]["time"]/1000
 			# 	@date = Time.at(seconds).strftime("%m/%d/%Y")
 			# end
+
+		
 	end
 end
 
