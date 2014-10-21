@@ -103,6 +103,13 @@ class User < ActiveRecord::Base
     refresh! if expired?
     auth_token
   end
+
+  def sign( secret, base_string, params, nonce, timestamp )
+    digest = OpenSSL::Digest::Digest.new( 'sha1' )
+    hmac = OpenSSL::HMAC.digest( digest, secret, base_string, params, nonce, timestamp  )
+    Base64.encode64( hmac ).chomp.gsub( /\n/, '' )
+  end
+
 end
 
 

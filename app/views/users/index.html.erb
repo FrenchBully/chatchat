@@ -1,16 +1,16 @@
 <!-- this is for message testing -->
 
-<h1>List of all possible users to message</h1>
-<% @users.each_with_index do |user, index| %>
+<!-- <h1>List of all possible users to message</h1>
+<% #@users.each_with_index do |user, index| %>
     <tr>
-      <td><%= link_to user.email, user_path(user) %></td>
+      <td><%#= link_to user.email, user_path(user) %></td>
       <td>
-        <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-chat",
+        <%#= link_to "Send Message", "#", class: "btn btn-success btn-xs start-chat",
                     "data-sid" => current_user.id, "data-rip" => user.id %>
       </td>
       <br>
     </tr>
-<% end %>
+<%# end %> -->
 
 <h3>Chat Room</h3>
 <%=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
