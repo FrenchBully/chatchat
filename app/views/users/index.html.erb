@@ -1,5 +1,3 @@
-<!-- this is for message testing -->
-
 <!-- <h1>List of all possible users to message</h1>
 <% #@users.each_with_index do |user, index| %>
     <tr>
@@ -10,10 +8,19 @@
       </td>
       <br>
     </tr>
-<%# end %> -->
 
-<h3>Chat Room</h3>
+<%# end %> -->
+<%#=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-chat", "data-sid" => current_user.id, "data-rip" => user.id%>
+
+
+
+<!-- From user get event-->
+<!-- Check if Main chat made and join if exists-->
+<!-- If not, make main chatroom -->
+
+<!-- Bonus make additional chatrooms -->
+<h3>Chat Rooms</h3>
 <%=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
 
- <%#=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-chat", "data-sid" => current_user.id, "data-rip" => user.id%>
+ 
 
