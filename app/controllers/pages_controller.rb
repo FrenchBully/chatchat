@@ -43,33 +43,65 @@ class PagesController < ApplicationController
 	end
 
 	def get_meetup_info
-		@user = current_user
 
-		# Deleted this from table, rename in the future?
-		# @user.meetup_id = params[:user][:uid]
+		# MeetupClient.configure do |config|
+		#   # Ran's => config.api_key = 'b7d767765272d2b2b13c25e744e13'
+		#   config.api_key = 'd342618183a7f21122ef1b3f2541'
+		#   # config.oauth_timestamp = @user.last_sign_in_at
+		#   # config.oauth_nonce = Base64.encode64('Meta_Meetup_4_All')
+		#   # config.oauth_signature_method = 'HMAC-SHA1'
+		#   # config.oauth_signature = 
+		# end
+
+		@user = current_user
+		@user.uid = params[:user][:uid]
 		@user.lat = params[:user][:lat]
 		@user.lon = params[:user][:lon]
 		@user.save
 
-		options = { 
-	      member_id: params[:user][:uid],
-	      # rsvp: 'yes', 
-	      # lat: params[:user][:lat],
-		  # lon: params[:user][:lon],
-		  lat: @user.lat,
-		  lon: @user.lon,
-		  # access_token: @user.auth_token
+		event_options = { 
+	      member_id: '6961025',
+	      # rsvp: 'yes',
+	      signed: true,
+	      key: 'd342618183a7f21122ef1b3f2541'
+	      # status: 'upcoming',
+	      # order: 'time',
+	      # limited_events: false,
+	      # format: 'json',
+	      # page: 20,
+	      # desc: false,
+	      # :'photo-host' => 'public',
+	      # fields: nil,
+	      # sig_id: '6961025',
+	      # sig: 'e7c125873db521bf383b3dc0c4e49673ec48c37d'
 		}
+
+		member_options = { 
+	      member_id: '6961025',
+	      # rsvp: 'yes',
+	      # status: 'upcoming',
+	      # order: 'time',
+	      # limited_events: false,
+	      # format: 'json',
+	      # page: 20,
+	      # desc: false,
+	      # :'photo-host' => 'public',
+	      # fields: nil,
+	      # sig_id: '6961025',
+	      # sig: 'e7c125873db521bf383b3dc0c4e49673ec48c37d'
+		}
+		
+
 
 	    meetup_api = MeetupApi.new
 
-	    @events = meetup_api.events(options)
-	    @member = meetup_api.members(options)
-	    @venue = meetup_api.venues(options)
-	    if @events["results"].length > 0
-		    seconds = @events["results"][0]["time"]/1000
-				@date = Time.at(seconds).strftime("%m/%d/%Y")
-			end
+	    @events = meetup_api.events(event_options)
+	    @member = meetup_api.members(member_options)
+	  #   @venue = meetup_api.venues(options)
+	  #   if @events["results"].length > 0
+		 #    seconds = @events["results"][0]["time"]/1000
+			# 	@date = Time.at(seconds).strftime("%m/%d/%Y")
+			# end
 	end
 end
 

@@ -12,10 +12,10 @@
 	<label>Bio</label>
 	<p id='bio'><%= truncate(@user.bio, :length => 140) %></p>
 	<section id='interests'>
-		<%= form_tag @user, method: :patch do %>
+		<%= form_tag :user, method: :patch do %>
 		<%= text_field_tag :interests, nil, placeholder: "Enter an interest" %>	
-		<%#= submit_tag "Add", class: "button" %>
-		<% end %>
+		<%= text_field_tag :lat, params[:lat] %>
+		<%= text_field_tag :lon, params[:lon] %>
 
 		<div>
 			<label>I would like to discuss:</label>
@@ -31,5 +31,7 @@
 				<li></li>
 			</ul>
 		</div>
+		<%= submit_tag "Enter Chat", class: "button" %>
+		<% end %>
 	</section>
 </div>
