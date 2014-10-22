@@ -27,7 +27,9 @@ class UsersController < ApplicationController
     @user = current_user
     new_interest = Interest.create(:name => params[:interest])
     @user.interests << new_interest
-    render nothing: true
+    respond_to do |format|
+     format.json { render json: new_interest }
+    end
   end
 
   # def remove_interest

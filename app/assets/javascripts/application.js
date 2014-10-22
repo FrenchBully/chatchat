@@ -67,9 +67,9 @@ $( document ).ready(function(){
 		$(".notice").click(function(){
 			$(this).hide();
 		});
-		
+
 		$(".alert").click(function(){
-			$(this).hide();
+			$(this).parent.hide();
 		});
 
 		$("#interests-field").keypress(function(e) {
@@ -79,16 +79,21 @@ $( document ).ready(function(){
 		        	type: "POST",
 		        	url: "/save_interest",
 		        	data: {interest: $("#interests-field").val() }
-		        });
+		        }).done(function(response){
+		        	$(".interest-cloud").append("<li class='interest'><a class='button remote-delete' href='/interests/" + response.id + "'>" + response.name + " X" + "</a></li>")
+		        })
+
 		        $("#interests-field").val("")
 		        // add some innerhtml to make a new button appear
+		        
 		    }
 		});
 		
-		$('a.remote-delete').click(function() {
-			$(this).hide();
+		$('.interest-cloud').on("click", "li.interest a.remote-delete", function(e) {
+			e.preventDefault();
+			$(this).parent().hide();
 		    $.post(this.href, { _method: 'delete' }, null, "script");
-		    return false;
+			console.log(this.href)
 		});
 
 });
