@@ -1,1 +1,5 @@
-_header.html.erb
+<header id='header'>
+	<% if user_signed_in? %>
+	<p class="main-menu fa fa-list-ul"></p>
+	<% end %>
+</header>

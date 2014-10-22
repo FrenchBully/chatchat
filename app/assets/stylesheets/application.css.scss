@@ -16,7 +16,8 @@
 
 
 body {
-	background-color: #323232;
+    background-color: #323232;
+    margin: 0;
 }
 
 p {
@@ -67,6 +68,58 @@ input[type="text"] {
 	font-size: 22px;
 	margin-bottom: 10px;
     /*margin-right: 50px;*/
+}
+
+#menu {  
+    position: absolute;  
+    width: 180px;   
+    min-height: 100%;  
+    padding: 0px 8px;  
+    padding-top: 220px;  
+}
+
+#navigation { 
+    list-style: none; 
+}  
+
+
+#site {
+    width: 100%;  
+    height: auto;  
+    display: block;  
+    min-height: 800px;  
+    overflow: hidden;  
+    position: relative;  
+    z-index: 2;  
+    background-color: #323232;
+}
+
+header {
+    /*height: 50px;*/
+    /*background-color: #FFF;*/
+}
+
+#menu {
+    background-color: #000;
+    width: 300px;
+    padding: 0;
+}
+
+#navigation {
+    padding-left: 0px;
+}
+
+#navigation > li {
+    border-bottom: 1px solid #BBB;
+    padding: 5px 10px 5px 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-menu {
+    margin-left: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #FFF;
 }
 
 .welcome {

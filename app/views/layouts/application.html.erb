@@ -22,6 +22,9 @@
   		<% if flash[:notice] %>
   		    <p class="notice"><%= notice %></p>
   		<% end %>
-  	  <%= yield %>
+      <div id="menu"><%= render 'layouts/menu' %></div>
+      <div id="site"><%= render 'layouts/header' %>
+      <%= yield %></div>
+      
   </body>
 </html>
