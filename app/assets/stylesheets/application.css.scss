@@ -292,7 +292,6 @@ header {
     list-style-type: none;
     margin: -15px 0px 50px 0px;
     padding: 0;
-
 }
 
 .interest {
@@ -304,6 +303,14 @@ header {
 
 .popular-interest {
     background-color: #CCC;
+}
+
+.green {
+    background-color: #3d793b;
+}
+
+.green:hover {
+    background-color: #31662f;
 }
 
 /*Chat styling*/

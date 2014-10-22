@@ -20,7 +20,7 @@
 
 		<div>
 			<label>I would like to discuss:</label>
-			<ul class='interest-cloud'>
+			<ul class='interest-cloud' id='my-interests'>
 				<% @user.interests.order("name ASC").each do |interest| %>
 					<li class="interest"><%= link_to interest.name + " X", interest_path(interest), :class => 'remote-delete button' %></li>
 				<% end %>
@@ -28,10 +28,10 @@
 		</div>
 		<div class="popular-interests">
 			<label>Popular topics at this Meetup:</label>
-			<ul>
+			<ul class='interest-cloud'>
 				<!-- need to make a method that orders this by popular -->
 			<% @interests.order("name ASC").limit(5).each do |i| %>
-			<li><%= i.name %></li>
+			<li class="interest"><%= link_to i.name, interest_path(i), class: 'button green' %></li>
 
 			<% end %>
 			</ul>

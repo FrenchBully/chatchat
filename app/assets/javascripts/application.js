@@ -69,7 +69,7 @@ $( document ).ready(function(){
 		});
 
 		$(".alert").click(function(){
-			$(this).parent.hide();
+			$(this).hide();
 		});
 
 		$("#interests-field").keypress(function(e) {
@@ -80,7 +80,7 @@ $( document ).ready(function(){
 		        	url: "/save_interest",
 		        	data: {interest: $("#interests-field").val() }
 		        }).done(function(response){
-		        	$(".interest-cloud").append("<li class='interest'><a class='button remote-delete' href='/interests/" + response.id + "'>" + response.name + " X" + "</a></li>")
+		        	$("#my-interests").append("<li class='interest'><a class='button remote-delete' href='/interests/" + response.id + "'>" + response.name + " X" + "</a></li>")
 		        })
 
 		        $("#interests-field").val("")
