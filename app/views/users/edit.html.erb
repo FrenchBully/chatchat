@@ -1,4 +1,5 @@
 <div class="container profile">
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
 	<section id='profile-details'>
 		<div id='photo-container'>
 			<%= image_tag @user.photo, class: 'photo' %>
@@ -13,15 +14,15 @@
 	<p id='bio'><%= truncate(@user.bio, :length => 140) %></p>
 	<section id='interests'>
 		<%= form_tag :user, method: :patch do %>
-		<%= text_field_tag :interests, nil, placeholder: "Enter an interest" %>	
-		<%= text_field_tag :lat, params[:lat] %>
-		<%= text_field_tag :lon, params[:lon] %>
+		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
+		<%= hidden_field_tag :lat, params[:lat] %>
+		<%= hidden_field_tag :lon, params[:lon] %>
 
 		<div>
 			<label>I would like to discuss:</label>
 			<ul class='interest-cloud'>
 				<% @user.interests.each do |interest| %>
-					<li class="interest"><%= link_to interest.name + " X", interest_path(interest), class: 'button' %></li>
+					<li class="interest"><%= link_to interest.name + " X", interest_path(interest), :class => 'remote-delete button' %></li>
 				<% end %>
 		</div>
 		<div class="popular-interests">

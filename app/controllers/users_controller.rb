@@ -22,4 +22,18 @@ class UsersController < ApplicationController
   	# 	render 'edit'
   	# end
   end
+
+  def save_interest
+    @user = current_user
+    new_interest = Interest.create(:name => params[:interest])
+    @user.interests << new_interest
+    render nothing: true
+  end
+
+  # def remove_interest
+  #   @user = current_user
+  #   @user.interests.delete(:name => params[:interest])
+  #   render nothing: true
+  # end
+
 end

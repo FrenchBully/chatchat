@@ -67,8 +67,28 @@ $( document ).ready(function(){
 		$(".notice").click(function(){
 			$(this).hide();
 		});
+		
 		$(".alert").click(function(){
 			$(this).hide();
+		});
+
+		$("#interests-field").keypress(function(e) {
+			if(e.which == 13) {
+		        e.preventDefault();
+		        $.ajax({
+		        	type: "POST",
+		        	url: "/save_interest",
+		        	data: {interest: $("#interests-field").val() }
+		        });
+		        $("#interests-field").val("")
+		        // add some innerhtml to make a new button appear
+		    }
+		});
+		
+		$('a.remote-delete').click(function() {
+			$(this).hide();
+		    $.post(this.href, { _method: 'delete' }, null, "script");
+		    return false;
 		});
 
 });

@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   get '/users' => 'users#index'
   post '/get_meetup_info' => 'pages#get_meetup_info'
 
+  post '/save_interest' => 'users#save_interest'
+  delete '/remove_interest' => 'users#remove_interest'
+
   resources :chats do
-    resources :messages
+  resources :messages
   end
 
 end

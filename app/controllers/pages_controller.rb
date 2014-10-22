@@ -60,11 +60,12 @@ class PagesController < ApplicationController
 		@user.save
 
 		event_options = { 
-	      member_id: '6961025',
+	      member_id: @user.uid,
+	      # member_id: '6961025',
 	      # rsvp: 'yes',
-	      format: 'json',
-	      signed: true,
-	      key: 'd342618183a7f21122ef1b3f2541'
+	      # format: 'json',
+	      # signed: true,
+	      # key: 'd342618183a7f21122ef1b3f2541'
 	      # status: 'upcoming',
 	      # order: 'time',
 	      # limited_events: false,
