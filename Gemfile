@@ -24,6 +24,8 @@ gem 'pry'
 
 gem 'rails_12factor', group: :production
 
+gem 'ruby_meetup2'
+
 gem 'omniauth'
 gem 'omniauth-meetup', '~> 0.0.2'
 # Use SCSS for stylesheets
