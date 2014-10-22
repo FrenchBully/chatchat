@@ -19,9 +19,14 @@
 <!-- If not, make main chatroom -->
 <!-- GET CATEGORY AND EVENT ID FROM USER -->
 
+
+
 <!-- Bonus make additional chatrooms -->
 <h3>Chat Rooms</h3>
 <%=  link_to "Join Multi Chat", '#', class: "btn btn-success btn-xs start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
+
+<!-- Dynamically Insert Event Name and Event ID to create/search for existing chat -->
+<%#=  link_to "Join Whatever Chat", '#', class: "btn btn-success btn-xs start-chat", "data-category" => event.name, "data-event_id" => event.id%>
 
  
 

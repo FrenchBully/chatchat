@@ -1,7 +1,9 @@
 <div class="chatboxhead">
   <div class="chatboxtitle">
    <!--  <i class="fa fa-comments"></i> -->
-    <h1><%= @chat.category %> (number of peeps) </h1>
+
+   <!-- adjust this to count number of ACTIVE users -->
+    <h1><%= @chat.category %> (<%=@chat.users.count%>)</h1>
   </div>
   <div class="chatboxoptions">
     <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @chat.id %>
@@ -23,5 +25,5 @@
   <% end %>
 </div>
  
- <!-- faye - to listen for messages on this channel -->
+ <!-- faye - to listen for messages on this (chat_path(@chat)) channel to update -->
 <%= subscribe_to chat_path(@chat) %>
