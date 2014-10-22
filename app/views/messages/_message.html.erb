@@ -4,7 +4,12 @@
 <!-- AVATAR IMAGE -->
 <li class="other">
   <div class="avatar">
-    <img src="http://placehold.it/50x50" />
+  	<%if message.user.photo != nil%>
+  		<%=link_to image_tag(message.user.photo), user_path(message.user)%>
+  	<%else%>
+    	<%=image_tag "http://placehold.it/50x50"%>
+    <%end%>
+
   </div>
   <div class="chatboxmessagecontent">
     <p><%= message.body %></p>
