@@ -7,21 +7,21 @@
 		<div id='profile-info-container'>
 			<h1 id='name'><%= @user.name %></h1>
 			<p id='location'><%= @user.location %><%#= link_to " Edit Profile", edit_user_registration_path %></p>
-			<p><%= check_box(@user.private_messages?, :patch, options = {}, checked_value = "1") %><label>Receive private messages</label></p>
+			<%= form_for @user do |f| %>
+			<p><%= f.check_box :private_messages? %><label>Receive private messages</label></p>
 		</div>
 	</section>
 	<label>Bio</label>
 	<p id='bio'><%= truncate(@user.bio, :length => 140) %></p>
 	<section id='interests'>
-		<%= form_tag :user, method: :patch do %>
 		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
-		<%= hidden_field_tag :lat, params[:lat] %>
-		<%= hidden_field_tag :lon, params[:lon] %>
+		<%= f.hidden_field :lat %>
+		<%= f.hidden_field :lon %>
 
 		<div>
 			<label>I would like to discuss:</label>
 			<ul class='interest-cloud'>
-				<% @user.interests.each do |interest| %>
+				<% @user.interests.order("name ASC").each do |interest| %>
 					<li class="interest"><%= link_to interest.name + " X", interest_path(interest), :class => 'remote-delete button' %></li>
 				<% end %>
 		</div>
@@ -32,7 +32,7 @@
 				<li></li>
 			</ul>
 		</div>
-		<%= submit_tag "Enter Chat", class: "button" %>
+		<%= f.submit "Enter Chat", class: "button" %>
 		<% end %>
 	</section>
 </div>

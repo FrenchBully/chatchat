@@ -93,7 +93,6 @@ $( document ).ready(function(){
 			e.preventDefault();
 			$(this).parent().hide();
 		    $.post(this.href, { _method: 'delete' }, null, "script");
-			console.log(this.href)
 		});
 
 });
