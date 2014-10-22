@@ -70,6 +70,11 @@ class User < ActiveRecord::Base
     @user.interests.delete(topic)
   end
 
+  
+
+
+
+
 # # converts the token attributes into a hash with key names
 #   def to_params
 #     {'refresh_token' => refresh_token,

@@ -62,6 +62,7 @@ class PagesController < ApplicationController
 		event_options = { 
 	      member_id: '6961025',
 	      # rsvp: 'yes',
+	      format: 'json',
 	      signed: true,
 	      key: 'd342618183a7f21122ef1b3f2541'
 	      # status: 'upcoming',
@@ -90,20 +91,12 @@ class PagesController < ApplicationController
 	      # sig_id: '6961025',
 	      # sig: 'e7c125873db521bf383b3dc0c4e49673ec48c37d'
 		}
-		
-
 
 	    meetup_api = MeetupApi.new
 
 	    @events = meetup_api.events(event_options)
 	    @member = meetup_api.members(member_options)
-	  #   @venue = meetup_api.venues(options)
-	  #   if @events["results"].length > 0
-		 #    seconds = @events["results"][0]["time"]/1000
-			# 	@date = Time.at(seconds).strftime("%m/%d/%Y")
-			# end
 
-		
 	end
 end
 
