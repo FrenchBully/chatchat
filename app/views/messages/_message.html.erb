@@ -4,12 +4,22 @@
 <!-- AVATAR IMAGE -->
 <li class="other">
   <div class="avatar">
-    <img src="http://placehold.it/50x50" />
+  	<%if message.user.photo != nil%>
+  		<%=link_to image_tag(message.user.photo), user_path(message.user)%>
+  	<%else%>
+    	<%=image_tag "http://placehold.it/50x50"%>
+    <%end%>
+
   </div>
   <div class="chatboxmessagecontent">
     <p><%= message.body %></p>
-    <time datetime="<%= message.created_at %>" title="<%= message.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
-      <%= message_interlocutor(message).email %> • <%= message.created_at.strftime("%H:%M %p") %>
+  </div>
+
+  <div class="time-div">
+  	<time datetime="<%= message.created_at %>" title="<%= message.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+      <%#= message_interlocutor(message).email %><!-- • -->
+      <%=message.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%l:%M%p")%>
     </time>
   </div>
+
 </li>
