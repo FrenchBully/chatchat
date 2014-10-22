@@ -111,14 +111,14 @@ $( document ).ready(function(){
 		function openSidepage() {  
 		 $('#site').animate({  
 		  left: '300px'  
-		 });   
+		 }, "fast");   
 		}  
 
 		function closeSidepage() { 
 		$("#navigation li a").removeClass("open");  
 		 $('#site').animate({  
 		  left: '0px'  
-		 });   
+		 }, "slow");   
 		} 
 
 });

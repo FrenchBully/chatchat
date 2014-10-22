@@ -4,14 +4,23 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = User.find(params[:id])
   end
 
   def show
   	@user = User.find(params[:id])
+    # this next line could be named better--to not confuse the two 'params'
+    params = { 
+        member_id: @user.uid,
+    }
+      meetup_api = MeetupApi.new
+
+      @member = meetup_api.members(params)
   end
 
   def edit
   	@user = User.find(params[:id])
+    @interests = Interest.all
   end
 
   def update

@@ -8,12 +8,12 @@
 			<h1 id='name'><%= @user.name %></h1>
 			<p id='location'><%= @user.location %><%#= link_to " Edit Profile", edit_user_registration_path %></p>
 			<%= form_for @user do |f| %>
-			<p><%= f.check_box :private_messages? %><label>Receive private messages</label></p>
+			<p><%= f.check_box :private_messages?, id: 'private-messages' %><label for="private-messages">Receive private messages</label></p>
 		</div>
 	</section>
-	<label>Bio</label>
-	<p id='bio'><%= truncate(@user.bio, :length => 140) %></p>
-	<section id='interests'>
+<!-- 	<label>Meetup Introduction</label>
+	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
+ -->	<section id='interests'>
 		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
 		<%= f.hidden_field :lat %>
 		<%= f.hidden_field :lon %>
@@ -24,12 +24,16 @@
 				<% @user.interests.order("name ASC").each do |interest| %>
 					<li class="interest"><%= link_to interest.name + " X", interest_path(interest), :class => 'remote-delete button' %></li>
 				<% end %>
+			</ul>
 		</div>
 		<div class="popular-interests">
 			<label>Popular topics at this Meetup:</label>
-			</ul>
 			<ul>
-				<li></li>
+				<!-- need to make a method that orders this by popular -->
+			<% @interests.order("name ASC").limit(5).each do |i| %>
+			<li><%= i.name %></li>
+
+			<% end %>
 			</ul>
 		</div>
 		<%= f.submit "Enter Chat", class: "button" %>
