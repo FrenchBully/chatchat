@@ -29,9 +29,10 @@ var ready = function () {
     // Close chat box 
     $(document).on('click', '.closeChat', function (e) {
         e.preventDefault();
- 
         var id = $(this).data('cid');
-        chatBox.close(id);
+        $.post("/unsubscribe/" + id, {}, function (data) {    
+            chatBox.close(id);
+        });
     });
  
     // On key down in chat input text area
