@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid.to_s
       user.auth_token = auth.credentials.token
       # user.refresh_token = auth.credentials.refresh_token
-      user.expires_at = auth.credentials.expires_at
+      # user.expires_at = auth.credentials.expires_at
       user.name = auth.info.name
       user.photo = auth.info.photo_url
       user.location = auth.extra.raw_info.city
