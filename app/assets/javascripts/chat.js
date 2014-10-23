@@ -10,7 +10,6 @@
  
 var chatboxFocus = new Array();
 var chatBoxes = new Array();
-var chattys = new Array();
  
 var ready = function () {
  
@@ -216,8 +215,7 @@ var ready = function () {
          */
  
         toggleChatBoxGrowth: function (chat_id) {
-            chattys.push(chat_id);
-            console.log(chattys);
+            
             // if ($('#chatbox_' + chat_id + ' .chatboxcontent').css('display') == 'none') {
             //     console.log("minimized");
             //     console.log($.cookie('chatbox_minimized'));
