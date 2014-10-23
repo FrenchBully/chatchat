@@ -323,8 +323,11 @@ header {
     position: expression("absolute");
     width: 280px;
     display: none;
-    border:10px solid white;
+    /*border:10px solid white;*/
     z-index: 100;
+    top: 0;
+    right:0;
+    width: 100%;
 }
  
 .chatboxhead {
@@ -351,8 +354,8 @@ header {
  
 .chatboxcontent {
     font-family: arial, sans-serif;
-    height: 280px;
-    width: 266px;
+    height: 500px;
+    /*width: 266px;*/
     overflow-y: auto;
     padding: 7px;
     /*border-left: 1px solid #cccccc;
@@ -366,19 +369,25 @@ header {
 .chatboxcontent li {
     padding: 0.5rem;
     overflow: hidden;
-    display: flex;
+    /*display: flex;*/
     border-bottom:1px solid rgba(93%,93%,93%,1);
 }
  
 .chatboxcontent .avatar {
-    width: 59px;
+    top: 4px;
+    /*width: 66px;*/
     position: relative;
+    display:inline-block;
 }
  
 .chatboxcontent .avatar img {
     display: block;
-    width: 100%;
+    /*width: 100%;*/
+    width:63px;
     border-radius:100px;
+    /*margin-left: 10px;*/
+    margin-left: 10px;
+    display: inline-block;
 }
  
 .other .avatar:after {
@@ -423,15 +432,17 @@ header {
  
 .chatboxmessagecontent {
     background: white;
-    padding: 10px;
+    padding: 25px 10px 10px 10px;
     /*border-radius: 0 2px 2px 2px;*/
     /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);*/
-    width:100%;
+    /*width:100%;*/
+    display:inline-block;
+    vertical-align:23px;
 }
  
 .chatboxmessagecontent p {
-    font-size: 12px;
-    margin: 0 0 0.2rem 0;
+    font-size: 15px;
+    margin: 0 0 1.2rem 0;
     -ms-word-break: break-all;
  
     /* Non standard for webkit */
@@ -441,16 +452,24 @@ header {
     -moz-hyphens: auto;
     hyphens: auto;
 }
- 
+.time-div{
+    display:inline-block;
+    float: right;
+    position: relative;
+    top: 31px;
+}
+
 .time-div time {
-    padding-right:10px;
-    vertical-align: -8px;
+    padding-right:30px;
+    vertical-align: 24px;
     font-size: 10px;
     color:rgba(93%,93%,93%,1);
 }
  
 .chatboxinput {
-    padding: 13px 13px 10px 13px;
+    /*padding: 13px 13px 10px 13px;*/
+    margin-top: 5px;
+    margin-bottom: -500px;
     background-color: #333333;
     /*border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
@@ -461,9 +480,10 @@ header {
     font-size: 14px;
     width: 245px;
     height: 32px;
-    padding: 11px 0pt 0px 4px;
+    padding: 11px 0pt 0px 16px;
     border: 1px solid #eeeeee;
-    margin: 1px;
+    /*margin: 1px;*/
+    width: 100%;
     overflow: hidden;
     resize: none !important;
 }
@@ -494,6 +514,7 @@ header {
 }
  
 .chatboxtitle {
-    float: left;
+    text-align: center;
+    /*float: left;*/
 }
 /*end of chat styling*/

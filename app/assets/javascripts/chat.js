@@ -56,20 +56,20 @@ var ready = function () {
     
         // for lining up chat boxes
         restructure: function () {
-            align = 0;
-            for (x in chatBoxes) {
-                chatbox_id = chatBoxes[x];
+            // align = 0;
+            // for (x in chatBoxes) {
+            //     chatbox_id = chatBoxes[x];
  
-                if ($("#chatbox_" + chatbox_id).css('display') != 'none') {
-                    if (align == 0) {
-                        $("#chatbox_" + chatbox_id).css('right', '20px');
-                    } else {
-                        width = (align) * (280 + 7) + 20;
-                        $("#chatbox_" + chatbox_id).css('right', width + 'px');
-                    }
-                    align++;
-                }
-            }
+            //     if ($("#chatbox_" + chatbox_id).css('display') != 'none') {
+            //         if (align == 0) {
+            //             $("#chatbox_" + chatbox_id).css('right', '20px');
+            //         } else {
+            //             width = (align) * (280 + 7) + 20;
+            //             $("#chatbox_" + chatbox_id).css('right', width + 'px');
+            //         }
+            //         align++;
+            //     }
+            // }
  
         },
  
@@ -110,7 +110,7 @@ var ready = function () {
                 $("#chatbox_" + chat_id + " .chatboxcontent").scrollTop($("#chatbox_" + chat_id + " .chatboxcontent")[0].scrollHeight);
             }, "html");
             
-            $("#chatbox_" + chat_id).css('bottom', '0px');
+            // $("#chatbox_" + chat_id).css('bottom', '0px');
  
             chatBoxeslength = 0;
  
@@ -121,10 +121,10 @@ var ready = function () {
             }
  
             if (chatBoxeslength == 0) {
-                $("#chatbox_" + chat_id).css('right', '20px');
+                // $("#chatbox_" + chat_id).css('right', '20px');
             } else {
-                width = (chatBoxeslength) * (280 + 7) + 20;
-                $("#chatbox_" + chat_id).css('right', width + 'px');
+                // width = (chatBoxeslength) * (280 + 7) + 20;
+                // $("#chatbox_" + chat_id).css('right', width + 'px');
             }
  
             chatBoxes.push(chat_id);
