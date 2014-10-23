@@ -156,6 +156,20 @@ header {
     white-space: nowrap;
 }
 
+.button-cancel {
+    position: relative;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #D02E34;
+    top: 20px;
+    outline: none;
+    white-space: nowrap;
+}
+.button-cancel:hover {
+    color: #902226;
+}
+
 .button:hover {
 	background-color: #2c7a99;
 	color: #FFF;
@@ -269,6 +283,13 @@ header {
     font-weight: normal;
     padding-right: 20px;
     margin: 0;
+}
+
+.container-edit {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    color: #fff;  
 }
 
 #true_patch {
