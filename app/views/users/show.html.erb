@@ -9,8 +9,9 @@
 			<p><%= @user.private_messages? ? (link_to " Send Private Message", users_path, class: 'private-message fa fa-envelope') : "" %></p>
 		</div>
 	</section>
-	<label>Bio</label>
-	<p id='bio'><%= truncate(@user.bio, :length => 140) %></p>
+<!-- 	<label>Meetup Introduction</label>
+	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
+ -->	<%#= @member %>
 	<section id='interests'>
 		<label>Interests</label>
 		<ul class='interest-cloud'>

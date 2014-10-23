@@ -5,14 +5,21 @@ class ChatsController < ApplicationController
   
   def create
     # look for chat
-    # our case we find the chat 
     # based on event id from meetups
     # create it if it doesn't exist
     if Chat.existing_chat(params[:event_id],params[:category]).present?
       @chat = Chat.existing_chat(params[:event_id],params[:category])
+
+      # if user never joined this chat add user to chat (ChatUser join table)
+      if !@chat.users.include?(current_user)
+        ChatUser.create(user_id: current_user.id, chat_id: @chat.id)
+      end
+
     else
       # makes a chat with key values of sender and recipient ids
       @chat = Chat.create!(chat_params)
+      # adds user to chat (ChatUser join table)
+      ChatUser.create(user_id: current_user.id, chat_id: @chat.id)
     end
     
     render json: { chat_id: @chat.id }
@@ -20,11 +27,10 @@ class ChatsController < ApplicationController
   
   def show
     @chat = Chat.find(params[:id])
-
     # message with
     # @reciever = interlocutor(@chat)
-
     @messages = @chat.messages
+    # sets input field for new message
     @message = Message.new
   end
   
@@ -35,7 +41,7 @@ class ChatsController < ApplicationController
     params.permit(:event_id, :category)
   end
   
-  def interlocutor(chat)
+  # def interlocutor(chat)
     # current_user ? chat.sender : chat.recipient
-  end
+  # end
 end

@@ -5,6 +5,31 @@
 	Sorry, a user with the id: <%= params[:user][:meetup_id] %> was not found.
 <% end %>
 
+<br>
+<br>
+
+
+<!-- collection_select(:post, :category_id, Category.all, :id, :name, {disabled: lambda{|category| category.archived? }})
+
+= f.collection_select :day, @dates, :to_s, :to_s, include_blank: false
+select_tag "people", options_from_collection_for_select(@people, "id", "name") -->
+
+<%#= select_tag "field", options_for_select(@my_array, @my_array[0])  %>
+
+<!-- = select_tag "people", options_for_select(@people.collect {|p| [ p['name'], p['id'] ] }
+ -->
+
+
+
+
+<%= select_tag "events", options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }) %>
+
+
+
+
+<%#= @events["results"].length %>
+<%#= @events["results"][0]["name"] %>
+<%# end %>
 
 
 <% if @events["results"].length > 0 %>

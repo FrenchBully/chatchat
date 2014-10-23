@@ -16,7 +16,8 @@
 
 
 body {
-	background-color: #323232;
+    background-color: #323232;
+    margin: 0;
 }
 
 p {
@@ -55,7 +56,7 @@ input[type="email"] {
 }
 
 input[type="password"] {
-	width: 95%;
+	width: 100%;
 	height: 40px;
 	font-size: 22px;
 	margin-bottom: 10px;
@@ -66,7 +67,65 @@ input[type="text"] {
 	height: 40px;
 	font-size: 22px;
 	margin-bottom: 10px;
-    /*margin-right: 50px;*/
+}
+
+#menu {  
+    position: absolute;  
+    width: 180px;   
+    min-height: 100%;  
+    padding: 0px 8px;  
+    padding-top: 220px;  
+}
+
+#navigation { 
+    list-style: none; 
+}  
+
+.menu-photo {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid #FFF;
+}
+
+
+#site {
+    width: 100%;  
+    height: auto;  
+    display: block;  
+    min-height: 800px;  
+    overflow: hidden;  
+    position: relative;  
+    z-index: 2;  
+    background-color: #323232;
+}
+
+header {
+    /*height: 50px;*/
+    /*background-color: #FFF;*/
+}
+
+#menu {
+    background-color: #000;
+    width: 300px;
+    padding: 0;
+}
+
+#navigation {
+    padding-left: 0px;
+}
+
+#navigation > li {
+    border-bottom: 1px solid #BBB;
+    padding: 5px 10px 5px 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-menu {
+    margin-left: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #FFF;
 }
 
 .welcome {
@@ -77,8 +136,10 @@ input[type="text"] {
 }
 
 .container {
-	margin: 20px;
-    left:50%;
+    width: 100%;
+	margin: 0;
+    padding: 20px;
+    /*left:50%;*/
 }
 
 .button {
@@ -92,6 +153,7 @@ input[type="text"] {
 	margin: 10px 0px 10px 0px;
     top: 20px;
 	outline: none;
+    white-space: nowrap;
 }
 
 .button:hover {
@@ -175,8 +237,8 @@ input[type="text"] {
 }
 
 .profile {
-    width: 100%;
-}
+/*    width: 90%;
+*/}
 
 #profile-details {
     width: 100%;
@@ -226,14 +288,18 @@ input[type="text"] {
 
 }
 
+#interests-field {
+    margin-bottom: 40px;
+}
+
 .interest-cloud {
     list-style-type: none;
-    margin: 0px 0px 50px 0px;
+    margin: -15px 0px 50px 0px;
     padding: 0;
-
 }
 
 .interest {
+    line-height: 70px;
     margin-right: 10px;
     display: inline;
 
@@ -243,22 +309,35 @@ input[type="text"] {
     background-color: #CCC;
 }
 
+.green {
+    background-color: #3d793b;
+}
+
+.green:hover {
+    background-color: #31662f;
+}
+
 /*Chat styling*/
 .chatbox {
     position: fixed;
     position: expression("absolute");
     width: 280px;
     display: none;
+    /*border:10px solid white;*/
+    z-index: 100;
+    top: 0;
+    right:0;
+    width: 100%;
 }
  
 .chatboxhead {
-    background: #666;
+    background: rgba(20%,20%,20%,1);
     color: white;
     padding: 0.5rem;
     overflow: hidden;
  
-    border-right: 1px solid rgba(85, 85, 85, 0.87);
-    border-left: 1px solid rgba(85, 85, 85, 0.87);
+    /*border-right: 1px solid rgba(85, 85, 85, 0.87);
+    border-left: 1px solid rgba(85, 85, 85, 0.87);*/
 }
  
 .chatboxhead h1 {
@@ -275,33 +354,40 @@ input[type="text"] {
  
 .chatboxcontent {
     font-family: arial, sans-serif;
-    height: 280px;
-    width: 264px;
+    height: 500px;
+    /*width: 266px;*/
     overflow-y: auto;
     padding: 7px;
-    border-left: 1px solid #cccccc;
+    /*border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;*/
     background: white;
-    line-height: 1.3em;
+    /*line-height: 1.3em;*/
     list-style: none;
 }
  
 .chatboxcontent li {
     padding: 0.5rem;
     overflow: hidden;
-    display: flex;
+    /*display: flex;*/
+    border-bottom:1px solid rgba(93%,93%,93%,1);
 }
  
 .chatboxcontent .avatar {
-    width: 50px;
+    top: 4px;
+    /*width: 66px;*/
     position: relative;
+    display:inline-block;
 }
  
 .chatboxcontent .avatar img {
     display: block;
-    width: 100%;
+    /*width: 100%;*/
+    width:63px;
     border-radius:100px;
+    /*margin-left: 10px;*/
+    margin-left: 10px;
+    display: inline-block;
 }
  
 .other .avatar:after {
@@ -346,16 +432,17 @@ input[type="text"] {
  
 .chatboxmessagecontent {
     background: white;
-    padding: 10px;
+    padding: 25px 10px 10px 10px;
     /*border-radius: 0 2px 2px 2px;*/
     /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);*/
-    width:100%;
-    border-bottom:1px solid rgba(200,200,200,1);
+    /*width:100%;*/
+    display:inline-block;
+    vertical-align:23px;
 }
  
 .chatboxmessagecontent p {
-    font-size: 12px;
-    margin: 0 0 0.2rem 0;
+    font-size: 15px;
+    margin: 0 0 1.2rem 0;
     -ms-word-break: break-all;
  
     /* Non standard for webkit */
@@ -365,25 +452,38 @@ input[type="text"] {
     -moz-hyphens: auto;
     hyphens: auto;
 }
- 
-.chatboxmessagecontent time {
-    font-size: 12px;
+.time-div{
+    display:inline-block;
+    float: right;
+    position: relative;
+    top: 31px;
+}
+
+.time-div time {
+    padding-right:30px;
+    vertical-align: 24px;
+    font-size: 10px;
+    color:rgba(93%,93%,93%,1);
 }
  
 .chatboxinput {
-    padding: 5px;
-    background-color: #ffffff;
-    border-left: 1px solid #cccccc;
+    /*padding: 13px 13px 10px 13px;*/
+    margin-top: 5px;
+    margin-bottom: -500px;
+    background-color: #333333;
+    /*border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;*/
 }
  
 .chatboxtextarea {
-    width: 262px;
-    height: 44px;
-    padding: 3px 0pt 3px 3px;
+    font-size: 14px;
+    /*width: 245px;*/
+    height: 32px;
+    padding: 11px 0pt 0px 16px;
     border: 1px solid #eeeeee;
-    margin: 1px;
+    /*margin: 1px;*/
+    width: 100%;
     overflow: hidden;
     resize: none !important;
 }
@@ -414,6 +514,7 @@ input[type="text"] {
 }
  
 .chatboxtitle {
-    float: left;
+    text-align: center;
+    /*float: left;*/
 }
 /*end of chat styling*/

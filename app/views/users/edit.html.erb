@@ -1,4 +1,5 @@
 <div class="container profile">
+<%#= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
 	<section id='profile-details'>
 		<div id='photo-container'>
 			<%= image_tag @user.photo, class: 'photo' %>
@@ -6,32 +7,36 @@
 		<div id='profile-info-container'>
 			<h1 id='name'><%= @user.name %></h1>
 			<p id='location'><%= @user.location %><%#= link_to " Edit Profile", edit_user_registration_path %></p>
-			<p><%= check_box(@user.private_messages?, :patch, options = {}, checked_value = "1") %><label>Receive private messages</label></p>
+			<%= form_for @user do |f| %>
+			<p><%= f.check_box :private_messages?, id: 'private-messages' %><label for="private-messages">Receive private messages</label></p>
 		</div>
 	</section>
-	<label>Bio</label>
-	<p id='bio'><%= truncate(@user.bio, :length => 140) %></p>
-	<section id='interests'>
-		<%= form_tag :user, method: :patch do %>
-		<%= text_field_tag :interests, nil, placeholder: "Enter an interest" %>	
-		<%= text_field_tag :lat, params[:lat] %>
-		<%= text_field_tag :lon, params[:lon] %>
+<!-- 	<label>Meetup Introduction</label>
+	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
+ -->	<section id='interests'>
+		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
+		<%= f.hidden_field :lat %>
+		<%= f.hidden_field :lon %>
 
 		<div>
 			<label>I would like to discuss:</label>
-			<ul class='interest-cloud'>
-				<% @user.interests.each do |interest| %>
-					<li class="interest"><%= link_to interest.name + " X", interest_path(interest), class: 'button' %></li>
+			<ul class='interest-cloud' id='my-interests'>
+				<% @user.interests.order("name ASC").each do |interest| %>
+					<li class="interest"><%= link_to (" " + interest.name), interest_path(interest), :class => 'remote-delete button fa fa-times' %></li>
 				<% end %>
+			</ul>
 		</div>
 		<div class="popular-interests">
 			<label>Popular topics at this Meetup:</label>
-			</ul>
-			<ul>
-				<li></li>
+			<ul class='interest-cloud'>
+				<!-- need to make a method that orders this by popular -->
+			<% @interests.order("name ASC").limit(5).each do |i| %>
+			<li class="interest"><%= link_to (" " + i.name), interest_path(i), class: 'button green fa fa-plus' %></li>
+
+			<% end %>
 			</ul>
 		</div>
-		<%= submit_tag "Enter Chat", class: "button" %>
+		<%= f.submit "Save", class: "button" %>
 		<% end %>
 	</section>
 </div>

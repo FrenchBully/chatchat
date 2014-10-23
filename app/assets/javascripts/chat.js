@@ -35,18 +35,21 @@ var ready = function () {
          */
  
         close: function (chat_id) {
-            $('#chatbox_' + chat_id).css('display', 'none');
-            chatBox.restructure();
+            // $('#chatbox_' + chat_id).css('display', 'none');
+            $('#chatbox_' + chat_id).fadeOut(function(){
+                this.remove();
+            });
+            // chatBox.restructure();
         },
  
         /**
          * Plays a notification sound when a new chat message arrives
          */
  
-        notify: function () {
+        // notify: function () {
             // var audioplayer = $('#chatAudio')[0];
             // audioplayer.play();
-        },
+        // },
  
         /**
          * Handles 'smart layouts' of the chatboxes. Like when new chatboxes are
@@ -56,20 +59,20 @@ var ready = function () {
     
         // for lining up chat boxes
         restructure: function () {
-            align = 0;
-            for (x in chatBoxes) {
-                chatbox_id = chatBoxes[x];
+            // align = 0;
+            // for (x in chatBoxes) {
+            //     chatbox_id = chatBoxes[x];
  
-                if ($("#chatbox_" + chatbox_id).css('display') != 'none') {
-                    if (align == 0) {
-                        $("#chatbox_" + chatbox_id).css('right', '20px');
-                    } else {
-                        width = (align) * (280 + 7) + 20;
-                        $("#chatbox_" + chatbox_id).css('right', width + 'px');
-                    }
-                    align++;
-                }
-            }
+            //     if ($("#chatbox_" + chatbox_id).css('display') != 'none') {
+            //         if (align == 0) {
+            //             $("#chatbox_" + chatbox_id).css('right', '20px');
+            //         } else {
+            //             width = (align) * (280 + 7) + 20;
+            //             $("#chatbox_" + chatbox_id).css('right', width + 'px');
+            //         }
+            //         align++;
+            //     }
+            // }
  
         },
  
@@ -110,7 +113,7 @@ var ready = function () {
                 $("#chatbox_" + chat_id + " .chatboxcontent").scrollTop($("#chatbox_" + chat_id + " .chatboxcontent")[0].scrollHeight);
             }, "html");
             
-            $("#chatbox_" + chat_id).css('bottom', '0px');
+            // $("#chatbox_" + chat_id).css('bottom', '0px');
  
             chatBoxeslength = 0;
  
@@ -121,10 +124,10 @@ var ready = function () {
             }
  
             if (chatBoxeslength == 0) {
-                $("#chatbox_" + chat_id).css('right', '20px');
+                // $("#chatbox_" + chat_id).css('right', '20px');
             } else {
-                width = (chatBoxeslength) * (280 + 7) + 20;
-                $("#chatbox_" + chat_id).css('right', width + 'px');
+                // width = (chatBoxeslength) * (280 + 7) + 20;
+                // $("#chatbox_" + chat_id).css('right', width + 'px');
             }
  
             chatBoxes.push(chat_id);
@@ -165,7 +168,8 @@ var ready = function () {
                 }
             });
  
-            $("#chatbox_" + chat_id).show();
+            // $("#chatbox_" + chat_id).show();
+            $("#chatbox_" + chat_id).fadeIn();
  
         },
  
@@ -215,42 +219,44 @@ var ready = function () {
          */
  
         toggleChatBoxGrowth: function (chat_id) {
-            if ($('#chatbox_' + chat_id + ' .chatboxcontent').css('display') == 'none') {
+            
+            // if ($('#chatbox_' + chat_id + ' .chatboxcontent').css('display') == 'none') {
+            //     console.log("minimized");
+            //     console.log($.cookie('chatbox_minimized'));
+            //     var minimizedChatBoxes = new Array();
  
-                var minimizedChatBoxes = new Array();
+            //     if ($.cookie('chatbox_minimized')) {
+            //         minimizedChatBoxes = $.cookie('chatbox_minimized').split(/\|/);
+            //     }
  
-                if ($.cookie('chatbox_minimized')) {
-                    minimizedChatBoxes = $.cookie('chatbox_minimized').split(/\|/);
-                }
+            //     var newCookie = '';
  
-                var newCookie = '';
+            //     for (i = 0; i < minimizedChatBoxes.length; i++) {
+            //         if (minimizedChatBoxes[i] != chat_id) {
+            //             newCookie += chat_id + '|';
+            //         }
+            //     }
  
-                for (i = 0; i < minimizedChatBoxes.length; i++) {
-                    if (minimizedChatBoxes[i] != chat_id) {
-                        newCookie += chat_id + '|';
-                    }
-                }
- 
-                newCookie = newCookie.slice(0, -1)
- 
- 
-                $.cookie('chatbox_minimized', newCookie);
-                $('#chatbox_' + chat_id + ' .chatboxcontent').css('display', 'block');
-                $('#chatbox_' + chat_id + ' .chatboxinput').css('display', 'block');
-                $("#chatbox_" + chat_id + " .chatboxcontent").scrollTop($("#chatbox_" + chat_id + " .chatboxcontent")[0].scrollHeight);
-            } else {
- 
-                var newCookie = chat_id;
- 
-                if ($.cookie('chatbox_minimized')) {
-                    newCookie += '|' + $.cookie('chatbox_minimized');
-                }
+            //     newCookie = newCookie.slice(0, -1)
  
  
-                $.cookie('chatbox_minimized', newCookie);
-                $('#chatbox_' + chat_id + ' .chatboxcontent').css('display', 'none');
-                $('#chatbox_' + chat_id + ' .chatboxinput').css('display', 'none');
-            }
+            //     $.cookie('chatbox_minimized', newCookie);
+            //     $('#chatbox_' + chat_id + ' .chatboxcontent').css('display', 'block');
+            //     $('#chatbox_' + chat_id + ' .chatboxinput').css('display', 'block');
+            //     $("#chatbox_" + chat_id + " .chatboxcontent").scrollTop($("#chatbox_" + chat_id + " .chatboxcontent")[0].scrollHeight);
+            // } else {
+ 
+            //     var newCookie = chat_id;
+ 
+            //     if ($.cookie('chatbox_minimized')) {
+            //         newCookie += '|' + $.cookie('chatbox_minimized');
+            //     }
+ 
+ 
+            //     $.cookie('chatbox_minimized', newCookie);
+            //     $('#chatbox_' + chat_id + ' .chatboxcontent').css('display', 'none');
+            //     $('#chatbox_' + chat_id + ' .chatboxinput').css('display', 'none');
+            // }
  
         }
  
@@ -270,45 +276,45 @@ var ready = function () {
      */
  
     jQuery.cookie = function (name, value, options) {
-        if (typeof value != 'undefined') { // name and value given, set cookie
-            options = options || {};
-            if (value === null) {
-                value = '';
-                options.expires = -1;
-            }
-            var expires = '';
-            if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
-                var date;
-                if (typeof options.expires == 'number') {
-                    date = new Date();
-                    date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
-                } else {
-                    date = options.expires;
-                }
-                expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
-            }
-            // CAUTION: Needed to parenthesize options.path and options.domain
-            // in the following expressions, otherwise they evaluate to undefined
-            // in the packed version for some reason...
-            var path = options.path ? '; path=' + (options.path) : '';
-            var domain = options.domain ? '; domain=' + (options.domain) : '';
-            var secure = options.secure ? '; secure' : '';
-            document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
-        } else { // only name given, get cookie
-            var cookieValue = null;
-            if (document.cookie && document.cookie != '') {
-                var cookies = document.cookie.split(';');
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = jQuery.trim(cookies[i]);
-                    // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
+        // if (typeof value != 'undefined') { // name and value given, set cookie
+        //     options = options || {};
+        //     if (value === null) {
+        //         value = '';
+        //         options.expires = -1;
+        //     }
+        //     var expires = '';
+        //     if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+        //         var date;
+        //         if (typeof options.expires == 'number') {
+        //             date = new Date();
+        //             date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+        //         } else {
+        //             date = options.expires;
+        //         }
+        //         expires = '; expires=' + date.toUTCString(); // use expires attribute, max-age is not supported by IE
+        //     }
+        //     // CAUTION: Needed to parenthesize options.path and options.domain
+        //     // in the following expressions, otherwise they evaluate to undefined
+        //     // in the packed version for some reason...
+        //     var path = options.path ? '; path=' + (options.path) : '';
+        //     var domain = options.domain ? '; domain=' + (options.domain) : '';
+        //     var secure = options.secure ? '; secure' : '';
+        //     document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+        // } else { // only name given, get cookie
+        //     var cookieValue = null;
+        //     if (document.cookie && document.cookie != '') {
+        //         var cookies = document.cookie.split(';');
+        //         for (var i = 0; i < cookies.length; i++) {
+        //             var cookie = jQuery.trim(cookies[i]);
+        //             // Does this cookie string begin with the name we want?
+        //             if (cookie.substring(0, name.length + 1) == (name + '=')) {
+        //                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        //                 break;
+        //             }
+        //         }
+        //     }
+        //     return cookieValue;
+        // }
     };
  
  

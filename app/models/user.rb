@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
       user.expires_at = auth.credentials.expires_at
       user.name = auth.info.name
       user.photo = auth.info.photo_url
-      user.location = auth.extra.raw_info.city
+      # user.location = auth.extra.raw_info.city
       user.private_messages = true
 
     end
@@ -65,10 +65,19 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
+
 # not yet implemented
   def remove_interest(topic)
     @user.interests.delete(topic)
   end
+
+ #  def validate_count
+ #   if User.find(self.user_id).interests.count > 5
+ #     # errors.add(:column_name, “maximum 5 interests are allowed per person”)
+ #   end
+ # end
+  
+
 
 # # converts the token attributes into a hash with key names
 #   def to_params
