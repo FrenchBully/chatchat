@@ -70,6 +70,11 @@ class User < ActiveRecord::Base
     @user.interests.delete(topic)
   end
 
+ #  def validate_count
+ #   if User.find(self.user_id).interests.count > 5
+ #     # errors.add(:column_name, “maximum 5 interests are allowed per person”)
+ #   end
+ # end
   
 
 

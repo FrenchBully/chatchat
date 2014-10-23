@@ -67,7 +67,6 @@ input[type="text"] {
 	height: 40px;
 	font-size: 22px;
 	margin-bottom: 10px;
-    /*margin-right: 50px;*/
 }
 
 #menu {  
@@ -138,7 +137,8 @@ header {
 
 .container {
     width: 100%;
-	margin: 20px;
+	margin: 0;
+    padding: 20px;
     /*left:50%;*/
 }
 
@@ -237,8 +237,8 @@ header {
 }
 
 .profile {
-    width: 100%;
-}
+/*    width: 90%;
+*/}
 
 #profile-details {
     width: 100%;
@@ -286,6 +286,10 @@ header {
 
 #private-message {
 
+}
+
+#interests-field {
+    margin-bottom: 40px;
 }
 
 .interest-cloud {

@@ -22,8 +22,10 @@
   		<% if flash[:notice] %>
   		    <p class="notice"><%= notice %></p>
   		<% end %>
+      <% if user_signed_in? %>
       <div id="menu"><%= render 'layouts/menu' %></div>
       <div id="site"><%= render 'layouts/header' %>
+        <% end %>
       <%= yield %></div>
       
   </body>

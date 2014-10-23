@@ -22,7 +22,7 @@
 			<label>I would like to discuss:</label>
 			<ul class='interest-cloud' id='my-interests'>
 				<% @user.interests.order("name ASC").each do |interest| %>
-					<li class="interest"><%= link_to interest.name + " X", interest_path(interest), :class => 'remote-delete button' %></li>
+					<li class="interest"><%= link_to (" " + interest.name), interest_path(interest), :class => 'remote-delete button fa fa-times' %></li>
 				<% end %>
 			</ul>
 		</div>
@@ -36,7 +36,7 @@
 			<% end %>
 			</ul>
 		</div>
-		<%= f.submit "Enter Chat", class: "button" %>
+		<%= f.submit "Save", class: "button" %>
 		<% end %>
 	</section>
 </div>
