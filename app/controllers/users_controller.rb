@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
+
+    # get event.name (@event) and @event.id of chosen event
+
   end
 
   def show
