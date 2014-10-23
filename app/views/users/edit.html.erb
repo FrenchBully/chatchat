@@ -31,7 +31,7 @@
 			<ul class='interest-cloud'>
 				<!-- need to make a method that orders this by popular -->
 			<% @interests.order("name ASC").limit(5).each do |i| %>
-			<li class="interest"><%= link_to i.name, interest_path(i), class: 'button green' %></li>
+			<li class="interest"><%= link_to (" " + i.name), interest_path(i), class: 'button green fa fa-plus' %></li>
 
 			<% end %>
 			</ul>

@@ -95,7 +95,6 @@ $( document ).ready(function(){
 		    $.post(this.href, { _method: 'delete' }, null, "script");
 		});
 
-
 		$(".main-menu").on("click", function(e){  
 
 		  var distance = $('#site').css('left');  
