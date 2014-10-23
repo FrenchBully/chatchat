@@ -18,7 +18,6 @@
   <% end %>
 </div>
 
-
 <div class="chatboxinput">
   <%= form_for([@chat, @message], :remote => true, :html => {id: "chat_form_#{@chat.id}"}) do |f| %>
       <%= f.text_area :body, class: "chatboxtextarea", "data-cid" => @chat.id, placeholder: "Share a message" %>

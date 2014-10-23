@@ -6,6 +6,9 @@ var ready = function () {
         e.preventDefault();
         console.log("starting chat box");
         
+
+
+
         // grabs data out of the item that was clicked which is setup through html tags
         var category = $(this).data('category');  
         var event_id = $(this).data('event_id');
@@ -14,24 +17,38 @@ var ready = function () {
             // console.log(data);
             console.log("posted to create/found chat");
             chatBox.chatWith(data.chat_id);
+
+            $.post("/chats/"+data.chat_id+"/messages", {message: {join_chat: true}}, function(data){
+            
+            });
         });
     });
  
 
     // Minimizes chat box, cid = @chat.id from view
-    $(document).on('click', '.toggleChatBox', function (e) {
-        e.preventDefault();
+    // $(document).on('click', '.toggleChatBox', function (e) {
+    //     e.preventDefault();
  
-        var id = $(this).data('cid');
-        chatBox.toggleChatBoxGrowth(id);
-    });
+    //     var id = $(this).data('cid');
+    //     chatBox.toggleChatBoxGrowth(id);
+    // });
  
     // Close chat box 
     $(document).on('click', '.closeChat', function (e) {
         e.preventDefault();
  
+
+        // Post to chat alert controller
+        // generate create.js.erb with DOM modifiers
+
+        
+
         var id = $(this).data('cid');
-        chatBox.close(id);
+        console.log("posting");
+        $.post("/chats/"+id+"/messages", {message: {left_chat: true}}, function(data){
+            chatBox.close(id);
+        });
+        
     });
  
     // On key down in chat input text area
@@ -56,5 +73,5 @@ var ready = function () {
  
 }
  
-$(document).ready(ready);
+// $(document).ready(ready);
 $(document).on("page:load", ready);

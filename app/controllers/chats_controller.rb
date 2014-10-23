@@ -26,12 +26,15 @@ class ChatsController < ApplicationController
   end
   
   def show
+    binding.pry
     @chat = Chat.find(params[:id])
     # message with
     # @reciever = interlocutor(@chat)
     @messages = @chat.messages
     # sets input field for new message
     @message = Message.new
+
+
   end
   
   private
