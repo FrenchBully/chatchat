@@ -36,6 +36,7 @@
 			<% end %>
 			</ul>
 		</div>
+		<%= select_tag "events", options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }) %>
 		<%= f.submit "Save", class: "button" %>
 		<% end %>
 	</section>

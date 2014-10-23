@@ -310,11 +310,17 @@ header {
 }
 
 .green {
-    background-color: #3d793b;
+    background-color: #519a4f;
 }
 
 .green:hover {
-    background-color: #31662f;
+    background-color: #3f7f3d;
+}
+
+select {
+    height: 50px;
+    -webkit-appearance: menulist-button;
+    font-size: 20px;
 }
 
 /*Chat styling*/
