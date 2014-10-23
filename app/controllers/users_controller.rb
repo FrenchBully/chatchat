@@ -24,6 +24,14 @@ class UsersController < ApplicationController
   def edit
   	@user = User.find(params[:id])
     @interests = Interest.all
+
+    options = { 
+        member_id: '6961025',
+    }
+
+    meetup_api = MeetupApi.new
+
+    @events = meetup_api.events(options)
   end
 
   def update

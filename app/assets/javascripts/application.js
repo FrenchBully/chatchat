@@ -80,7 +80,7 @@ $( document ).ready(function(){
 		        	url: "/save_interest",
 		        	data: {interest: $("#interests-field").val() }
 		        }).done(function(response){
-		        	$("#my-interests").append("<li class='interest'><a class='button remote-delete' href='/interests/" + response.id + "'>" + response.name + " X" + "</a></li>")
+		        	$("#my-interests").append("<li class='interest'><a class='button remote-delete fa fa-times' href='/interests/" + response.id + "'>" + " " + response.name + "</a></li>")
 		        })
 
 		        $("#interests-field").val("")
