@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   resources :messages
   end
 
+  post '/unsubscribe/:id' => 'chats#leavechat'
+
 end
