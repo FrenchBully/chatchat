@@ -26,12 +26,21 @@ class UsersController < ApplicationController
     @interests = Interest.all
 
     options = { 
+
+      # need to change this to @user.uid
         member_id: '6961025',
     }
 
     meetup_api = MeetupApi.new
 
     @events = meetup_api.events(options)
+    @events_today = []
+    i = 0
+    while i < @events["results"].length 
+      :name => @events["results"][i]["name"]
+      :id => @events["results"][i]["id"]
+      i += 1
+    end
   end
 
   def update
@@ -41,7 +50,7 @@ class UsersController < ApplicationController
   	else
   		render 'edit'
   	end
-    
+
   end
 
   def save_interest
