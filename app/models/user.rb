@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid.to_s
       user.auth_token = auth.credentials.token
-      user.refresh_token = auth.credentials.refresh_token
+      # user.refresh_token = auth.credentials.refresh_token
       user.expires_at = auth.credentials.expires_at
       user.name = auth.info.name
       user.photo = auth.info.photo_url
@@ -63,11 +63,6 @@ class User < ActiveRecord::Base
 
   def password_required?
     super && provider.blank?
-  end
-
-# not yet implemented
-  def remove_interest(topic)
-    @user.interests.delete(topic)
   end
 
  #  def validate_count
