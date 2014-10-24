@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     options = { 
         member_id: @user.uid,
-        time: "0d,1d"
+        time: "0d,7d"
     }
 
     meetup_api = MeetupApi.new

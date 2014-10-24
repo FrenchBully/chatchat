@@ -1,5 +1,9 @@
 <div class="container profile">
 <%#= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+
+<%# if @events_today.length > 0 %>
+<% if @events["results"].length > 0 %>
+
 	<section id='profile-details'>
 		<div id='photo-container'>
 			<%= image_tag @user.photo, class: 'photo' %>
@@ -40,4 +44,7 @@
 		<%= f.submit "Save", class: "button" %>
 		<% end %>
 	</section>
+	<% else %>
+	Sorry, no events for this user. Come back on the day of a Meetup.
+	<% end %>
 </div>
