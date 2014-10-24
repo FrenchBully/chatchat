@@ -89,7 +89,7 @@ class User < ActiveRecord::Base
     if events["results"] != nil
       while i < events["results"].length 
 
-        if Time.at(events["results"][i]["time"]/ 1000) - Time.now < 1200.hours
+        if Time.at(events["results"][i]["time"] / 1000) - Time.now < 1200.hours
           
           events_today << {
           :name => events["results"][i]["name"],
@@ -103,6 +103,11 @@ class User < ActiveRecord::Base
     return events_today 
   end
 
+  def get_user_event_details event_id
+    params = {event_id: event_id}
+    meetup_api = MeetupApi.new
+    return meetup_api.events(params)
+  end
 
 # not yet implemented
   # def remove_interest(topic)

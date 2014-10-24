@@ -41,7 +41,8 @@
 			</ul>
 		
 		</div>
-		<%= select_tag :event_id, options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }), class: 'expand' %>
+		<label for='meetup-dropdown'>Event</label>
+		<%= select_tag :event_id, options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }), class: 'expand', id: 'meetup-dropdown' %>
 
 		<%= f.submit "Save", class: "button" %>
 		<% end %>
