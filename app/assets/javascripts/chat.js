@@ -35,10 +35,7 @@ var ready = function () {
          */
  
         close: function (chat_id) {
-            // $('#chatbox_' + chat_id).css('display', 'none');
-            $('#chatbox_' + chat_id).fadeOut(function(){
-                this.remove();
-            });
+            $('#chatbox_' + chat_id).css('display', 'none');
             // chatBox.restructure();
         },
  
@@ -168,8 +165,7 @@ var ready = function () {
                 }
             });
  
-            // $("#chatbox_" + chat_id).show();
-            $("#chatbox_" + chat_id).fadeIn();
+            $("#chatbox_" + chat_id).show();
  
         },
  

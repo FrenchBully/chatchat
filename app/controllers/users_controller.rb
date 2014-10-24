@@ -26,12 +26,34 @@ class UsersController < ApplicationController
     @interests = Interest.all
 
     options = { 
+<<<<<<< HEAD
         member_id: @user.uid,
+=======
+
+      # need to change this to @user.uid
+        member_id: '6961025',
+>>>>>>> 6d8e1c42e244ee63d6f850cac0101ba5f56100b2
     }
 
     meetup_api = MeetupApi.new
 
     @events = meetup_api.events(options)
+    @events_today = []
+    i = 0
+
+    while i < @events["results"].length 
+
+      if Time.at(@events["results"][i]["time"]/ 1000) - Time.now < 12.hours
+        
+        @events_today << {
+        :name => @events["results"][i]["name"],
+        :id => @events["results"][i]["id"],
+        :time => Time.at(@events["results"][i]["time"] / 1000)
+        }
+      end
+      i += 1
+    end
+    
   end
 
   def update
@@ -42,7 +64,7 @@ class UsersController < ApplicationController
   	else
   		render 'edit'
   	end
-    
+
   end
 
   def save_interest
