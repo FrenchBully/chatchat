@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20141024004240) do
     t.string   "location"
     t.string   "refresh_token"
     t.integer  "expires_at"
+    t.string   "event_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
