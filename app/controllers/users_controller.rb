@@ -16,9 +16,9 @@ class UsersController < ApplicationController
 
   def edit
     MeetupClient.configure do |config|
-    # Ran's => config.api_key = 'b7d767765272d2b2b13c25e744e13'
-    config.api_key = 'b7d767765272d2b2b13c25e744e13'
-end
+      config.api_key = 'b7d767765272d2b2b13c25e744e13'
+    end
+
   	@user = User.find(params[:id])
     @interests = Interest.all
     @events = @user.get_user_event_list(@user)

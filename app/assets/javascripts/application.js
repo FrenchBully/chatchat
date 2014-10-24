@@ -78,7 +78,7 @@ $( document ).ready(function(){
 		        $.ajax({
 		        	type: "POST",
 		        	url: "/save_interest",
-		        	data: {interest: $("#interests-field").val() }
+		        	data: {interest: $("#interests-field").val().replace(/[^a-z0-9\s]/gi, '').toLowerCase() }
 		        }).done(function(response){
 		        	$("#my-interests").append("<li class='interest'><a class='button remote-delete fa fa-times' href='/interests/" + response.id + "'>" + " " + response.name + "</a></li>")
 		        })
