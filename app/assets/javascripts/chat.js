@@ -7,7 +7,7 @@
  *
  */
  
- 
+// keep track of variables on client side 
 var chatboxFocus = new Array();
 var chatBoxes = new Array();
  
@@ -183,6 +183,7 @@ var ready = function () {
                 event.preventDefault();
  
                 message = chatboxtextarea.val();
+                // empty input field
                 message = message.replace(/^\s+|\s+$/g, "");
  
                 if (message != '') {

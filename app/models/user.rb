@@ -72,6 +72,33 @@ class User < ActiveRecord::Base
     return meetup_api.members(params)
   end
 
+  def get_user_event_list user
+    options = { 
+        member_id: user.uid,
+        time: "0d,7d"
+    }
+    meetup_api = MeetupApi.new
+    return meetup_api.events(options)
+  end 
+
+  def get_user_events_today events
+    i = 0
+    events_today = []
+    while i < events["results"].length 
+
+      if Time.at(events["results"][i]["time"]/ 1000) - Time.now < 1200.hours
+        
+        events_today << {
+        :name => events["results"][i]["name"],
+        :id => events["results"][i]["id"],
+        :time => Time.at(events["results"][i]["time"] / 1000)
+        }
+      end
+      i += 1
+    end
+    return events_today 
+  end
+
 
 # not yet implemented
   def remove_interest(topic)
