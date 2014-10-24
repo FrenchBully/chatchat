@@ -237,6 +237,7 @@ Devise.setup do |config|
   # config.omniauth :meetup, 'n5qbl8a65gcmjlp8v779sm66o4', 'enqesvtmg4d9h7kojk91bn0cb4'
 
   config.omniauth :meetup, 'eq2t7ckvp7ojknr5bs8i0g09bm', 'e2vbregc388e125monnnl1jbsl'
+  # config.omniauth :meetup, 't3jnfiss7f0e66jmjq4mumdk5q', 'mou7ho17ceica9dg8fblqjm2el'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

@@ -101,9 +101,9 @@ class User < ActiveRecord::Base
 
 
 # not yet implemented
-  def remove_interest(topic)
-    @user.interests.delete(topic)
-  end
+  # def remove_interest(topic)
+  #   @user.interests.delete(topic)
+  # end
 
 
  #  def validate_count
