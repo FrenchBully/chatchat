@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @interests = Interest.all
 
     options = { 
-        member_id: '6961025',
+        member_id: @user.uid,
     }
 
     meetup_api = MeetupApi.new
@@ -36,8 +36,9 @@ class UsersController < ApplicationController
 
   def update
   	@user = User.find(params[:id])
-  	if @user.update(params.require(:user).permit(:lat, :lon, :private_messages?))
+  	if @user.update_attributes(:event_id => params['event_id'], :private_messages => params['user']['private_messages'] ) 
   		@user.save
+      redirect_to root_path
   	else
   		render 'edit'
   	end
