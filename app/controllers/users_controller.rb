@@ -5,50 +5,23 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
-
     # get event.name (@event) and @event.id of chosen event
-
   end
 
   def show
+    # this is to show user's profile
   	@user = User.find(params[:id])
-    # this next line could be named better--to not confuse the two 'params'
-    params = { 
-        member_id: @user.uid,
-    }
-      meetup_api = MeetupApi.new
-
-      @member = meetup_api.members(params)
+    @member = @user.show_user(@user)
   end
 
   def edit
   	@user = User.find(params[:id])
     @interests = Interest.all
-
-    options = { 
-        member_id: @user.uid,
-        time: "0d,7d"
-    }
-
-    meetup_api = MeetupApi.new
-
-    @events = meetup_api.events(options)
-    @events_today = []
-    i = 0
-
-    while i < @events["results"].length 
-
-      if Time.at(@events["results"][i]["time"]/ 1000) - Time.now < 12.hours
-        
-        @events_today << {
-        :name => @events["results"][i]["name"],
-        :id => @events["results"][i]["id"],
-        :time => Time.at(@events["results"][i]["time"] / 1000)
-        }
-      end
-      i += 1
-    end
+    @events = @user.get_user_event_list(@user)
+    @events_today = @user.get_user_events_today(@events)
     
+
+    # Redirect to chat room event_path(event_that_was_just_made.id) 
   end
 
   def update

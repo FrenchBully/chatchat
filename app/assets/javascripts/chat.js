@@ -7,7 +7,7 @@
  *
  */
  
- 
+// keep track of variables on client side 
 var chatboxFocus = new Array();
 var chatBoxes = new Array();
  
@@ -97,8 +97,8 @@ var ready = function () {
                 return;
             }
             
-            // adds chatbox with unique id
-            $("body").append('<div id="chatbox_' + chat_id + '" class="chatbox"></div>')
+            // adds chatbox with unique id to site div
+            $("#site").append('<div id="chatbox_' + chat_id + '" class="chatbox"></div>')
             
             console.log("getting the chat show template");
             
@@ -183,6 +183,7 @@ var ready = function () {
                 event.preventDefault();
  
                 message = chatboxtextarea.val();
+                // empty input field
                 message = message.replace(/^\s+|\s+$/g, "");
  
                 if (message != '') {

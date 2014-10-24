@@ -11,7 +11,7 @@ var ready = function () {
         var event_id = $(this).data('event_id');
  
         $.post("/chats", { category: category, event_id: event_id }, function (data) {
-            // console.log(data);
+            // data consists of chat_id from chat controller
             console.log("posted to create/found chat");
             chatBox.chatWith(data.chat_id);
         });
@@ -21,7 +21,7 @@ var ready = function () {
     // Minimizes chat box, cid = @chat.id from view
     $(document).on('click', '.toggleChatBox', function (e) {
         e.preventDefault();
- 
+        
         var id = $(this).data('cid');
         chatBox.toggleChatBoxGrowth(id);
     });

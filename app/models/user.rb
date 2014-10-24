@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :chat_users
   has_many :chats, through: :chat_users
   has_many :messages
-
+  belongs_to :event
   validates :name, :presence => true
   # validates :meetup_id, :presence => true
   
@@ -65,11 +65,46 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
+  def show_user user
+    # this next line could be named better--to not confuse the two 'params'
+    params = {member_id: user.uid}
+    meetup_api = MeetupApi.new
+    return meetup_api.members(params)
+  end
+
+  def get_user_event_list user
+    options = { 
+        member_id: user.uid,
+        time: "0d,7d"
+    }
+    meetup_api = MeetupApi.new
+    return meetup_api.events(options)
+  end 
+
+  def get_user_events_today events
+    i = 0
+    events_today = []
+    while i < events["results"].length 
+
+      if Time.at(events["results"][i]["time"]/ 1000) - Time.now < 1200.hours
+        
+        events_today << {
+        :name => events["results"][i]["name"],
+        :id => events["results"][i]["id"],
+        :time => Time.at(events["results"][i]["time"] / 1000)
+        }
+      end
+      i += 1
+    end
+    return events_today 
+  end
+
 
 # not yet implemented
   def remove_interest(topic)
     @user.interests.delete(topic)
   end
+
 
  #  def validate_count
  #   if User.find(self.user_id).interests.count > 5

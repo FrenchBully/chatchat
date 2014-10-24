@@ -2,6 +2,9 @@ class MessagesController < ApplicationController
   before_filter :authenticate_user!
  
   def create
+    # check for hashtag spawn room
+    
+
     @chat = Chat.find(params[:chat_id])
     # message_params gets the text to be passed 
     @message = @chat.messages.new(message_params)
