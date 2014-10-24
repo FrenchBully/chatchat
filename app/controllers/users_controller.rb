@@ -36,11 +36,20 @@ class UsersController < ApplicationController
     @events = meetup_api.events(options)
     @events_today = []
     i = 0
+
     while i < @events["results"].length 
-      :name => @events["results"][i]["name"]
-      :id => @events["results"][i]["id"]
+
+      if Time.at(@events["results"][i]["time"]/ 1000) - Time.now < 12.hours
+        
+        @events_today << {
+        :name => @events["results"][i]["name"],
+        :id => @events["results"][i]["id"],
+        :time => Time.at(@events["results"][i]["time"] / 1000)
+        }
+      end
       i += 1
     end
+    
   end
 
   def update
