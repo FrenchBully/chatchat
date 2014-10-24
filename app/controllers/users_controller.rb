@@ -19,8 +19,8 @@ class UsersController < ApplicationController
     @interests = Interest.all
 
     options = { 
-
         member_id: @user.uid,
+        time: "0d,7d"
     }
 
     meetup_api = MeetupApi.new
