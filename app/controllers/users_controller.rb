@@ -5,20 +5,13 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
-
     # get event.name (@event) and @event.id of chosen event
-
   end
 
   def show
+    # this is to show user's profile
   	@user = User.find(params[:id])
-    # this next line could be named better--to not confuse the two 'params'
-    params = { 
-        member_id: @user.uid,
-    }
-      meetup_api = MeetupApi.new
-
-      @member = meetup_api.members(params)
+    @member = @user.show_user(@user)
   end
 
   def edit
@@ -26,8 +19,8 @@ class UsersController < ApplicationController
     @interests = Interest.all
 
     options = { 
-
         member_id: @user.uid,
+        time: "0d,7d"
     }
 
     meetup_api = MeetupApi.new
