@@ -55,7 +55,8 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	if @user.update_attributes(:event_id => params['event_id'], :private_messages => params['user']['private_messages'] ) 
   		@user.save
-      redirect_to root_path
+      # we need to set this redirect to the main chat room
+      redirect_to user_path(@user)
   	else
   		render 'edit'
   	end
