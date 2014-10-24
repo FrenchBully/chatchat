@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :chat_users
   has_many :chats, through: :chat_users
   has_many :messages
-
+  belongs_to :event
   validates :name, :presence => true
   # validates :meetup_id, :presence => true
   

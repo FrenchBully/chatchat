@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
     while i < @events["results"].length 
 
-      if Time.at(@events["results"][i]["time"]/ 1000) - Time.now < 12.hours
+      if Time.at(@events["results"][i]["time"]/ 1000) - Time.now < 1200.hours
         
         @events_today << {
         :name => @events["results"][i]["name"],
@@ -53,8 +53,8 @@ class UsersController < ApplicationController
 
   def update
   	@user = User.find(params[:id])
-  	if @user.update_attributes(:event_id => params['event_id'], :private_messages => params['user']['private_messages'] ) 
-  		@user.save
+  	if @user.update_attributes(:event_id => params['event_id'], :private_messages => params['user']['private_messages'], :lat => params['user']['lat'], :lon => params['user']['lon'] )
+      @user.save
       redirect_to root_path
   	else
   		render 'edit'
