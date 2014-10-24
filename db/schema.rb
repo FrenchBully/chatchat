@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020233341) do
+ActiveRecord::Schema.define(version: 20141024004240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,10 @@ ActiveRecord::Schema.define(version: 20141020233341) do
   end
 
   create_table "interests", force: true do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "interests", ["user_id"], name: "index_interests_on_user_id", using: :btree
 
   create_table "interests_users", force: true do |t|
     t.integer "user_id"
@@ -74,17 +71,17 @@ ActiveRecord::Schema.define(version: 20141020233341) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "provider"
-    t.string   "auth_token"
-    t.string   "uid"
     t.float    "lat"
     t.float    "lon"
     t.string   "name"
     t.string   "photo"
+    t.string   "provider"
+    t.string   "auth_token"
+    t.string   "uid"
     t.boolean  "private_messages"
     t.text     "bio"
-    t.string   "refresh_token"
     t.string   "location"
+    t.string   "refresh_token"
     t.integer  "expires_at"
   end
 
