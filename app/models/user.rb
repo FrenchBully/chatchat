@@ -84,17 +84,19 @@ class User < ActiveRecord::Base
   def get_user_events_today events
     i = 0
     events_today = []
-    while i < events["results"].length 
+    if events["results"] != nil
+      while i < events["results"].length 
 
-      if Time.at(events["results"][i]["time"]/ 1000) - Time.now < 1200.hours
-        
-        events_today << {
-        :name => events["results"][i]["name"],
-        :id => events["results"][i]["id"],
-        :time => Time.at(events["results"][i]["time"] / 1000)
-        }
+        if Time.at(events["results"][i]["time"]/ 1000) - Time.now < 1200.hours
+          
+          events_today << {
+          :name => events["results"][i]["name"],
+          :id => events["results"][i]["id"],
+          :time => Time.at(events["results"][i]["time"] / 1000)
+          }
+        end
+        i += 1
       end
-      i += 1
     end
     return events_today 
   end
