@@ -65,11 +65,19 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
+  def show_user user
+    # this next line could be named better--to not confuse the two 'params'
+    params = {member_id: user.uid}
+    meetup_api = MeetupApi.new
+    return meetup_api.members(params)
+  end
+
 
 # not yet implemented
   def remove_interest(topic)
     @user.interests.delete(topic)
   end
+
 
  #  def validate_count
  #   if User.find(self.user_id).interests.count > 5
