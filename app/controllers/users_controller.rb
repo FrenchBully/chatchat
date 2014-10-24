@@ -26,13 +26,8 @@ class UsersController < ApplicationController
     @interests = Interest.all
 
     options = { 
-<<<<<<< HEAD
-        member_id: @user.uid,
-=======
 
-      # need to change this to @user.uid
-        member_id: '6961025',
->>>>>>> 6d8e1c42e244ee63d6f850cac0101ba5f56100b2
+        member_id: @user.uid,
     }
 
     meetup_api = MeetupApi.new
