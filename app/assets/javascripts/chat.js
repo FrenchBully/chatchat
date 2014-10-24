@@ -97,8 +97,8 @@ var ready = function () {
                 return;
             }
             
-            // adds chatbox with unique id
-            $("body").append('<div id="chatbox_' + chat_id + '" class="chatbox"></div>')
+            // adds chatbox with unique id to site div
+            $("#site").append('<div id="chatbox_' + chat_id + '" class="chatbox"></div>')
             
             console.log("getting the chat show template");
             
