@@ -347,7 +347,8 @@ select {
 
 /*Chat styling*/
 .chatbox {
-    position: fixed;
+    /*attaches the chat box to the site tag*/
+    position: relative;
     position: expression("absolute");
     width: 280px;
     display: none;
