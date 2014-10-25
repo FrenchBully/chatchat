@@ -2,6 +2,7 @@ class InterestsController < ApplicationController
   def index
   end
 
+  # via ajax in user profile
   def save_interest
     @user = current_user
     new_interest = Interest.find_or_create_by(name: params[:interest])
@@ -18,6 +19,7 @@ class InterestsController < ApplicationController
     end
   end
 
+  # via ajax in user profile
   def destroy
 		@interest = Interest.find(params[:id])
 		@interest.destroy

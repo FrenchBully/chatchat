@@ -49,7 +49,7 @@ var ready = function () {
         // },
  
         /**
-         * Handles 'smart layouts' of the chatboxes. Like when new chatboxes are
+         * Handles 'smart layouts' of the chatboxes. E.g. when new chatboxes are
          * added or removed from the view, it restructures them so that they appear
          * neatly aligned on the page
          */
@@ -87,11 +87,12 @@ var ready = function () {
  
         createChatBox: function (chat_id, minimizeChatBox) {
             console.log("creating chat box!!!!");
-            
+
+            // necessary?
             if ($("#chatbox_" + chat_id).length > 0) {
                 if ($("#chatbox_" + chat_id).css('display') == 'none') {
                     $("#chatbox_" + chat_id).css('display', 'block');
-                    chatBox.restructure();
+                    // chatBox.restructure();
                 }
                 $("#chatbox_" + chat_id + " .chatboxtextarea").focus();
                 return;
