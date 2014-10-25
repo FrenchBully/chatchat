@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
     options = { 
         member_id: user.uid,
 
-        time: "0d,14d"
+        time: "0d,7d"
     }
     meetup_api = MeetupApi.new
     return meetup_api.events(options)
@@ -89,13 +89,13 @@ class User < ActiveRecord::Base
     events_today = []
     if events["results"] != nil
       while i < events["results"].length 
-
+        #  the hours at the end should be adjusted to 12 or 24 hours after testing
         if Time.at(events["results"][i]["time"] / 1000) - Time.now < 1200.hours
           
           events_today << {
           :name => events["results"][i]["name"],
           :id => events["results"][i]["id"],
-          :time => Time.at(events["results"][i]["time"] / 1000)
+          :time => Time.at(events["results"][i]["time"] / 1000),
           }
         end
         i += 1

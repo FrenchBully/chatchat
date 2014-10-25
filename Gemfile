@@ -52,7 +52,6 @@ gem 'pry-rails', :group => :development
 
 gem 'private_pub'
 
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
