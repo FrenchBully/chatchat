@@ -37,10 +37,8 @@
 // 	}
 // };
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
 
-$( document ).ready(function(){
+var ready = function(){
 
 		function getLocation() {
 		    if (navigator.geolocation) {
@@ -53,11 +51,14 @@ $( document ).ready(function(){
 		function showPosition(position) {
 			$("#lat").val(position.coords.latitude);
 			$("#lon").val(position.coords.longitude);
+			console.log(position.coords.latitude, position.coords.longitude);
 			// $(".detecting-location").hide();
 			// $("#devise-links").show();
 		}
 		// getLocation();
 		// $("#meetup-auth").click(getLocation());
+
+		getLocation();
 
 		$("#interests").keypress(function(e) {
 			if(e.which == 13) {
@@ -120,7 +121,10 @@ $( document ).ready(function(){
 		 }, "slow");   
 		} 
 
-});
+};
     
 
+ 
+$(document).ready(ready);
+$(document).on("page:load", ready);
 

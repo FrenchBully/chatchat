@@ -28,5 +28,20 @@
 <!-- Dynamically Insert Event Name and Event ID to create/search for existing chat -->
 <%#=  link_to "Join Whatever Chat", '#', class: "btn btn-success btn-xs start-chat", "data-category" => event.name, "data-event_id" => event.id%>
 
+<script>
+	// e.preventDefault();
+	console.log("starting chat box");
+	
+	// grabs data out of the item that was clicked which is setup through html tags
+	var category = "<%= @event_category %>";  
+	var event_id = <%=@event_id%>;
+	
+	$.post("/chats", { category: category, event_id: event_id }, function (data) {
+	    // data consists of chat_id from chat controller
+	    console.log("posted to create/found chat");
+	    chatBox.chatWith(data.chat_id);
+	}); 
+
+</script>
  
 
