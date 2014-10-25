@@ -102,7 +102,7 @@ var ready = function () {
             
             console.log("getting the chat show template");
             
-            $.get("chats/" + chat_id, function (data) {
+            $.get("/chats/" + chat_id, function (data) {
                 // the data returned here is the chatbox with all info
                 // unique id added on plus chatboxcontent class added
                 console.log("got chat data");

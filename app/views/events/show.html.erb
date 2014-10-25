@@ -1,1 +1,20 @@
-<h1>Show Event Chat Page</h1>
+<!-- This is home for chats -->
+
+
+
+
+<script>
+	// e.preventDefault();
+	console.log("starting chat box");
+	
+	// grabs data out of the item that was clicked which is setup through html tags
+	var category = "<%= @event_category %>";  
+	var event_id = <%=@event_id%>;
+	
+	$.post("/chats", { category: category, event_id: event_id }, function (data) {
+	    // data consists of chat_id from chat controller
+	    console.log("posted to create/found chat");
+	    chatBox.chatWith(data.chat_id);
+	}); 
+
+</script>

@@ -3,8 +3,11 @@ class UsersController < ApplicationController
 
 
   def index
+    # this is no longer here
     @users = User.all
     @user = current_user
+    @event_category = "angularjs"
+    @event_id = 1
     # get event.name (@event) and @event.id of chosen event
   end
 
@@ -15,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+
   	@user = User.find(params[:id])
     @interests = Interest.all
     @events = @user.get_user_event_list(@user)
@@ -25,6 +29,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    binding.pry
+
   	@user = User.find(params[:id])
   	if @user.update_attributes(:event_id => params['event_id'], :private_messages => params['user']['private_messages'] ) 
   		@user.save

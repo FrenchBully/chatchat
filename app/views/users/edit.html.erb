@@ -19,8 +19,9 @@
 	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
  -->	<section id='interests'>
 		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
-		<%= f.hidden_field :lat %>
-		<%= f.hidden_field :lon %>
+		<%=f.hidden_field :lat, id: 'lat'%>
+		<%=f.hidden_field :lon, id: 'lon'%>
+
 
 		<div>
 			<label>I would like to discuss:</label>
