@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 before_filter :authenticate_user!
-before_filter :belongs_to_event?
+# before_filter :belongs_to_event?
 
 
   def show
@@ -11,6 +11,7 @@ before_filter :belongs_to_event?
   end
 
   def belongs_to_event?
-    redirect_to '/'
+    # check user to see if he belongs to event
+    # redirect_to '/'
   end
 end
