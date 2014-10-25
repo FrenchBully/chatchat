@@ -99,6 +99,17 @@ class PagesController < ApplicationController
 	    @member = meetup_api.members(member_options)
 
 	end
+
+	def select_meetup
+		@user = current_user
+		params = { 
+	      member_id: @user.uid,
+		}
+
+	    meetup_api = MeetupApi.new
+	    @events = meetup_api.events(params)
+
+	end
 end
 
 # member = User.find_by(meetup_id: params[:random][:meetup_id])

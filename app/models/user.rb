@@ -75,7 +75,8 @@ class User < ActiveRecord::Base
   def get_user_event_list user
     options = { 
         member_id: user.uid,
-        time: "0d,7d"
+
+        time: "0d,14d"
     }
     meetup_api = MeetupApi.new
     return meetup_api.events(options)
@@ -108,6 +109,17 @@ class User < ActiveRecord::Base
     meetup_api = MeetupApi.new
     return meetup_api.events(params)
   end
+
+
+# Look up ActiveRecord Query Interface 
+# SQL command to get shared interests:
+# select email from users left outer join interests_users on user_id = users.id left outer join interests on interests.id = interests_users.interest_id where users.event_id = '212206972';
+
+
+
+
+
+
 
 # not yet implemented
   # def remove_interest(topic)

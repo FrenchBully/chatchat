@@ -5,10 +5,10 @@ class Interest < ActiveRecord::Base
 
   def create
   	@interest = params[:interest].split(/,\s*/)
-	@interest.each do |i|
-	  	new_int = Interest.new(:interest => i)
-	  	new_int.save
-	end
+  	@interest.each do |i|
+  	  	new_int = Interest.new(:interest => i)
+  	  	new_int.save
+  	end
 	# redirect_to interests_path
   end
 

@@ -23,7 +23,6 @@ class UsersController < ApplicationController
     @interests = Interest.all
     @events = @user.get_user_event_list(@user)
     @events_today = @user.get_user_events_today(@events)
-    
 
     # Redirect to chat room event_path(event_that_was_just_made.id) 
   end
@@ -38,13 +37,17 @@ class UsersController < ApplicationController
   	else
   		render 'edit'
   	end
-
   end
 
   def save_interest
     @user = current_user
-    new_interest = Interest.create(:name => params[:interest])
+
+      # if it doesnt exist
+      new_interest = Interest.find_or_create_by(:name => params[:interest])
+      # else find it by name and add it
+
     @user.interests << new_interest
+    # @user.event_id
     respond_to do |format|
      format.json { render json: new_interest }
     end
