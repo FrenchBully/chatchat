@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   devise_scope :user do
     root :to => 'devise/sessions#new'
   end
@@ -11,12 +9,11 @@ Rails.application.routes.draw do
   # get 'users/:id' => 'users#show'
   # get '/users' => 'users#index'
   
-
   post '/get_meetup_info' => 'pages#get_meetup_info'
   get '/select_location' => 'pages#select_location'
 
   post '/save_interest' => 'interests#save_interest'
-  delete '/remove_interest' => 'users#remove_interest'
+  # delete '/remove_interest' => 'users#remove_interest'
 
   resources :chats do
   resources :messages

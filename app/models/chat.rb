@@ -9,14 +9,15 @@ class Chat < ActiveRecord::Base
     Chat.find_by(event_id: event_id, category: category)
   end
 
-  def self.get_current_users
-    users = []
-    chat = Chat.find_by(event_id: @user.event_id)
-    chat.users.each do |u| 
-      users << u.name
-    end
-    return users
-  end
+  # def get_current_users
+  #   users = []
+  #   chat = Chat.find_by(event_id: @user.event_id)
+  #   chat.users.each do |u| 
+  #     users << u.name
+  #   end
+  #   return users
+  # end
+
 end
 
 

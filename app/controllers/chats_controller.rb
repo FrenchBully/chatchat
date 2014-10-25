@@ -32,6 +32,7 @@ class ChatsController < ApplicationController
     @messages = @chat.messages
     # sets input field for new message
     @message = Message.new
+    # @user = User.find(params[:id])
   end
 
   def leavechat
