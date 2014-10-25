@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
 
   post '/get_meetup_info' => 'pages#get_meetup_info'
+  get '/select_meetup' => 'pages#select_meetup'
 
   post '/save_interest' => 'users#save_interest'
   delete '/remove_interest' => 'users#remove_interest'

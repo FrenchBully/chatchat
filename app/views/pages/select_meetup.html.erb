@@ -1,0 +1,5 @@
+You have multiple events today, which are you attending?
+<%= form_for @user do |f| %>
+<%= select_tag :event_id, options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }), class: 'expand', id: 'meetup-dropdown' %>
+<%= f.submit "Save", class: "button" %>
+<% end %>
