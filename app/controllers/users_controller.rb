@@ -29,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
 
   	@user = User.find(params[:id])
   	if @user.update_attributes(:event_id => params['event_id'], :private_messages => params['user']['private_messages'] ) 
@@ -49,7 +48,11 @@ class UsersController < ApplicationController
     respond_to do |format|
      format.json { render json: new_interest }
     end
+
+
   end
+
+
 
   # def remove_interest
   #   @user = current_user
