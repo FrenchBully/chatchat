@@ -100,15 +100,22 @@ class PagesController < ApplicationController
 
 	end
 
-	def select_meetup
+	def select_location
 		@user = current_user
-		params = { 
-	      member_id: @user.uid,
-		}
+	    @events = @user.get_user_event_list(@user)
+	    @events_today = @user.get_user_events_today(@events)
 
-	    meetup_api = MeetupApi.new
-	    @events = meetup_api.events(params)
-
+		# case @events_today
+		if @events_today.length == 0
+			# the user has no events today"
+			redirect_to root_path
+		elsif @events_today.length == 1
+			#  go straight into a chat
+			redirect_to users_path
+		elsif @events_today.length > 1
+			# stay here
+		end
+		
 	end
 end
 
