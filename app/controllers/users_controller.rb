@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = current_user
     @event_category = "angularjs"
     @event_id = 1
+    @chat = Chat.find(params[:id])
     # get event.name (@event) and @event.id of chosen event
   end
 

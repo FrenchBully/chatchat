@@ -96,6 +96,7 @@ class User < ActiveRecord::Base
           :name => events["results"][i]["name"],
           :id => events["results"][i]["id"],
           :time => Time.at(events["results"][i]["time"] / 1000),
+          :group => events["results"][i]["group"]["name"]
           }
         end
         i += 1
