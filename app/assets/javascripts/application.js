@@ -37,10 +37,8 @@
 // 	}
 // };
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
 
-$( document ).ready(function(){
+var ready = function(){
 
 		function getLocation() {
 		    if (navigator.geolocation) {
@@ -53,11 +51,14 @@ $( document ).ready(function(){
 		function showPosition(position) {
 			$("#lat").val(position.coords.latitude);
 			$("#lon").val(position.coords.longitude);
+			console.log(position.coords.latitude, position.coords.longitude);
 			// $(".detecting-location").hide();
 			// $("#devise-links").show();
 		}
 		// getLocation();
 		// $("#meetup-auth").click(getLocation());
+
+		getLocation();
 
 		$("#interests").keypress(function(e) {
 			if(e.which == 13) {
@@ -80,7 +81,10 @@ $( document ).ready(function(){
 		        	url: "/save_interest",
 		        	data: {interest: $("#interests-field").val().replace(/[^a-z0-9\s]/gi, '').toLowerCase() }
 		        }).done(function(response){
-		        	$("#my-interests").append("<li class='interest'><a class='button remote-delete fa fa-times' href='/interests/" + response.id + "'>" + " " + response.name + "</a></li>")
+		        	console.log(response);
+		        	if (!response.error){
+		        		$("#my-interests").append("<li class='interest'><a class='button remote-delete fa fa-times' href='/interests/" + response.id + "'>" + " " + response.name + "</a></li>")
+		        	}
 		        })
 
 		        $("#interests-field").val("")
@@ -120,7 +124,10 @@ $( document ).ready(function(){
 		 }, "slow");   
 		} 
 
-});
+};
     
 
+ 
+$(document).ready(ready);
+$(document).on("page:load", ready);
 

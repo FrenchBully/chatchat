@@ -1,21 +1,9 @@
 var ready = function () {
- 
-
+    
     // On click open conversation 
-    $('.start-chat').click(function (e) {
-        e.preventDefault();
-        console.log("starting chat box");
+    // $('.start-chat').click(function (e) {
         
-        // grabs data out of the item that was clicked which is setup through html tags
-        var category = $(this).data('category');  
-        var event_id = $(this).data('event_id');
- 
-        $.post("/chats", { category: category, event_id: event_id }, function (data) {
-            // data consists of chat_id from chat controller
-            console.log("posted to create/found chat");
-            chatBox.chatWith(data.chat_id);
-        });
-    });
+    // });
  
 
     // Minimizes chat box, cid = @chat.id from view

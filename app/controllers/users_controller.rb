@@ -3,8 +3,11 @@ class UsersController < ApplicationController
 
 
   def index
+    # this is no longer here
     @users = User.all
     @user = current_user
+    @event_category = "angularjs"
+    @event_id = 1
     # get event.name (@event) and @event.id of chosen event
   end
 
@@ -15,9 +18,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    MeetupClient.configure do |config|
-      config.api_key = 'b7d767765272d2b2b13c25e744e13'
-    end
 
   	@user = User.find(params[:id])
     @interests = Interest.all
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   end
 
   def update
+
   	@user = User.find(params[:id])
   	if @user.update_attributes(:event_id => params['event_id'], :private_messages => params['user']['private_messages'] ) 
   		@user.save
@@ -50,7 +51,11 @@ class UsersController < ApplicationController
     respond_to do |format|
      format.json { render json: new_interest }
     end
+
+
   end
+
+
 
   # def remove_interest
   #   @user = current_user

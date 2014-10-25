@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post '/get_meetup_info' => 'pages#get_meetup_info'
   get '/select_meetup' => 'pages#select_meetup'
 
-  post '/save_interest' => 'users#save_interest'
+  post '/save_interest' => 'interests#save_interest'
   delete '/remove_interest' => 'users#remove_interest'
 
   resources :chats do
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   # direct to chat room
-  get '/events/:id' => 'event#show', as: 'event'
+  get '/events/:id' => 'events#show', as: 'event'
 
   post '/unsubscribe/:id' => 'chats#leavechat'
 
