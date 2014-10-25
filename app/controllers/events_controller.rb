@@ -5,8 +5,12 @@ before_filter :authenticate_user!
 
   def show
     # from event_path(event.id) or '/events/:id'
+
+    # should be main chat first
     @event_category = "angularjs"
     @event_id = 1
+
+    # get's all of users active chatrooms for this event
 
     # get_users_with_matching_interests("dcmvrhysnbkc", "ice cream")
     # this is where the chat room is and where it gets setup

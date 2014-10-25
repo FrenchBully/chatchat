@@ -1,12 +1,14 @@
 <!-- This is home for chats -->
-
-
+<div>This div should contain all chats that user can open boxes for</div>
+<%=  link_to "Join main", '#', class: "btn btn-success btn-xs start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
+<%=  link_to "Join subchat", '#', class: "btn btn-success btn-xs start-chat", "data-category" => "subchat", "data-event_id" => 1%>
+<%=  link_to "Join subchat2", '#', class: "btn btn-success btn-xs start-chat", "data-category" => "subchat2", "data-event_id" => 1%>
 
 
 <script>
-	// e.preventDefault();
+
+	// on load, make first chat room based on event params
 	console.log("starting chat box");
-	
 	// grabs data out of the item that was clicked which is setup through html tags
 	var category = "<%= @event_category %>";  
 	var event_id = <%=@event_id%>;
@@ -16,5 +18,18 @@
 	    console.log("posted to create/found chat");
 	    chatBox.chatWith(data.chat_id);
 	}); 
+
+
+
+	$('.start-chat').click(function (e) {
+        e.preventDefault();
+        var category = $(this).data('category');  
+        var event_id = $(this).data('event_id');
+        $.post("/chats", { category: category, event_id: event_id }, function (data) {
+            // data consists of chat_id from chat controller
+            console.log("posted to create/found chat");
+            chatBox.chatWith(data.chat_id);
+        }); 
+    });
 
 </script>
