@@ -23,13 +23,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-<<<<<<< HEAD
- 
-  	@user = User.find(params[:id])
-=======
 
-  	# @user = User.find(params[:id])
->>>>>>> 569ec643c1923b9182fec3313d9f24672188a633
+  	@user = User.find(params[:id])
     @interests = Interest.all
     @events = @user.get_user_event_list(@user)
     @events_today = @user.get_user_events_today(@events)
@@ -38,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    
+
   	@user = User.find(params[:id])
     @selected_events = @user.get_user_event_details(params['event_id'])['results'][0]['name']
     
