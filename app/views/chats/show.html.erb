@@ -1,7 +1,9 @@
 <div class="chatboxhead">
   <div class="chatboxtitle">
    <!--  <i class="fa fa-comments"></i> -->
-
+<% @chat.users.each do |u| %>
+<li><%= u.name %></li>
+<% end %>
    <!-- adjust this to count number of ACTIVE users -->
     <h1><%= @chat.category %> (<%=@chat.users.count%>)</h1>
   </div>
