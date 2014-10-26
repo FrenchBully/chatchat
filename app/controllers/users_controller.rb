@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def edit
 
-  	# @user = User.find(params[:id])
+  	@user = User.find(params[:id])
     @interests = Interest.all
     @events = @user.get_user_event_list(@user)
     @events_today = @user.get_user_events_today(@events)
@@ -33,12 +33,27 @@ class UsersController < ApplicationController
   end
 
   def update
-  	# @user = User.find(params[:id])
-      if @user.update_attributes(:event_id => params['event_id'], :private_messages => params['user']['private_messages'] )
-        @user.save
-          # we need to set this redirect to the main chat room
-        redirect_to edit_user_path(@user)
+
+  	@user = User.find(params[:id])
+    @selected_events = @user.get_user_event_details(params['event_id'])['results'][0]['name']
+    
+    if @user.update_attributes(:event_id => params['event_id'], :event_name => @selected_events)
+      # we need to set this redirect to the main chat room
+  	  # @user = User.find(params[:id])
+      @user.save
+      # we need to set this redirect to the main chat room
+      redirect_to edit_user_path(@user)
   	end
+
+  end
+
+  def update_interest
+    @user = User.find(params[:id])
+    
+    @user.update_attributes(:private_messages => params['update_interest']['private_messages'], :lat => params['update_interest']['lat'], :lon => params['update_interest']['lon'] )
+    # we need to set this redirect to the main chat room
+    redirect_to edit_user_path(@user)
+    
   end
 
   def save_interest
