@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks"}
   resources :users
   resources :interests
+  
   # get 'users/:id' => 'users#show'
   # get '/users' => 'users#index'
 
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
 
   # direct to chat room
   get '/events/:id' => 'events#show'
-
+resources :events
   post '/unsubscribe/:id' => 'chats#leavechat'
 
 end
