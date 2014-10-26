@@ -19,7 +19,7 @@
 	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
  -->	<section id='interests'>
 		<div class='event-title'>
- 			<%= @user.get_user_event_details(@user.event_id)['results'][0]['name'] %>
+ 			<%= @user.event_name %>
  		</div>
 		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
 		<%=f.hidden_field :lat, id: 'lat'%>
