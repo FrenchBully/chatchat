@@ -18,8 +18,10 @@ class UsersController < ApplicationController
 
   def show
     # this is to show user's profile
-  	# @user = User.find(params[:id])
+  	@user = User.find(params[:id])
     @member = @user.show_user(@user)
+
+    response = HTTParty.get("https://api.meetup.com/2/member_id=#{@user.uid}?&sign=access_token=#{@user.auth_token}")
   end
 
   def edit
