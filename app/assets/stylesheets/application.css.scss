@@ -77,17 +77,14 @@ input[type="text"] {
     min-height: 100%;  
     padding: 0px 8px;  
     padding-top: 220px;  
-}
-
-#navigation { 
-    list-style: none; 
-}  
+} 
 
 .menu-photo {
     width: 30px;
     height: 30px;
     border-radius: 15px;
     border: 1px solid #FFF;
+    margin-left: 10px;
 }
 
 .menu-item {
@@ -129,9 +126,10 @@ header {
     padding: 0;
 }
 
-#navigation {
-    padding-left: 20px;
-}
+#navigation { 
+    list-style: none; 
+    padding-left: 0px;
+} 
 
 #navigation > li {
     border-bottom: 1px solid #BBB;
