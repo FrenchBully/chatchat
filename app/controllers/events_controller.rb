@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
 before_filter :authenticate_user!
 # before_filter :belongs_to_event?
+before_action :get_current_users, only: [:show]
+helper_method :get_current_users
+
 
 
   def show
@@ -10,10 +13,19 @@ before_filter :authenticate_user!
     @event_category = "angularjs"
     @event_id = 1
 
-    # get's all of users active chatrooms for this event
+    # event_id needs updated to @user.event_id once all the pieces are in place
+    # gets all of users active chatrooms for this event
 
     # get_users_with_matching_interests("dcmvrhysnbkc", "ice cream")
     # this is where the chat room is and where it gets setup
+  end
+
+  def get_current_users
+    @users = []
+    Chat.find_by(event_id: Chat.all.first.id).users.each do |u|
+      @users << u
+    end
+      return @users
   end
 
   def belongs_to_event?

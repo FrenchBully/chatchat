@@ -1,5 +1,11 @@
 <p><%#= image_tag current_user.photo, class: 'menu-photo' %><%#= link_to current_user.name, user_path %></p>
 <ul id="navigation">
+	<% if params[:controller] == 'events' %>
+	<!-- could add the name of the current event here -->
+		<% get_current_users.each do |u| %>
+			<li><%=u.name %></li>
+		<% end %>
+	<% end %>
 	<li><a href="#">Home</a></li>
 	<li><a href="#">Users</a></li>
 	<li><%= link_to 'Account Settings', edit_user_registration_path %></li>
