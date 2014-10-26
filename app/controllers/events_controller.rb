@@ -5,8 +5,14 @@ before_action :get_current_users, only: [:show]
 helper_method :get_current_users
 
 
+# before_action :get_user, only: [:show, :edit, :update, :save_interest]
+
+#   def get_user
+#     @user = User.find(params[:id])
+#   end
 
   def show
+    @user = current_user
     # from event_path(event.id) or '/events/:id'
 
     # should be main chat first

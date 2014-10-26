@@ -2,6 +2,14 @@
 <ul id="navigation">
 	<% if params[:controller] == 'events' %>
 	<!-- could add the name of the current event here -->
+	<%#= @user.get_user_event_details(@user.event_id)['results'][0]['name'] %>
+	<% @user.chats.each do |c| %>
+		<li class='menu-item'><%= link_to c.category, '#', class: "start-chat" %></li>
+	<% end %>
+
+<%#=  link_to "Join main", '#', class: "start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
+
+
 		<% get_current_users.each do |u| %>
 			<div>
 				<li>
