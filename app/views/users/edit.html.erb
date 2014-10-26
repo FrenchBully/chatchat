@@ -1,7 +1,7 @@
 <div class="container profile">
 <%#= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-
 <%# if @events_today.length > 0 %>
+
 <% if @events["results"] != nil && @events["results"].length > 0 %>
 
 	<section id='profile-details'>
@@ -11,13 +11,16 @@
 		<div id='profile-info-container'>
 			<h1 id='name'><%= @user.name %></h1>
 			<p id='location'><%= @user.location %><%#= link_to " Edit Profile", edit_user_registration_path %></p>
-			<%= form_for @user do |f| %>
+			<%= form_for :save_interest do |f| %>
 			<p><%= f.check_box :private_messages?, id: 'private-messages' %><label for="private-messages">Receive private messages</label></p>
 		</div>
 	</section>
 <!-- 	<label>Meetup Introduction</label>
 	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
  -->	<section id='interests'>
+		<div class='event-title'>
+ 			<%= @user.event_name %>
+ 		</div>
 		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
 		<%=f.hidden_field :lat, id: 'lat'%>
 		<%=f.hidden_field :lon, id: 'lon'%>

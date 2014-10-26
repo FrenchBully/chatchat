@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # get 'users/:id' => 'users#show'
   # get '/users' => 'users#index'
   
+  post '/users/:id/edit' => 'users#update_interest'
 
   post '/get_meetup_info' => 'pages#get_meetup_info'
   get '/select_location' => 'pages#select_location'

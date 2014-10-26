@@ -104,7 +104,7 @@ class PagesController < ApplicationController
 		@user = current_user
 	    @events = @user.get_user_event_list(@user)
 	    @events_today = @user.get_user_events_today(@events)
-
+	    
 		# case @events_today
 		if @events_today.length == 0
 			# the user has no events today"
