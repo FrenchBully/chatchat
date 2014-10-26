@@ -106,9 +106,12 @@ class User < ActiveRecord::Base
   end
 
   def get_user_event_details event_id
-    params = {event_id: event_id}
+    params = {event_id: event_id,
+              member_id: uid}
     meetup_api = MeetupApi.new
+
     return meetup_api.events(params)
+
   end
 
 

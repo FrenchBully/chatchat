@@ -20,6 +20,7 @@
  -->	<section id='interests'>
 		<div class='event-title'>
  			<%= @user.event_name %>
+			 Distance to next event: <%= @user.distance([@user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles
  		</div>
 		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
 		<%=f.hidden_field :lat, id: 'lat'%>
