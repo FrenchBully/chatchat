@@ -3,7 +3,15 @@
 	<% if params[:controller] == 'events' %>
 	<!-- could add the name of the current event here -->
 		<% get_current_users.each do |u| %>
-			<li><%=u.name %></li>
+			<div>
+				<li>
+					<%= image_tag u.photo, class: 'menu-photo' %>
+					<%= link_to u.name, user_path(u), class: 'menu-item' %>
+					<!-- <div class="is-active">
+						&nbsp;
+					</div> -->
+				</li>
+			</div>
 		<% end %>
 	<% end %>
 	<li><a href="#">Home</a></li>

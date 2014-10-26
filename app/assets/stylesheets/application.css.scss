@@ -90,6 +90,22 @@ input[type="text"] {
     border: 1px solid #FFF;
 }
 
+.menu-item {
+    position: relative;
+    color: #FFF;
+    padding: 10px;
+    bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.is-active {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 5px;
+}
+
 
 #site {
     width: 100%;  
@@ -114,7 +130,7 @@ header {
 }
 
 #navigation {
-    padding-left: 0px;
+    padding-left: 20px;
 }
 
 #navigation > li {
