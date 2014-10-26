@@ -73,6 +73,7 @@ class User < ActiveRecord::Base
   end
 
   def get_user_event_list user
+    # control number of events in select_location dropdown
     options = { 
         member_id: user.uid,
 

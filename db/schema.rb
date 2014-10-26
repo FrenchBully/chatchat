@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025192319) do
+ActiveRecord::Schema.define(version: 20141026225419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,8 +83,9 @@ ActiveRecord::Schema.define(version: 20141025192319) do
     t.string   "location"
     t.string   "refresh_token"
     t.integer  "expires_at"
-    t.string   "event_id"
     t.string   "event_name"
+    t.string   "meetup_id"
+    t.string   "event_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

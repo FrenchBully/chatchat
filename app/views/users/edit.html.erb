@@ -3,6 +3,12 @@
 <%# if @events_today.length > 0 %>
 
 <% if @events["results"] != nil && @events["results"].length > 0 %>
+<%= @user.event %>
+<div class='event-title'>
+	<label for="event-name">You are about to enter:</label>
+ 			<h1 id='event-name'><%= @user.get_user_event_details(@user.event_id)['results'][0]['name'] %></h1>
+			 
+ 		</div>
 
 	<section id='profile-details'>
 		<div id='photo-container'>
@@ -17,11 +23,9 @@
 	</section>
 <!-- 	<label>Meetup Introduction</label>
 	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
- -->	<section id='interests'>
-		<div class='event-title'>
- 			<%= @user.get_user_event_details(@user.event_id)['results'][0]['name'] %>
-			 Distance to next event: <%= @user.distance([@user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles
- 		</div>
+ -->
+
+ 	<section id='interests'>
 		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
 		<%=f.hidden_field :lat, id: 'lat'%>
 		<%=f.hidden_field :lon, id: 'lon'%>
@@ -49,7 +53,9 @@
 		<!-- <label for='meetup-dropdown'>Event</label> -->
 		<%#= select_tag :event_id, options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }), class: 'expand', id: 'meetup-dropdown' %>
 
-		<%= f.submit "Save", class: "button" %>
+		<%= f.submit "Enter Chat", class: "button" %>
+
+		
 		<% end %>
 	</section>
 	<% else %>
