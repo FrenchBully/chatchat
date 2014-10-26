@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     
     @user.update_attributes(:private_messages => params['save_interest']['private_messages'], :lat => params['save_interest']['lat'], :lon => params['save_interest']['lon'] )
     # we need to set this redirect to the main chat room
-    edirect_to edit_user_path(@user)
+    redirect_to edit_user_path(@user)
     
   end
 
