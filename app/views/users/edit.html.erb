@@ -11,7 +11,7 @@
 		<div id='profile-info-container'>
 			<h1 id='name'><%= @user.name %></h1>
 			<p id='location'><%= @user.location %><%#= link_to " Edit Profile", edit_user_registration_path %></p>
-			<%= form_for :save_interest do |f| %>
+			<%= form_for :update_interest do |f| %>
 			<p><%= f.check_box :private_messages?, id: 'private-messages' %><label for="private-messages">Receive private messages</label></p>
 		</div>
 	</section>
