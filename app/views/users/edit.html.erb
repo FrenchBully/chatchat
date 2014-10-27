@@ -1,63 +1,60 @@
 <div class="container profile">
-<%#= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-<%# if @events_today.length > 0 %>
-
-<% if @events["results"] != nil && @events["results"].length > 0 %>
-<%= @user.event %>
-<div class='event-title'>
-	<label for="event-name">You are about to enter:</label>
- 			<h1 id='event-name'><%= @user.get_user_event_details(@user.event_id)['results'][0]['name'] %></h1>
-			 
+	<% if @events["results"] != nil && @events["results"].length > 0 %>
+		<div class='event-title'>
+			<label for="event-name">
+				You are about to enter the chat for:
+			</label>
+		 	<h1 id='event-name'>
+		 		<%= @user.get_user_event_details(@user.event_id)['results'][0]['name'] %>
+		 	</h1>		 
  		</div>
+		<section id='profile-details'>
 
-	<section id='profile-details'>
-		<div id='photo-container'>
-			<%= image_tag @user.photo, class: 'photo' %>
-		</div>
-		<div id='profile-info-container'>
-			<h1 id='name'><%= @user.name %></h1>
-			<p id='location'><%= @user.location %><%#= link_to " Edit Profile", edit_user_registration_path %></p>
-			<%= form_for :update_interest do |f| %>
-			<p><%= f.check_box :private_messages?, id: 'private-messages' %><label for="private-messages">Receive private messages</label></p>
-		</div>
-	</section>
-<!-- 	<label>Meetup Introduction</label>
-	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
- -->
+			<div id='photo-container'>
+					<%= image_tag @user.photo, class: 'photo' %>
+			</div>
+			<div id='profile-info-container'>
+				<h1 id='name'><%= @user.name %></h1>
+				<p id='location'><%= @user.location %></p>
+				<%= form_for :update_interest do |f| %>
+				<p>
+					<%= f.check_box :private_messages?, id: 'private-messages' %>
+					<label for="private-messages">Receive private messages</label>
+				</p>
+			</div>
+		</section>
+	 	<section id='interests'>
+	 		<label>Your interests:</label>
+		 		<div class="input-group input-group-lg">
+		 			<span class="input-group-addon">#</span>
+					<%= text_field_tag :interests, nil, placeholder: " Add up to five", id: 'interests-field', class: 'expand' %>	
+				</div>
+				<%=f.hidden_field :lat, id: 'lat'%>
+				<%=f.hidden_field :lon, id: 'lon'%>
 
- 	<section id='interests'>
-		<%= text_field_tag :interests, nil, placeholder: "Enter an interest", id: 'interests-field' %>	
-		<%=f.hidden_field :lat, id: 'lat'%>
-		<%=f.hidden_field :lon, id: 'lon'%>
+				<div>
+					<ul class='interest-cloud' id='my-interests'>
+						<% @user.interests.order("name ASC").each do |interest| %>
+							<li class="interest"><%= link_to interest.name, interest_path(interest), :class => 'remote-delete button' %></li>
+						<% end %>
+					</ul>
+				</div>
+				<div class="popular-interests">
+					<label>Popular topics at this Meetup:</label>
+					<ul class='interest-cloud'>
+						<!-- need to make a method that orders this by popular -->
+					<% @interests.order("name ASC").limit(5).each do |i| %>
+					<li class="interest"><%= link_to i.name, interest_path(i), class: 'button green remote-add' %></li>
 
-<%#= @chat.get_current_users(@user.event_id) %>
-		<div>
-			<label>I would like to discuss:</label>
-			<ul class='interest-cloud' id='my-interests'>
-				<% @user.interests.order("name ASC").each do |interest| %>
-					<li class="interest"><%= link_to (" " + interest.name), interest_path(interest), :class => 'remote-delete button fa fa-times' %></li>
+					<% end %>
+					</ul>
+				
+				</div>
+				<%= f.submit "Start Chatting", class: "btn expand btn-lg" %>
+
+				
 				<% end %>
-			</ul>
-		</div>
-		<div class="popular-interests">
-			<label>Popular topics at this Meetup:</label>
-			<ul class='interest-cloud'>
-				<!-- need to make a method that orders this by popular -->
-			<% @interests.order("name ASC").limit(5).each do |i| %>
-			<li class="interest"><%= link_to (" " + i.name), interest_path(i), class: 'button green fa fa-plus' %></li>
-
-			<% end %>
-			</ul>
-		
-		</div>
-		<!-- <label for='meetup-dropdown'>Event</label> -->
-		<%#= select_tag :event_id, options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }), class: 'expand', id: 'meetup-dropdown' %>
-
-		<%= f.submit "Enter Chat", class: "button" %>
-
-		
-		<% end %>
-	</section>
+			</section>
 	<% else %>
 	Sorry, no events for this user. Come back on the day of a Meetup.
 	<% end %>

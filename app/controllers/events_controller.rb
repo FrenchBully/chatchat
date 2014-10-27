@@ -13,6 +13,7 @@ helper_method :get_current_users
 
   def show
     @user = current_user
+    @chat = Chat.find(Chat.all.first)
     # from event_path(event.id) or '/events/:id'
 
     # should be main chat first

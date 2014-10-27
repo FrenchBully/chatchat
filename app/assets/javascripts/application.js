@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 
 //= require chat
 
@@ -97,6 +98,20 @@ var ready = function(){
 			e.preventDefault();
 			$(this).parent().hide();
 		    $.post(this.href, { _method: 'delete' }, null, "script");
+		});
+
+		// I'm not sure this one works...
+		$('.interest-cloud').on("click", "li.interest a.remote-add", function(e) {
+			e.preventDefault();
+			$.ajax({
+	        	type: "POST",
+	        	url: "/save_interest",
+	        	data: {interest: $("a.remote-add").val() }
+	        }).done(function(response){
+	        	if (!response.error){
+	        		$("#my-interests").append("<li class='interest'><a class='button remote-delete ' href='/interests/" + response.id + "'>" + " " + response.name + "</a></li>")
+	        	}
+	        })
 		});
 
 		$(".main-menu").on("click", function(e){  
