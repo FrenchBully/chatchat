@@ -73,6 +73,7 @@ class User < ActiveRecord::Base
   end
 
   def get_user_event_list user
+    # control number of events in select_location dropdown
     options = { 
         member_id: user.uid,
 
@@ -96,6 +97,7 @@ class User < ActiveRecord::Base
           :name => events["results"][i]["name"],
           :id => events["results"][i]["id"],
           :time => Time.at(events["results"][i]["time"] / 1000),
+          :group => events["results"][i]["group"]["name"]
           }
         end
         i += 1
@@ -105,9 +107,12 @@ class User < ActiveRecord::Base
   end
 
   def get_user_event_details event_id
-    params = {event_id: event_id}
+    params = {event_id: event_id,
+              member_id: uid}
     meetup_api = MeetupApi.new
+
     return meetup_api.events(params)
+
   end
 
 

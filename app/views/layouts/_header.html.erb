@@ -1,5 +1,10 @@
-<header id='header'>
-	<% if user_signed_in? %>
-	<p class="main-menu fa fa-list-ul"></p>
-	<% end %>
+<header>
+		<% if user_signed_in? %>
+			<span class="main-menu fa fa-list-ul"></span>
+			<% if params[:controller] == 'events' %>
+				<div class='page-title'><%= @chat.category %> (<%=@chat.users.count%>)</div>
+				<% else %>
+				arf
+			<% end %>
+		<% end %>
 </header>

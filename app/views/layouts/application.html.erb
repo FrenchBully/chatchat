@@ -10,14 +10,23 @@
     
     <%= csrf_meta_tags %>
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
     <!-- sets meta data for view used for chats-->
     <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 
   </head>
-  <body data-no-turbolink>
+  <body data-no-turbolink id='body'>
     		<% if flash[:alert] %>
-  		    <p class="alert"><%= alert %></p>
+  		    <p id="alert"><%= alert %></p>
   		<% end %>
   		<% if flash[:notice] %>
   		    <p class="notice"><%= notice %></p>

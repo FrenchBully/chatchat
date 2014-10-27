@@ -14,9 +14,13 @@
  *= require_self
  */
 
+.outlines {
+    border: 1px solid red;
+    float: left;
+}
 
 
-body {
+#body {
     background-color: #323232;
     margin: 0;
     box-sizing: border-box;
@@ -50,7 +54,7 @@ label {
 	font-size: 11px;
 }
 
-input[type="email"] {
+/*input[type="email"] {
 	width: 100%;
 	height: 40px;
 	font-size: 22px;
@@ -69,7 +73,7 @@ input[type="text"] {
 	height: 40px;
 	font-size: 22px;
 	margin-bottom: 10px;
-}
+}*/
 
 #menu {  
     position: absolute;  
@@ -77,17 +81,30 @@ input[type="text"] {
     min-height: 100%;  
     padding: 0px 8px;  
     padding-top: 220px;  
-}
-
-#navigation { 
-    list-style: none; 
-}  
+} 
 
 .menu-photo {
     width: 30px;
     height: 30px;
     border-radius: 15px;
     border: 1px solid #FFF;
+    margin-left: 10px;
+}
+
+.menu-item {
+    position: relative;
+    color: #FFF;
+    padding: 10px;
+    bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.is-active {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 5px;
 }
 
 
@@ -103,8 +120,22 @@ input[type="text"] {
 }
 
 header {
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    position: relative;
     /*height: 50px;*/
     /*background-color: #FFF;*/
+}
+
+.page-title {
+    color: #FFF;
+    font-size: 20px;
+    text-align: center;
+    width: 80%;
+    padding-left: 10%;
+    margin: 0 auto;
+    display: inline-block;
 }
 
 #menu {
@@ -113,20 +144,26 @@ header {
     padding: 0;
 }
 
-#navigation {
+#navigation { 
+    list-style: none; 
     padding-left: 0px;
-}
+} 
 
 #navigation > li {
     border-bottom: 1px solid #BBB;
     padding: 5px 10px 5px 10px;
     font-family: 'Roboto', sans-serif;
 }
+.close {
+    float: right;
+    color: red;
+}
 
 .main-menu {
     margin-left: 10px;
     font-size: 18px;
     margin-top: 10px;
+    width: 20px;
     color: #FFF;
 }
 
@@ -193,20 +230,20 @@ header {
 	background-color: #DFF1D7;
 	padding: 15px;
 	border: 1px solid #3d793b;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	font-size: 11px;
 	color: #3d793b;
 	margin-top: 0px;
 }
 
-.alert {
+#alert {
 	background-color: #FCF9E2;
 	padding: 15px;
 	border: 1px solid #8a6e37;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	font-size: 11px;
 	color: #8a6e37;
-	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 #logo {
@@ -223,6 +260,10 @@ header {
 	color: #CCC;
 	position: relative;
 	margin-top: -15px;
+}
+
+#meetup-dropdown {
+    height: 50px;
 }
 
 .detecting-location {
@@ -253,12 +294,12 @@ header {
 }
 
 .profile {
-/*    width: 90%;
-*/}
+    width: 90%;
+}
 
 #profile-details {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 #photo-container {
     width: 100px;
@@ -312,13 +353,16 @@ header {
 }
 
 #interests-field {
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
+    height: 50px;
+    font-size: 20px;
 }
 
 .interest-cloud {
     list-style-type: none;
     margin: -15px 0px 50px 0px;
     padding: 0;
+    text-align: center;
 }
 
 .interest {
@@ -326,6 +370,20 @@ header {
     margin-right: 10px;
     display: inline;
 
+}
+
+#event-name {
+    color: #fff;
+    font-size: 30px;
+    padding-bottom: 20px;
+    margin: 0px 0px 20px 0px;
+}
+
+.apologies {
+    color: #FFF;
+    font-size: 30px;
+    text-align: center;
+    margin: 20px;
 }
 
 .popular-interest {
@@ -340,6 +398,11 @@ header {
     background-color: #3f7f3d;
 }
 
+.pink {
+    background-color: #ff008c;
+    color: #FFF;
+}
+
 select {
     height: 50px;
     -webkit-appearance: menulist-button;
@@ -350,8 +413,8 @@ select {
 .chatbox {
     /*attaches the chat box to the site tag*/
     position: relative;
-    position: expression("absolute");
-    width: 280px;
+    /*position: expression("absolute");*/
+    /*width: 280px;*/
     display: none;
     /*border:10px solid white;*/
     z-index: 100;
@@ -384,7 +447,8 @@ select {
  
 .chatboxcontent {
     font-family: arial, sans-serif;
-    height: 500px;
+    height: 100%;
+    /*height: 500px;*/
     /*width: 266px;*/
     overflow-y: auto;
     padding: 7px;
@@ -494,26 +558,40 @@ select {
     padding-right:30px;
     vertical-align: 24px;
     font-size: 10px;
-    color:rgba(93%,93%,93%,1);
+    color:rgba(0,0,0,.4);
 }
  
 .chatboxinput {
     /*padding: 13px 13px 10px 13px;*/
-    margin-top: 5px;
-    margin-bottom: -500px;
+    /*margin-top: 5px;
+    margin-bottom: -500px;*/
     background-color: #333333;
     /*border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;*/
+    position: fixed;
+    /*position: relative;*/
+    bottom: 0;
+    /*height: 80px;*/
+    width: 100%;
+
+}
+
+#chatbox-input-bg {
+    /*float: left;*/
+    height: 70px;
+    background-color: rgba(0,0,0,0.2);
+    padding: 5px;
 }
  
 .chatboxtextarea {
-    font-size: 14px;
+    font-size: 24px;
     /*width: 245px;*/
     height: 32px;
     padding: 11px 0pt 0px 16px;
     border: 1px solid #eeeeee;
     /*margin: 1px;*/
+    height: 60px;
     width: 100%;
     overflow: hidden;
     resize: none !important;

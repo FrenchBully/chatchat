@@ -104,13 +104,14 @@ class PagesController < ApplicationController
 		@user = current_user
 	    @events = @user.get_user_event_list(@user)
 	    @events_today = @user.get_user_events_today(@events)
-
+	    
 		# case @events_today
 		if @events_today.length == 0
 			# the user has no events today"
 			redirect_to root_path
 		elsif @events_today.length == 1
 			#  go straight into a chat
+			# need to first go to the edit user page, then go into chat
 			redirect_to users_path
 		elsif @events_today.length > 1
 			# stay here

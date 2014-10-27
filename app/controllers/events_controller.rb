@@ -1,19 +1,38 @@
 class EventsController < ApplicationController
 before_filter :authenticate_user!
 # before_filter :belongs_to_event?
+before_action :get_current_users, only: [:show]
+helper_method :get_current_users
 
+
+# before_action :get_user, only: [:show, :edit, :update, :save_interest]
+
+#   def get_user
+#     @user = User.find(params[:id])
+#   end
 
   def show
+    @user = current_user
+    @chat = Chat.find(Chat.all.first)
     # from event_path(event.id) or '/events/:id'
 
     # should be main chat first
     @event_category = "angularjs"
     @event_id = 1
 
-    # get's all of users active chatrooms for this event
+    # event_id needs updated to @user.event_id once all the pieces are in place
+    # gets all of users active chatrooms for this event
 
     # get_users_with_matching_interests("dcmvrhysnbkc", "ice cream")
     # this is where the chat room is and where it gets setup
+  end
+
+  def get_current_users
+    @users = []
+    Chat.find_by(event_id: Chat.all.first.id).users.each do |u|
+      @users << u
+    end
+      return @users
   end
 
   def belongs_to_event?
@@ -24,6 +43,6 @@ before_filter :authenticate_user!
   def get_users_with_matching_interests(event_id, interest_id)
     sql = "Select * from users left outer join interests_users on user_id = users.id left outer join interests on interests.id = interests_users.interest_id where users.event_id = 'dcmvrhysnbkc'"
     matching_emails = ActiveRecord::Base.connection.execute(sql)
-    binding.pry
+
   end
 end
