@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'shoulda/matchers'
 
 describe Interest do
 
@@ -7,8 +8,8 @@ describe Interest do
 		expect(interest).to be_valid
 	end
 
-	it "should belong to a user" do
-		expect(interest).to belong_to(:user)
-	end
+  it { should have_and_belong_to_many(:user) }
+	
+  it { should validate_uniqueness_of(:name).with_message("You've already entered this topic")}
 
 end

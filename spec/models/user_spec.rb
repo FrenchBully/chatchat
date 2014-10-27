@@ -1,25 +1,21 @@
 require 'rails_helper'
+require 'shoulda/matchers'
 
 describe User do
 
 	it "should be not be valid without an email address" do
-		user = User.new(name: 'Steve', password: 'bozotheclown', meetup_id: '123456')
+		user = User.new(name: 'Steve', password: 'bozotheclown')
 		expect(user).to be_invalid
 	end
 
 	it "should have a password 8-digits or longer" do
-		user = User.new(name: 'Steve', email: 'steve@steve.com', password: '1234567', meetup_id: '123456')
+		user = User.new(name: 'Steve', email: 'steve@steve.com', password: '1234567')
 		expect(user).to be_invalid
 	end
 
 	it "should be not be valid without a name" do
-		user = User.new(email: 'steve@steve.com', password: 'bozotheclown', meetup_id: '123456')
+		user = User.new(email: 'steve@steve.com', password: 'bozotheclown')
 		expect(user).to be_invalid
-	end
-
-	it "should require a meetup_id" do
-		user = User.new(name: 'Steve', email: 'steve@steve.com', password: 'bozotheclown', meetup_id: '123456')
-		expect(user).to be_valid
 	end
 
 	context 'when logged in' do
@@ -32,8 +28,9 @@ describe User do
 		it { is_expected.to respond_with 401 }
 	end
 
-	it "should have many interests" do
-		expect(user).to have_many(:interests)
-	end
+  it { should have_and_belong_to_many(:interests) }
 
+  it { should have_many(:messages) }
+
+  
 end
