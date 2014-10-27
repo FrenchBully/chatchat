@@ -377,6 +377,13 @@ header {
     margin: 0px 0px 20px 0px;
 }
 
+.apologies {
+    color: #FFF;
+    font-size: 30px;
+    text-align: center;
+    margin: 20px;
+}
+
 .popular-interest {
     background-color: #CCC;
 }
@@ -387,6 +394,11 @@ header {
 
 .green:hover {
     background-color: #3f7f3d;
+}
+
+.pink {
+    background-color: #ff008c;
+    color: #FFF;
 }
 
 select {
@@ -563,7 +575,7 @@ select {
 }
 
 #chatbox-input-bg {
-    text-align: left;
+    /*float: left;*/
     height: 50px;
     background-color: rgba(0,0,0,0.2);
     padding: 5px;

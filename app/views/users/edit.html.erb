@@ -6,7 +6,7 @@
 			</label>
 		 	<h1 id='event-name'>
 		 		<%= @user.get_user_event_details(@user.event_id)['results'][0]['name'] %>
-		 	</h1>		 
+		 	</h1>
  		</div>
 		<section id='profile-details'>
 
@@ -35,21 +35,21 @@
 				<div>
 					<ul class='interest-cloud' id='my-interests'>
 						<% @user.interests.order("name ASC").each do |interest| %>
-							<li class="interest"><%= link_to interest.name, interest_path(interest), :class => 'remote-delete button' %></li>
+							<li class="interest"><%= link_to ('#' + interest.name), interest_path(interest), :class => 'remote-delete button', :title => 'Delete ' + interest.name %></li>
 						<% end %>
 					</ul>
 				</div>
-				<div class="popular-interests">
+				<!-- <div class="popular-interests">
 					<label>Popular topics at this Meetup:</label>
 					<ul class='interest-cloud'>
-						<!-- need to make a method that orders this by popular -->
-					<% @interests.order("name ASC").limit(5).each do |i| %>
-					<li class="interest"><%= link_to i.name, interest_path(i), class: 'button green remote-add' %></li>
+						
+					<%# @interests.order("name ASC").limit(5).each do |i| %>
+					<li class="interest"><%#= link_to ('#' + i.name), interest_path(i), class: 'button green remote-add' %></li>
 
-					<% end %>
+					<%# end %>
 					</ul>
 				
-				</div>
+				</div> -->
 				<%= f.submit "Start Chatting", class: "btn expand btn-lg" %>
 
 				
