@@ -20,9 +20,11 @@
 	}); 
 
 
+	// delegate to keep track of all items dynamically generated
+	$(document).delegate(".start-chat", "click", function (e) {
 
-	$('.start-chat').click(function (e) {
-        e.preventDefault();
+		console.log("clicked on chat_link");
+        // e.preventDefault();
         var category = $(this).data('category');  
         var event_id = $(this).data('event_id');
         $.post("/chats", { category: category, event_id: event_id }, function (data) {
