@@ -1,18 +1,16 @@
-<div class="chatboxhead">
-  <div class="chatboxtitle">
+<!-- <div class="chatboxhead">
+  <div class="chatboxtitle"> -->
    <!--  <i class="fa fa-comments"></i> -->
-<% @chat.users.each do |u| %>
-<li><%= u.name %></li>
-<% end %>
-   <!-- adjust this to count number of ACTIVE users -->
-    <h1><%= @chat.category %> (<%=@chat.users.count%>)</h1>
-  </div>
+<!-- <%# @chat.users.each do |u| %>
+<li><%#= u.name %></li>
+<%# end %> -->
+<!--   </div>
   <div class="chatboxoptions">
     <%#= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @chat.id %>
     <%#= link_to "<i class='fa  fa-times'></i> ".html_safe, "#", class: "closeChat", "data-cid" => @chat.id %>
   </div>
   <br clear="all"/>
-</div>
+</div> -->
 
 <div class="chatboxcontent">
   <% if @messages.any? %>
@@ -22,9 +20,11 @@
 
 
 <div class="chatboxinput">
+  <div id='chatbox-input-bg' class='expand'>
   <%= form_for([@chat, @message], :remote => true, :html => {id: "chat_form_#{@chat.id}"}) do |f| %>
       <%= f.text_area :body, class: "chatboxtextarea", "data-cid" => @chat.id, placeholder: "Share a message" %>
   <% end %>
+  </div>
 </div>
  
  <!-- faye - to listen for messages on this (chat_path(@chat)) channel to update -->

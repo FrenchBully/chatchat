@@ -20,8 +20,4 @@
 			<% end %>
 		</ul>
 	</section>
-	<section>
-		Distance to next event: <%= @user.distance([@user.get_user_event_details(@user.event_id)['results'][0]['group']['group_lat'], @user.get_user_event_details(@user.event_id)['results'][0]['group']['group_lon']], [@user.lat, @user.lon]) %> miles
-		<% binding.pry %>
-	</section>
 </div>

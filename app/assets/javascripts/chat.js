@@ -123,8 +123,6 @@ var ready = function () {
                 }
             }
 
- 
-
                 // this is where you can give the additional chat boxes some property
                 // add toggle here
                 // if (chatBoxeslength == 0) {

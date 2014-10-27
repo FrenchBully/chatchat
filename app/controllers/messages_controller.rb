@@ -4,10 +4,14 @@ class MessagesController < ApplicationController
   def create
     # check for hashtag spawn room
     
-
+    
     @chat = Chat.find(params[:chat_id])
     # message_params gets the text to be passed 
     @message = @chat.messages.new(message_params)
+    
+
+    # this should be current_user.event_id not @message.chat_id
+    @message.body = @message.find_hash_tags(@message.body, 1)
     @message.user_id = current_user.id
     @message.save!
     @path = chat_path(@chat)
