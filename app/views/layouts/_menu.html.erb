@@ -3,8 +3,8 @@
 	<% if params[:controller] == 'events' %>
 	<!-- could add the name of the current event here -->
 	<%#= @user.get_user_event_details(@user.event_id)['results'][0]['name'] %>
-	<% @user.chats.each do |c| %>
-		<li class='menu-item'><%= link_to c.category, '#', class: "start-chat" %></li>
+	<% @user.chats.order('created_at ASC').each do |c| %>
+		<li class='menu-item'><%= link_to truncate(c.category, length: 20), '#', :data => {category: c.category, event_id: '1'}, class: 'start-chat' %> <span class='close fa fa-times'><%= link_to '', '#' %></span></li>
 	<% end %>
 
 <%#=  link_to "Join main", '#', class: "start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
