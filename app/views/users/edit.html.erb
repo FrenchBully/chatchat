@@ -1,4 +1,7 @@
 <div class="container profile">
+<% if @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'] > 0 %>
+
+
 	<% if @events["results"] != nil && @events["results"].length > 0 %>
 		<div class='event-title'>
 			<label for="event-name">
@@ -57,5 +60,8 @@
 			</section>
 	<% else %>
 	Sorry, no events for this user. Come back on the day of a Meetup.
+	<% end %>
+	<% else %>
+	Your place isn't public, yo! WTF?
 	<% end %>
 </div>

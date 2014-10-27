@@ -1,4 +1,4 @@
-<%# if @user.distance([@user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 100 %>
+<% if @user.distance([@user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 100 %>
 
 	<!-- This is home for chats -->
 	<div></div>
@@ -45,9 +45,9 @@
 
 	</script>
 
-<%# else %>
+<% else %>
 <div class='container'>
-<p class='apologies'>Oops, you're still <%#= @user.distance([@user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles away from the event! Once you arrive, check back again.</p>
-<%#= link_to 'Refresh', event_path, class: 'btn btn-primary btn-lg expand' %>
+<p class='apologies'>Oops, you're still <%= @user.distance([@user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles away from the event! Once you arrive, check back again.</p>
+<%= link_to 'Refresh', event_path, class: 'btn btn-primary btn-lg expand' %>
 </div>
-<%# end %>
+<% end %>
