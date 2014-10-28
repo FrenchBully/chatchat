@@ -10,6 +10,7 @@ gem 'devise'
 
 gem 'thin'
 
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
@@ -23,7 +24,8 @@ end
 
 gem 'pry'
 
-gem 'rails_12factor', group: :production
+gem 'linkedin'
+gem 'omniauth-linkedin'
 
 gem 'ruby_meetup2'
 
