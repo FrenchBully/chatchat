@@ -25,29 +25,35 @@
 		    chatBox.chatWith(data.chat_id);
 		}); 
 
-	// delegate to keep track of all items dynamically generated
-	$(document).delegate(".start-chat", "click", function (e) {
-		e.preventDefault();
-		console.log("clicked on chat_link");
-        // e.preventDefault();
-        var category = $(this).data('category');  
-        var event_id = $(this).data('event_id');
-        if (event_id == null){
-        	event_id = $(this).data('event-id');
-        }
+		// delegate to keep track of all items dynamically generated
+		$(document).delegate(".start-chat", "click", function (e) {
+			e.preventDefault();
+			console.log("clicked on chat_link");
+	        // e.preventDefault();
+	        var category = $(this).data('category');  
+	        var event_id = $(this).data('event_id');
+	        // menu is finnicky with its labeling of data fields
+	        if (event_id == null){
+	        	event_id = $(this).data('event-id');
+	        }
 
-        $.post("/chats", { category: category, event_id: event_id }, function (data) {
-            // data consists of chat_id from chat controller
-            console.log("posted to create/found chat");
-            chatBox.chatWith(data.chat_id);
-        }); 
-    });
+	        $.post("/chats", { category: category, event_id: event_id }, function (data) {
+	            // data consists of chat_id from chat controller
+	            console.log("posted to create/found chat");
+	            chatBox.chatWith(data.chat_id);
+	        }); 
+	    });
+
+	    $("body").css("background-color", "black");
+	    heightpixels = $(window).height()-110;
+	    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
+		$('html > head').append(style);
 
 	</script>
-
+<!-- 
 <%# else %>
 <div class='container'>
 <p class='apologies'>Oops, you're still <%#= @user.distance([@user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles away from the event! Once you arrive, check back again.</p>
 <%#= link_to 'Refresh', event_path, class: 'btn btn-primary btn-lg expand' %>
 </div>
-<%# end %>
+<%# end %> -->

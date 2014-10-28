@@ -8,7 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
+ * file per style scope
  *
  *= require_tree .
  *= require_self
@@ -21,7 +21,7 @@
 
 
 #body {
-    background-color: #323232;
+    /*background-color: #323232;*/
     margin: 0;
     box-sizing: border-box;
 }
@@ -53,27 +53,6 @@ label {
 	font-family: 'Roboto', sans-serif;
 	font-size: 11px;
 }
-
-/*input[type="email"] {
-	width: 100%;
-	height: 40px;
-	font-size: 22px;
-	margin-bottom: 10px;
-}
-
-input[type="password"] {
-	width: 100%;
-	height: 40px;
-	font-size: 22px;
-	margin-bottom: 10px;
-}
-
-input[type="text"] {
-	width: 100%;
-	height: 40px;
-	font-size: 22px;
-	margin-bottom: 10px;
-}*/
 
 #menu {  
     position: absolute;  
@@ -112,7 +91,7 @@ input[type="text"] {
     width: 100%;  
     height: auto;  
     display: block;  
-    min-height: 800px;  
+    /*min-height: 800px;  */
     overflow: hidden;  
     position: relative;  
     z-index: 2;  
@@ -411,7 +390,7 @@ select {
 
 /*Chat styling*/
 .chatbox {
-    /*attaches the chat box to the site tag*/
+    /*attaches the chat box to the site id*/
     position: relative;
     /*position: expression("absolute");*/
     /*width: 280px;*/
@@ -447,11 +426,13 @@ select {
  
 .chatboxcontent {
     font-family: arial, sans-serif;
-    height: 100%;
+    /*height: 100%;*/
     /*height: 500px;*/
+
+
     /*width: 266px;*/
     overflow-y: auto;
-    padding: 7px;
+    padding: 10px;
     /*border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     border-bottom: 1px solid #eeeeee;*/
@@ -569,11 +550,12 @@ select {
     /*border-left: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;*/
-    position: fixed;
-    /*position: relative;*/
-    bottom: 0;
+    /*position: fixed;*/
+
     /*height: 80px;*/
     width: 100%;
+    /*height:100px;*/
+
 
 }
 
@@ -582,6 +564,23 @@ select {
     height: 70px;
     background-color: rgba(0,0,0,0.2);
     padding: 5px;
+}
+
+.message-input-area{
+    display: block;
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+.click-to-send-message{
+    position: relative;
+    top: -25px;
+    padding: 20px;
+    background-color: green;
+    color:white;
+    cursor: pointer;
+    display:inline-block;
+
 }
  
 .chatboxtextarea {
@@ -592,9 +591,11 @@ select {
     border: 1px solid #eeeeee;
     /*margin: 1px;*/
     height: 60px;
-    width: 100%;
-    overflow: hidden;
+    width: 93.9%;
+    overflow-y: auto;
     resize: none !important;
+    display:inline-block;
+
 }
  
 .chatboxtextareaselected {

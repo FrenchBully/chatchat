@@ -12,14 +12,17 @@
     chatbox.append("<%= j render( partial: @message ) %>");
     chatbox.scrollTop(chatbox[0].scrollHeight);
  
-    // changes the classes if the last message is 
-    // doesn't belong to the user
-    // make it an "other" message
-    // if(sender_id != reciever_id){
-    	chatBox.chatWith(id);
-        chatbox.children().last().removeClass("self").addClass("other");        
-    	chatbox.scrollTop(chatbox[0].scrollHeight);
+    
+	// chatBox.chatWith(id);
+    chatbox.children().last().removeClass("self").addClass("other");        
+	chatbox.scrollTop(chatbox[0].scrollHeight);
+
+
+        // changes the classes if the last message is 
+        // doesn't belong to the user
+        // make it an "other" message
+        // if(sender_id != reciever_id){
         // chatBox.notify();
-    // }
+        // }
 
 <% end %>
