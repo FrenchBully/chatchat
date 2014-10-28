@@ -56,10 +56,10 @@ a:hover {
 .welcome {
     font-family: 'Roboto', sans-serif;
     color: #FFF;
-    font-size: 60px;
+    font-size: 5vmax;
     font-weight: lighter;
-    margin-top: 50px;
-    margin-bottom: 60px;
+    margin-top: 5vmax;
+    margin-bottom: 5vmax;
 }
 
 .welcome-button {
@@ -295,7 +295,7 @@ header {
 #about-text {
     position: relative;
     text-align: center;
-    margin: 400px 50px 350px 50px;
+    margin: 400px 50px 250px 50px;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: #333;
