@@ -1,5 +1,5 @@
 <div class="container profile">
-<% if @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'] > 0 %>
+<% if @user.get_user_event_details(@user.event_id)['results'][0]['venue'] != nil %>
 
 
 	<% if @events["results"] != nil && @events["results"].length > 0 %>
@@ -21,7 +21,7 @@
 				<p id='location'><%= @user.location %></p>
 				<%= form_for :update_interest do |f| %>
 				<p>
-					<%= f.check_box :private_messages?, id: 'private-messages' %>
+					<%= f.check_box :private_messages?, { id: 'private-messages', checked: @user.private_messages } %>
 					<label for="private-messages">Receive private messages</label>
 				</p>
 			</div>
@@ -62,6 +62,7 @@
 	Sorry, no events for this user. Come back on the day of a Meetup.
 	<% end %>
 	<% else %>
-	Your place isn't public, yo! WTF?
+	<div class= "apologies">Your place isn't public, yo! WTF?
+	</div>
 	<% end %>
 </div>
