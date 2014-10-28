@@ -1,17 +1,24 @@
 <style type="text/css">
-	body {background-color: #E5E5E5;
+	body {
+		background-color: #E5E5E5;
+    	background: url(assets/suits.jpg) no-repeat; 
+  		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
 	}
 </style>
-
-<div class="container center welcome">
-	<div id="logo-container">
-		<%= image_tag 'metameetup-logo.png', id: 'logo' %>
-	
+<div class='color-filter'>
+<div class="container">
+	<div id="welcome-container">
+		<%= image_tag 'metameetup-logo-white.png', id: 'logo' %>
+	<h1 class='welcome'>Meet the right people at your next meetup.</h1>
 		<div id="devise">
 			<%= render "devise/shared/links" %>
 		</div>
-	</div>
 	<div id='scroll-down'>
 		<%= image_tag 'down-arrow.png' %>
 	</div>
+	</div>
+</div>
 </div>

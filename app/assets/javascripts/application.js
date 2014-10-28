@@ -40,6 +40,14 @@
 
 
 var ready = function(){
+	
+		$(window).load(function() {
+		$('#welcome-container').css('height', window.innerHeight+'px');
+		});
+
+		$(window).resize(function() {
+		$('#welcome-container').css('height', window.innerHeight+'px');
+		});
 
 		$('#scroll-down').click(function() {
 			// e.preventDefault();
@@ -48,6 +56,7 @@ var ready = function(){
     		$('html, body').animate({
 		        scrollTop: $("#about-text").offset().top
 		    }, 1000);
+		    $('#scroll-down').hide();
 		});
 
 		function getLocation() {
