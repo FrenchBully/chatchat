@@ -14,15 +14,10 @@
  *= require_self
  */
 
-.outlines {
-    border: 1px solid red;
-    float: left;
-}
-
-
-#body {
+body {
     /*background-color: #323232;*/
     margin: 0;
+    height: 100%;
     box-sizing: border-box;
 }
 
@@ -93,11 +88,14 @@ label {
     height: 100%;
     height: auto;  
     display: block;  
-    /*min-height: 800px;  */
+    min-height: 800px;  
     overflow: hidden;  
     position: relative;  
     z-index: 2;  
-    /*background-color: #323232;*/
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
 }
 
 header {
@@ -135,10 +133,10 @@ header {
     padding: 5px 10px 5px 10px;
     font-family: 'Roboto', sans-serif;
 }
-.close {
+/*.close {
     float: right;
     color: red;
-}
+}*/
 
 .main-menu {
     margin-left: 10px;
@@ -162,13 +160,17 @@ header {
     /*left:50%;*/
 }
 
+.tall {
+    /*height: 1500px;*/
+}
+
 .button {
 	position: relative;
 	background-color: #407bfb;
 	padding: 20px 40px 20px 40px;
 	border: 0;
 	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	color: #FFF;
 	margin: 10px 0px 10px 0px;
     top: 10px;
@@ -276,6 +278,7 @@ header {
 
 #meetup-dropdown {
     height: 50px;
+    font-size: 20px;
 }
 
 .detecting-location {
@@ -329,17 +332,18 @@ header {
 
 #profile-info-container > #name {
     color: #FFF;
-    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
     font-weight: normal;
     position: relative;
-    padding-top: 30px;
+    padding-top: 25px;
     left: 10px;
     margin: 0px;
 }
 
 #profile-info-container > #location {
     color: #AAA;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     position: relative;
     left: 10px;
@@ -392,8 +396,8 @@ header {
 #private-messages {
     font-size: 20px;
     position: relative;
-    bottom: 45px;
-    left: 110px;
+    bottom: 40px;
+    left: 90px;
 }
 
 .cmn-toggle {
@@ -413,10 +417,10 @@ header {
 
 input.cmn-toggle-round + label {
   padding: 2px;
-  width: 100px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
   background-color: #dddddd;
-  border-radius: 50px;
+  border-radius: 40px;
 }
 input.cmn-toggle-round + label:before,
 input.cmn-toggle-round + label:after {
@@ -430,11 +434,11 @@ input.cmn-toggle-round + label:after {
 input.cmn-toggle-round + label:before {
   right: 1px;
   background-color: #DDD;
-  border-radius: 50px;
+  border-radius: 40px;
   transition: background 0.4s;
 }
 input.cmn-toggle-round + label:after {
-  width: 48px;
+  width: 38px;
   background-color: #fff;
   border-radius: 100%;
   /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
@@ -444,7 +448,7 @@ input.cmn-toggle-round:checked + label:before {
   background-color: #519a4f;
 }
 input.cmn-toggle-round:checked + label:after {
-  margin-left: 50px;
+  margin-left: 40px;
 }
 
 #event-name {
