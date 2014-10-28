@@ -1,44 +1,36 @@
-<div class="container profile">
-<% if @user.get_user_event_details(@user.event_id)['results'][0]['venue']['lat'] > 0 %>
+
+<% if @user.get_user_event_details(@user.event_id)['results'][0]['venue'] != nil %>
 
 
 	<% if @events["results"] != nil && @events["results"].length > 0 %>
-		<div class='event-title'>
+		<section id='profile-details'>
+			<div id='photo-container'>
+				<%= image_tag @user.photo, class: 'photo' %>
+			</div>
+			<div id='profile-info-container'>
+				<h1 id='name'><%= @user.name %></h1>
+				<p id='location'><%= @user.location %></p>
+			</div>
+		</section>
+<div class="container">
+
+		<div class=''>
 			<label for="event-name">
-				You are about to enter the chat for:
+				YOU ARE ABOUT TO ENTER THE CHAT FOR:
 			</label>
 		 	<h1 id='event-name'>
 		 		<%= @user.get_user_event_details(@user.event_id)['results'][0]['name'] %>
 		 	</h1>
  		</div>
-		<section id='profile-details'>
-
-			<div id='photo-container'>
-					<%= image_tag @user.photo, class: 'photo' %>
-			</div>
-			<div id='profile-info-container'>
-				<h1 id='name'><%= @user.name %></h1>
-				<p id='location'><%= @user.location %></p>
-				<%= form_for :update_interest do |f| %>
-				<p>
-					<%= f.check_box :private_messages?, id: 'private-messages' %>
-					<label for="private-messages">Receive private messages</label>
-				</p>
-			</div>
-		</section>
+		
 	 	<section id='interests'>
-	 		<label>Your interests:</label>
-		 		<div class="input-group input-group-lg">
-		 			<span class="input-group-addon">#</span>
+	 		<label>YOUR INTERESTS:</label>
 					<%= text_field_tag :interests, nil, placeholder: " Add up to five", id: 'interests-field', class: 'expand' %>	
-				</div>
-				<%=f.hidden_field :lat, id: 'lat'%>
-				<%=f.hidden_field :lon, id: 'lon'%>
 
 				<div>
 					<ul class='interest-cloud' id='my-interests'>
 						<% @user.interests.order("name ASC").each do |interest| %>
-							<li class="interest"><%= link_to ('#' + interest.name), interest_path(interest), :class => 'remote-delete button', :title => 'Delete ' + interest.name %></li>
+							<li class="interest"><%= link_to ('#' + interest.name), interest_path(interest), :class => 'remote-delete button green', :title => 'Delete ' + interest.name %></li>
 						<% end %>
 					</ul>
 				</div>
@@ -51,17 +43,32 @@
 
 					<%# end %>
 					</ul>
-				
 				</div> -->
-				<%= f.submit "Start Chatting", class: "btn expand btn-lg" %>
+				
+
+			
+			<%= form_for :update_interest do |f| %>
+				<div class="switch">
+					<%= f.check_box :private_messages?, id: 'cmn-toggle-1', class: 'cmn-toggle cmn-toggle-round' %>
+					<label for="cmn-toggle-1"></label>
+					<p id='private-messages'>Allow private messages</p>
+				</div>
+				<div class="switch">
+					<%= f.check_box :linkedin, id: 'cmn-toggle-2', class: 'cmn-toggle cmn-toggle-round' %>
+					<label for="cmn-toggle-2"></label>
+					<p id='private-messages'>Display LinkedIn profile</p>
+				</div>
+					<%=f.hidden_field :lat, id: 'lat'%>
+					<%=f.hidden_field :lon, id: 'lon'%>
+				<%= f.submit "Start Chatting", class: "button expand" %>
 
 				
 				<% end %>
 			</section>
 	<% else %>
-	Sorry, no events for this user. Come back on the day of a Meetup.
+	<p class='apologies'>Sorry, no events for this user. Come back on the day of a Meetup.</p>
 	<% end %>
 	<% else %>
-	Your place isn't public, yo! WTF?
+	<p class='apologies'>Your place isn't public, yo! WTF?</p>
 	<% end %>
 </div>

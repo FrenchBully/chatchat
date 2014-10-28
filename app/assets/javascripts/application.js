@@ -41,6 +41,15 @@
 
 var ready = function(){
 
+		$('#scroll-down').click(function() {
+			// e.preventDefault();
+			$(this).parent().append( "<div id='about-text'><h1>About</h1>MetaMeetup is a site that helps people connect with the right people at Meetup.com events. Don't yet have a meetup.com account? Sign up for one <a href='http://meetup.com'>here</a></div>" );
+		    // $.post(this.href, { _method: 'delete' }, null, "script");
+    		$('html, body').animate({
+		        scrollTop: $("#about-text").offset().top
+		    }, 1000);
+		});
+
 		function getLocation() {
 		    if (navigator.geolocation) {
 		    	// $(".detecting-location").show();
@@ -84,7 +93,7 @@ var ready = function(){
 		        }).done(function(response){
 		        	// console.log(response);
 		        	if (!response.error){
-		        		$("#my-interests").append("<li class='interest'><a class='button remote-delete fa fa-times' href='/interests/" + response.id + "'>" + " " + response.name + "</a></li>")
+		        		$("#my-interests").append("<li class='interest'><a class='button remote-delete' href='/interests/" + response.id + "'>" + "#" + response.name + "</a></li>")
 		        	}
 		        })
 
@@ -138,8 +147,6 @@ var ready = function(){
 		  left: '0px'  
 		 }, "slow");   
 		} 
-
-
 };
     
 

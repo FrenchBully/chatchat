@@ -1,12 +1,1 @@
-<div class="container">
-	<label for='meetup-dropdown'>You have multiple events today, which are you attending?</label>
-	<%= form_for @user do |f| %>
-	<%#= f.hidden_field :private_messages?, id: 'private-messages' %>
-	<%#= f.text_field :private_messages %>
-	<div class='form-group'>
-	<%= select_tag :event_id, options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }), id: 'meetup-dropdown' %>
-	<%= f.submit "Next", class: "btn btn-primary btn-lg" %>
-	<% end %>
-	</div>
-</div>
-
+<%= render 'select_location' %>

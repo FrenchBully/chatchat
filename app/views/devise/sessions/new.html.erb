@@ -1,28 +1,17 @@
-<div class="container center">
-	<div id="logo" class="top-margin"><strong>Meta</strong>Meetup</div>
-	<div id="tagline">meet the right people</div>
-	<!-- <p class="fa fa-location-arrow detecting-location"> Detecting Location...</p> -->
-	<div id="devise-links">
-		<div id="devise"><%= render "devise/shared/links" %></div>
+<style type="text/css">
+	body {background-color: #E5E5E5;
+	}
+</style>
+
+<div class="container center welcome">
+	<div id="logo-container">
+		<%= image_tag 'metameetup-logo.png', id: 'logo' %>
 	
-	<div id="no-meetup">Don't have a Meetup account? <a href="http://meetup.com">Sign up</a></div>
+		<div id="devise">
+			<%= render "devise/shared/links" %>
+		</div>
+	</div>
+	<div id='scroll-down'>
+		<%= image_tag 'down-arrow.png' %>
 	</div>
 </div>
-
-
-
-<!-- 
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-<%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%#= f.email_field :email, autofocus: true, placeholder: "email" %></div>
-  <div><%#= f.password_field :password, autocomplete: "off", placeholder: "password" %></div>
-  <div><%#= f.submit "Log in", class: "button" %></div>
-<%# end %> -->
