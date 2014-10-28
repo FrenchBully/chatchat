@@ -2,33 +2,31 @@
 
 	<script>
 		// on load, make first chat room based on event params
-		console.log("starting chat box");
+		console.log("starting chat");
 		// grabs data out of the item that was clicked which is setup through html tags
 		var category = "<%= @event_category %>";  
 		var event_id = <%=@event_id%>;
 		
 		$.post("/chats", { category: category, event_id: event_id }, function (data) {
 		    // data consists of chat_id from chat controller
-		    console.log("posted to create/found chat");
-		    chatBox.chatWith(data.chat_id);
+		    chatBox.chatWith(data.chat_id, data.chat_name, data.user_count);
 		}); 
 
 		// delegate to keep track of all items dynamically generated for starting other chats
 		$(document).delegate(".start-chat", "click", function (e) {
 			e.preventDefault();
-			console.log("clicked on chat_link");
+			console.log("starting chat");
 	        // e.preventDefault();
 	        var category = $(this).data('category');  
 	        var event_id = $(this).data('event_id');
-	        // menu is finnicky with its labeling of data fields
+	        // menu is finnicky with its labeling of data fields - set if unset
 	        if (event_id == null){
 	        	event_id = $(this).data('event-id');
 	        }
 
 	        $.post("/chats", { category: category, event_id: event_id }, function (data) {
 	            // data consists of chat_id from chat controller
-	            console.log("posted to create/found chat");
-	            chatBox.chatWith(data.chat_id);
+	            chatBox.chatWith(data.chat_id, data.chat_name, data.user_count);
 	        }); 
 	    });
 

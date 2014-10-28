@@ -22,8 +22,9 @@ class ChatsController < ApplicationController
       # adds user to chat (ChatUser join table)
       ChatUser.create(user_id: current_user.id, chat_id: @chat.id)
     end
-    # return this as data in ajax request 
-    render json: { chat_id: @chat.id }
+
+    # return this as data in ajax request, chat id, name, user (later two for heading)
+    render json: { chat_id: @chat.id, chat_name: params[:category], user_count: @chat.users.count}
   end
   
   def show
