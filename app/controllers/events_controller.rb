@@ -17,20 +17,14 @@ helper_method :get_current_users
     # pass these to page
     @event = Event.find(params[:id])
     # these go to startup main chat in erb file to make main chat
-    @event_category = @event.name
+    @event_category = "main"
     @event_id = @event.id
 
 
-    # initialize header with main chat
-    @chat = current_user.chats.find_or_create_by(event_id: @event.id, category: @event_category)
-
-    # @chat = Chat.find(Chat.all.first)
-    # from event_path(event.id) or '/events/:id'
-
-    # should be main chat first
-    # @event_category = "angularjs"
-    # @event_id = 1
-
+    # find main chat so partial header can load with chat info
+    @chat = current_user.chats.find_by(event_id: @event.id, category: @event_category)
+    
+    # binding.pry
     # event_id needs updated to @user.event_id once all the pieces are in place
     # gets all of users active chatrooms for this event
 
@@ -40,7 +34,7 @@ helper_method :get_current_users
 
   def get_current_users
     @users = []
-    Chat.find_by(event_id: Chat.all.first.id).users.each do |u|
+    Chat.find_by(event_id: current_user.event_id, category: "main").users.each do |u|
       @users << u
     end
       return @users
@@ -48,7 +42,7 @@ helper_method :get_current_users
 
   def belongs_to_event?
     # check user to see if he belongs to event
-    # redirect_to '/'
+    # redirect_to root_path
   end
 
   def get_users_with_matching_interests(event_id, interest_id)

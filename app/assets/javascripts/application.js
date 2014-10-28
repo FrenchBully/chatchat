@@ -133,7 +133,12 @@ var ready = function(){
 		  } else {  
 		   closeSidepage();  
 		  }  
-		}); 
+		});
+
+		// hide menu when chat room is clicked
+		$(".hide-menu").on("click", function(e){
+			closeSidepage();
+		});
 
 		function openSidepage() {  
 		 $('#site').animate({  
