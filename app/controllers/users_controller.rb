@@ -37,11 +37,10 @@ class UsersController < ApplicationController
     # make the main default chatroom for this event here
     chat = Chat.find_or_create_by(category: "main", event_id: event.id)
 
-    x = ChatUser.find_or_create_by(chat_id: chat.id, user_id: current_user.id)
-    binding.pry
+    ChatUser.find_or_create_by(chat_id: chat.id, user_id: current_user.id)
 
     # update user profile
-    if @user.update_attributes(event_id: event.id, :event_name => @selected_events)
+    if @user.update_attributes(event_id: event.id, event_name: @selected_events)
       # send to edit profile page
       redirect_to edit_user_path(@user)
   	end
