@@ -93,7 +93,7 @@ var ready = function(){
 		        }).done(function(response){
 		        	// console.log(response);
 		        	if (!response.error){
-		        		$("#my-interests").append("<li class='interest'><a class='button remote-delete' href='/interests/" + response.id + "'>" + "#" + response.name + "</a></li>")
+		        		$("#my-interests").append("<li class='interest'><a class='button remote-delete green' href='/interests/" + response.id + "'>" + "#" + response.name + "</a></li>")
 		        	}
 		        })
 

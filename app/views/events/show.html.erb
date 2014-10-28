@@ -41,9 +41,9 @@
 
 
 <% else %>
-<div class='container'>
+<div class='container center'>
 <p class='apologies'>Oops, you're still <%= @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles away from the event! Once you arrive, check back again.</p>
-<%= link_to 'Refresh', event_path, class: 'btn btn-primary btn-lg expand' %>
+<%= link_to 'Refresh', event_path, class: 'button expand' %>
 </div>
 
 <% end %>
