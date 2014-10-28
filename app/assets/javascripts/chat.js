@@ -1,14 +1,6 @@
-/**
- * Chat logic
- *
- * Most of the js functionality is inspired from anatgarg.com
- * jQuery tag Module from the tutorial
- * http://anantgarg.com/2009/05/13/gmail-facebook-style-jquery-chat/
- *
- */
- 
-// keep track of variables on client side 
-// var chatboxFocus = new Array();
+// js functionality is inspired from anatgarg.com
+
+// keep track of chatboxes on client side 
 var chatBoxes = new Array();
  
 var ready = function () {
@@ -16,18 +8,16 @@ var ready = function () {
     chatBox = {
    
         // Make chatbox by calling createChatBox and adds focus
-        chatWith: function (chat_id) {
- 
-            chatBox.createChatBox(chat_id);
-            // $("#chatbox_" + chat_id + " .chatboxtextarea").focus();
+        chatWith: function (chat_id, chat_name, user_count) { 
+            chatBox.createChatBox(chat_id, chat_name, user_count);
         },
-        createChatBox: function (chat_id) {
-            console.log("creating chat box!!!!");
+        createChatBox: function (chat_id, chat_name, user_count) {
+            console.log("creating chat");
             
             // adds chatbox with unique id to site div
             $("#site").append('<div id="chatbox_' + chat_id + '" class="chatbox"></div>')
             
-            console.log("getting the chat show template");
+            console.log("getting the chat template");
             
             $.get("/chats/" + chat_id, function (data) {
                 // the data returned here is the chatbox with all info
@@ -37,30 +27,22 @@ var ready = function () {
                 $("#chatbox_" + chat_id + " .chatboxcontent").scrollTop($("#chatbox_" + chat_id + " .chatboxcontent")[0].scrollHeight);
             }, "html");
             
-            // $("#chatbox_" + chat_id).css('bottom', '0px');
- 
-            chatBoxeslength = 0;
-
             // chatBoxes refers to array of present chat_boxes
             chatBoxes.push(chat_id);
 
-            console.log("numbers of chat boxes "+ chatBoxes);
-
             // make all other chat boxes except chat_id disappear
             for (x in chatBoxes) {
-                console.log(chatBoxes[x]);
                 // if that chat box was clicked show otherwise hide
                 if(chatBoxes[x] == chat_id){
                     $("#chatbox_" + chatBoxes[x]).css('display', 'block');
+                    
                     // switch out header info
-                    // instead this shows all the time now -issue
-                    // $(".page-title").text("Happy Feet");
+                    $(".page-title").text(chat_name + " (" + user_count + ")");
                 }
                 else{
                     $("#chatbox_" + chatBoxes[x]).css('display', 'none');
                 }
             }
- 
         },
  
         
