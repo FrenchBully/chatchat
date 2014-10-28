@@ -1,16 +1,6 @@
 <% if @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue'] != nil %>
 
 	<% if @events["results"] != nil && @events["results"].length > 0 %>
-
-		<div class='event-title'>
-			<label for="event-name">
-				You are about to enter the chat for:
-			</label>
-		 	<h1 id='event-name'>
-		 		<%= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %>
-		 	</h1>
- 		</div>
-
 		<section id='profile-details'>
 			<div id='photo-container'>
 				<%= image_tag @user.photo, class: 'photo' %>
