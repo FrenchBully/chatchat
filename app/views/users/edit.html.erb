@@ -1,5 +1,5 @@
 <div class="container profile">
-<% if @user.get_user_event_details(@user.event_id)['results'][0]['venue'] != nil %>
+<% if @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue'] != nil %>
 
 
 	<% if @events["results"] != nil && @events["results"].length > 0 %>

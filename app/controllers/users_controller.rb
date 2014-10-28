@@ -7,13 +7,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    # this is no longer here
     @users = User.all
     @user = current_user
-    @event_category = "angularjs"
-    @event_id = 1
-    # @chat = Chat.find(params[:id])
-    # get event.name (@event) and @event.id of chosen event
   end
 
   def show
@@ -25,7 +20,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   	# @user = User.find(params[:id])
     @interests = Interest.all
     @events = @user.get_user_event_list(@user)
@@ -36,14 +30,13 @@ class UsersController < ApplicationController
 
   def update
 
-  	# @user = User.find(params[:id])
+    # get event details of selected event
     @selected_events = @user.get_user_event_details(params['event_id'])['results'][0]['name']
-    
-    if @user.update_attributes(:event_id => params['event_id'], :event_name => @selected_events)
-      # we need to set this redirect to the main chat room
-  	  # @user = User.find(params[:id])
-      @user.save
-      # we need to set this redirect to the main chat room
+    # find existing or create event with id from meetups api and selected event
+    event = Event.find_or_create_by(meetup_event_id: params[:event_id], name: @selected_events)
+    # update user profile
+    if @user.update_attributes(event_id: event.id, :event_name => @selected_events)
+      # send to edit profile page
       redirect_to edit_user_path(@user)
   	end
 

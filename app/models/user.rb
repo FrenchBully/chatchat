@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :interests, through: :interests_users
 
   # used for chats
+  belongs_to :event
   has_many :chat_users
   has_many :chats, through: :chat_users
   has_many :messages
@@ -114,7 +115,7 @@ class User < ActiveRecord::Base
     meetup_api = MeetupApi.new
 
     return meetup_api.events(params)
-
+    
   end
 
 

@@ -13,12 +13,23 @@ helper_method :get_current_users
 
   def show
     @user = current_user
-    @chat = Chat.find(Chat.all.first)
+
+    # pass these to page
+    @event = Event.find(params[:id])
+    # these go to startup main chat in erb file to make main chat
+    @event_category = @event.name
+    @event_id = @event.id
+
+
+    # initialize header with main chat
+    @chat = current_user.chats.find_or_create_by(event_id: @event.id, category: @event_category)
+
+    # @chat = Chat.find(Chat.all.first)
     # from event_path(event.id) or '/events/:id'
 
     # should be main chat first
-    @event_category = "angularjs"
-    @event_id = 1
+    # @event_category = "angularjs"
+    # @event_id = 1
 
     # event_id needs updated to @user.event_id once all the pieces are in place
     # gets all of users active chatrooms for this event
