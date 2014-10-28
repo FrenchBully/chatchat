@@ -34,6 +34,12 @@ class UsersController < ApplicationController
     @selected_events = @user.get_user_event_details(params['event_id'])['results'][0]['name']
     # find existing or create event with id from meetups api and selected event
     event = Event.find_or_create_by(meetup_event_id: params[:event_id], name: @selected_events)
+    # make the main default chatroom for this event here
+    chat = Chat.find_or_create_by(category: "main", event_id: event.id)
+
+    x = ChatUser.find_or_create_by(chat_id: chat.id, user_id: current_user.id)
+    binding.pry
+
     # update user profile
     if @user.update_attributes(event_id: event.id, :event_name => @selected_events)
       # send to edit profile page

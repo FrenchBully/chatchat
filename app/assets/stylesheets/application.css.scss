@@ -104,7 +104,7 @@ header {
     margin: 0 auto;
     position: relative;
     /*height: 50px;*/
-    /*background-color: #FFF;*/
+    background-color: #000;
 }
 
 .page-title {
@@ -668,13 +668,15 @@ select {
 }
 
 .click-to-send-message{
-    position: relative;
-    top: -25px;
+    /*top: -25px;*/
     padding: 20px;
     background-color: green;
     color:white;
     cursor: pointer;
     display:inline-block;
+    width: 10.0%;
+    text-align: center;
+    float: right;
 
 }
  
@@ -686,7 +688,7 @@ select {
     border: 1px solid #eeeeee;
     /*margin: 1px;*/
     height: 60px;
-    width: 93.9%;
+    width: 89.5%;
     overflow-y: auto;
     resize: none !important;
     display:inline-block;

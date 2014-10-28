@@ -52,6 +52,9 @@ var ready = function () {
                 // if that chat box was clicked show otherwise hide
                 if(chatBoxes[x] == chat_id){
                     $("#chatbox_" + chatBoxes[x]).css('display', 'block');
+                    // switch out header info
+                    // instead this shows all the time now -issue
+                    // $(".page-title").text("Happy Feet");
                 }
                 else{
                     $("#chatbox_" + chatBoxes[x]).css('display', 'none');
