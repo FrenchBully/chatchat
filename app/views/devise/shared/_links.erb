@@ -20,8 +20,9 @@
 
 
 <%- if devise_mapping.omniauthable? %>
+<div id='meetup-logo'></div>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to " Connect with #{provider.to_s.titleize}.com", omniauth_authorize_path(resource_name, provider), class: 'button fa fa-calendar-o expand welcome-button', id: 'meetup-auth' %><br />
+    <%= link_to " Connect with #{provider.to_s.titleize}.com", omniauth_authorize_path(resource_name, provider), class: ' fa fa-calendar-o expand welcome-button', id: 'meetup-auth' %><br />
   <% end -%>
 
   <%#- resource_class.omniauth_providers.each do |provider| %>
