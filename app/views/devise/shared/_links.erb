@@ -23,4 +23,9 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to " Connect with #{provider.to_s.titleize}.com", omniauth_authorize_path(resource_name, provider), class: 'button fa fa-calendar-o expand', id: 'meetup-auth' %><br />
   <% end -%>
+
+  <%#- resource_class.omniauth_providers.each do |provider| %>
+    <%#= link_to " Connect with #{resource_class.omniauth_providers[0].to_s.titleize}.com", omniauth_authorize_path(resource_name, resource_class.omniauth_providers[0]), class: 'button fa fa-calendar-o', id: 'meetup-auth' %>
+  <%# end -%>
+  
 <% end -%>

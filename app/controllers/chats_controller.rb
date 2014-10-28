@@ -7,7 +7,7 @@ class ChatsController < ApplicationController
     # look for chat
     # based on event id from meetups
     # create it if it doesn't exist
-    # binding.pry
+
     if Chat.existing_chat(params[:event_id],params[:category]).present?
       @chat = Chat.existing_chat(params[:event_id],params[:category])
 
