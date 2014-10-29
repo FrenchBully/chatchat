@@ -1,1 +1,7 @@
-<%= render 'select_location' %>
+<% if @no_events %>
+	<div class='top-margin'>
+		<p class='apologies'>Consider joining one of these great <a href='http://www.meetup.com/find/'>Meetup.com groups</a></p>
+	</div>
+<% else %>
+	<%= render 'select_location' %>
+<% end %>
