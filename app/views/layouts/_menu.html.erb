@@ -1,4 +1,4 @@
-<div id='menu-user-info'><%= image_tag current_user.photo, class: 'menu-photo' %><%= link_to current_user.name, user_path(@user), id:'logged-in-user-name' %></div>
+<div id='menu-user-info'><%= image_tag current_user.photo, class: 'menu-main-photo' %><%= link_to current_user.name, user_path(@user), id:'logged-in-user-name' %></div>
 
 <ul id="navigation">
 	<label id='menu-label'>CONVERSATIONS</label>
@@ -7,7 +7,7 @@
 	<%#= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %>
 	<% @user.chats.order('created_at ASC').each do |c| %>
 		<li class='menu-item'>
-			<%= link_to "#{truncate(c.category, length: 20)}"+" - #{@chat.event.name[0..30]}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+			<%= link_to "#{truncate(c.category, length: 10)}"+" - #{truncate(@chat.event.name, length: 20)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
 			<% if c.category != 'main' %>
 				<%= link_to remove_chat_path(c), method: :delete, remote: true do %>
 					<span class='close fa fa-times'></span>

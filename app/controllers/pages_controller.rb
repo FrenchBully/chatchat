@@ -79,7 +79,7 @@ class PagesController < ApplicationController
 		}
 
 		member_options = { 
-	      member_id: '6961025',
+	      member_id: @user.uid,
 	      # rsvp: 'yes',
 	      # status: 'upcoming',
 	      # order: 'time',
@@ -93,9 +93,9 @@ class PagesController < ApplicationController
 	      # sig: 'e7c125873db521bf383b3dc0c4e49673ec48c37d'
 		}
 
+	    @events = meetup_api.events(event_options)
 	    meetup_api = MeetupApi.new
 
-	    @events = meetup_api.events(event_options)
 	    @member = meetup_api.members(member_options)
 
 	end
