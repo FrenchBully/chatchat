@@ -53,18 +53,18 @@ class ChatsController < ApplicationController
   def leavechat
     @chat = Chat.find(params[:id])
   end
+
+  def destroy
+    @chat = Chat.find(params[:id])
+    @chat.destroy
+    render nothing: true
+  end
   
   private
   # returns {"sender_id": "x", "recipient_id": "y"}
   def chat_params
     # params.permit(:sender_id, :recipient_id)
     params.permit(:event_id, :category)
-  end
-
-  def destroy
-    @chat = Chat.find(params[:id])
-    @chat.destroy
-    render nothing: true
   end
   
   # def interlocutor(chat)

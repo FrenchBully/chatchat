@@ -15,7 +15,7 @@ class Message < ActiveRecord::Base
       hashtags_removed_arr = message.split(/#\w+/)
       # add links to hashtags
       hashtags.map! do |hashtag|
-        "<a class=" + '"' + "btn btn-success btn-xs start-chat" + '"' + "data-category=" + '"' + hashtag + '"' + "data-event_id=" + '"' + event_id.to_s + '"' + "href=" + '"' + "#" + '"' + ">" + hashtag + "</a>"
+        "<a class=" + '"' + "hashtag start-chat" + '"' + "data-category=" + '"' + hashtag + '"' + "data-event_id=" + '"' + event_id.to_s + '"' + "href=" + '"' + "#" + '"' + ">" + hashtag + "</a>"
         # "<%=link_to " + hashtag + ", " + "#" + ", class: " + "btn btn-success btn-xs start-chat" + ", " + "data-category" + " => " + hashtag + ", "+ "data-event_id" + " => " +  "#{event_id}%>"
         # <%=  link_to "Join main", '#', class: "btn btn-success btn-xs start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
       end

@@ -20,6 +20,16 @@ body {
     height: 100%;
     box-sizing: border-box;
 }
+
+.homepage {
+    background-color: #E5E5E5;
+    background: image-url('suits.jpg') no-repeat; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 p {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
@@ -62,8 +72,8 @@ a:hover {
 }
 
 .welcome-button {
-    background-color: #407bfb;
-    padding: 38px 40px 20px 40px;
+    background-color: rgba(64, 123, 251, .2);
+    padding: 38px 20px 20px 20px;
     border: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
@@ -72,11 +82,12 @@ a:hover {
     outline: none;
     text-align: center;
     height: 100px;
-    border-radius: 3px;
+    border: 2px solid #FFF;
+    /*border-radius: 3px;*/
 }
 
 .welcome-button:hover {
-    background-color: #5984fd;
+    background-color: rgba(64, 123, 251, .4);
     color: #FFF;
     text-decoration: none;
 }
@@ -99,28 +110,56 @@ label {
 
 #menu {  
     position: absolute;  
-    width: 300px;   
+    width: 250px;   
     padding: 0;
     min-height: 100%;  
-    padding: 0px 8px;  
-    background-color: #000; 
+    padding: 0px;  
+    background-color: rgba(0,0,0,.8); 
+}
+
+#menu-user-info {
+    font-family: 'Roboto', sans-serif;
+    height: 40px;
+    background-color: #000;
+    margin-bottom: 5px;
+    /*border-bottom: 1px solid #BBB;*/
+
 }
 
 .menu-photo {
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    border: 1px solid #FFF;
+    width: 40px;
+    height: 40px;
+}
+
+#logged-in-user-name {
+    position: relative;
     margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    top: 2px;
+    /*padding-top: 20px;*/
+    color: #FFF;
+}
+
+#menu-label {
+    position: relative;
+    left: 5px;
 }
 
 .menu-item {
     position: relative;
     color: #FFF;
-    padding: 10px;
-    bottom: 10px;
+    /*padding: 5px;*/
+    /*bottom: 10px;*/
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
+    border-bottom: 1px solid #444;
+    width: 250px;
+    /*height: 30px;*/
+}
+
+.left-padding {
+    padding-left: 10px;
 }
 
 #mail {
@@ -172,6 +211,7 @@ header {
 
 .page-title {
     color: #FFF;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     /*width: 80%;*/
     /*padding-left: 10%;*/
@@ -194,12 +234,18 @@ header {
 #navigation { 
     list-style: none; 
     padding-left: 0px;
+    margin-top: 10px;
 } 
 
 #navigation > li {
-    border-bottom: 1px solid #BBB;
+    border-bottom: 1px solid #444;
     padding: 5px 10px 5px 10px;
     font-family: 'Roboto', sans-serif;
+    width: 300px;
+}
+
+.menu-section {
+    margin-top: 20px;
 }
 /*.close {
     float: right;
@@ -356,6 +402,9 @@ header {
 }
 
 .detecting-location {
+    background: url(ajax-loader.gif) no-repeat center bottom;
+    height: 70px;
+    text-align: center;
     color: #a072b6;
     font-family: 'Roboto', sans-serif;
     font-weight: lighter;
@@ -388,6 +437,7 @@ header {
 .photo {
     width: 100px;
     height: 100px;
+    /*margin-right: 15px;*/
     /*border-radius: 40px;*/
     /*border: 2px solid #FFF;*/
 }
@@ -545,11 +595,12 @@ input.cmn-toggle-round:checked + label:after {
 }
 
 .apologies {
-    color: #407DFC;
-    font-size: 24px;
-    line-height: 28px;
+    color: #666;
+    font-size: 6vw;
+    line-height: 7vw;
     text-align: center;
-    margin: 20px;
+    margin: 10px;
+    margin-bottom: 50px;
 }
 
 .popular-interest {
@@ -678,6 +729,7 @@ select {
     /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);*/
     /*width:100%;*/
     display:block;
+    margin-bottom: 3px;
 }
 .chatboxmessagecontent p{
     margin: 0;
@@ -685,6 +737,7 @@ select {
 .textcontentofmessage
 {   
     display: inline-block;
+
 }
 .time-div{
     display:block;
@@ -700,7 +753,6 @@ select {
     color:rgba(0,0,0,.4);
 }
 .chatboxinput {
-    
     background-color: rgba(0, 0, 0, 1);
     height: 68px;
     width: 100%;
@@ -721,7 +773,6 @@ select {
 .click-to-send-message{
     padding: 10px 20px;
     background-color: #407bfb;
-    /*border:1px solid white;*/
     color: white;
     position: relative;
     transform: translateY(34%);
@@ -739,7 +790,7 @@ select {
 .chatboxtextarea {
     font-size: 16px;
     /* width: 245px; */
-    height: 32px;
+    /*height: 32px;*/
     padding: 7px 0pt 0px 12px;
     border: 1px solid #eeeeee;
     /* margin: 1px; */
@@ -783,5 +834,18 @@ select {
  
 .chatboxtitle {
     text-align: center;
+}
+
+.hashtag {
+    background-color: #519a4f;
+    padding: 0px 5px 1px 5px;
+    color: #FFF;
+    border-radius: 2px;
+}
+
+.hashtag:hover {
+    background-color: #3f7f3d;
+    text-decoration: none;
+    color: #FFF;
 }
 /*end of chat styling*/
