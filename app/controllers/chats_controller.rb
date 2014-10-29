@@ -44,7 +44,7 @@ class ChatsController < ApplicationController
     # message with
     # @reciever = interlocutor(@chat)
     # make chats show in right order
-    @messages = @chat.messages.reverse
+    @messages = @chat.messages
     # sets input field for new message
     @message = Message.new
     # @user = User.find(params[:id])

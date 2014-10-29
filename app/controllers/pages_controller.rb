@@ -115,7 +115,7 @@ class PagesController < ApplicationController
 		elsif @events_today.length == 1
 			#  go straight into a chat
 			# need to first go to the edit user page, then go into chat
-			redirect_to users_path
+			redirect_to edit_users_path
 		elsif @events_today.length > 1
 			# stay here
 		end

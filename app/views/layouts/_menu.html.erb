@@ -7,7 +7,11 @@
 	<%#= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %>
 	<% @user.chats.order('created_at ASC').each do |c| %>
 		<li class='menu-item'>
-			<%= link_to "#{truncate(c.category, length: 10)}"+" - #{truncate(@chat.event.name, length: 20)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+			<% if c.category == 'main' %>
+			<%= link_to "#{c.category}"+" - #{truncate(@chat.event.name, length: 23)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+			<% else %>
+			<%= link_to "#{truncate(c.category, length: 30)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+			<% end %>
 			<% if c.category != 'main' %>
 				<%= link_to remove_chat_path(c), method: :delete, remote: true do %>
 					<span class='close fa fa-times'></span>
@@ -19,10 +23,9 @@
 <%#=  link_to "Join main", '#', class: "start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
 
 <% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 100 %>
-
+<div class='menu-section'>
+	<label id='menu-label'>PEOPLE</label>
 		<% get_current_users.each do |u| %>
-			<div class='menu-section'>
-				<label id='menu-label'>PEOPLE</label>
 				<li class='menu-item'>
 					<%= image_tag u.photo, class: 'menu-photo' %>
 					<%= link_to u.name, user_path(u) %>
