@@ -2,7 +2,7 @@
 		<% if params[:controller] == 'events' %>
 			<span class="main-menu fa fa-list-ul"></span>
 			<%# if params[:controller] == 'events' %>
-				<div class='page-title'><%= @chat.category %> (<%=@chat.users.count%>)</div>
+				<div class='page-title'><%= @chat.category %> - <%=@chat.event.name[0..30]%>(<%=@chat.users.count%>)</div>
 				<% else %>
 			<%# end %>
 		<% end %>

@@ -24,7 +24,7 @@ class ChatsController < ApplicationController
     end
 
     # return this as data in ajax request, chat id, name, user (later two for heading)
-    render json: { chat_id: @chat.id, chat_name: params[:category], user_count: @chat.users.count}
+    render json: { chat_id: @chat.id, chat_name: params[:category], user_count: @chat.users.count, event_name: @chat.event.name[0..10]}
   end
   
   def show

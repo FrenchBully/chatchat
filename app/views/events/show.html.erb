@@ -9,7 +9,7 @@
 		
 		$.post("/chats", { category: category, event_id: event_id }, function (data) {
 		    // data consists of chat_id from chat controller
-		    chatBox.chatWith(data.chat_id, data.chat_name, data.user_count);
+		    chatBox.chatWith(data.chat_id, data.chat_name, data.user_count, data.event_name);
 		}); 
 
 		// delegate to keep track of all items dynamically generated for starting other chats
@@ -24,17 +24,23 @@
 	        	event_id = $(this).data('event-id');
 	        }
 
-	        $.post("/chats", { category: category, event_id: event_id }, function (data) {
+	        $.post("/chats", { category: category, event_id: event_id}, function (data) {
 	            // data consists of chat_id from chat controller
-	            chatBox.chatWith(data.chat_id, data.chat_name, data.user_count);
+	            chatBox.chatWith(data.chat_id, data.chat_name, data.user_count, data.event_name);
 	        }); 
 	    });
 
 		// set chatboxcontent to size of current open window subtract to size appropriately
-	    heightpixels = $(window).height()-110;
+	    heightpixels = $(window).height()-108;
 	    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
 		$('html > head').append(style);
 
+		// track and make message input follow bottom
+		$(window).resize(function() {
+		    heightpixels = $(window).height()-108;
+		    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
+			$('html > head').append(style);	
+		});
 	</script>
 
 
