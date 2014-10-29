@@ -24,10 +24,9 @@
 
 <% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 100 %>
 
-		
+		<% get_current_users.each do |u| %>
 			<div class='menu-section'>
 				<label id='menu-label'>PEOPLE</label>
-				<% get_current_users.each do |u| %>
 				<li class='menu-item'>
 					<%= image_tag u.photo, class: 'menu-photo' %>
 					<%= link_to u.name, user_path(u) %>
