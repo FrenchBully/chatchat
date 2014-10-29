@@ -6,10 +6,12 @@
 	<!-- could add the name of the current event here -->
 	<%#= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %>
 	<% @user.chats.order('created_at ASC').each do |c| %>
-		<li class='menu-item'><%= link_to truncate(c.category, length: 40), '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %> 
+		<li class='menu-item'>
+			<%= link_to "#{truncate(c.category, length: 20)}"+" - #{@chat.event.name[0..30]}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
 			<% if c.category != 'main' %>
-			<%= link_to remove_chat_path(c), method: :delete, remote: true do %><span class='close fa fa-times'></span>
-			<% end %>
+				<%= link_to remove_chat_path(c), method: :delete, remote: true do %>
+					<span class='close fa fa-times'></span>
+				<% end %>
 			<% end %>
 		</li>
 	<% end %>
