@@ -382,6 +382,9 @@ header {
 }
 
 .detecting-location {
+    background: url(ajax-loader.gif) no-repeat center bottom;
+    height: 70px;
+    text-align: center;
     color: #a072b6;
     font-family: 'Roboto', sans-serif;
     font-weight: lighter;
