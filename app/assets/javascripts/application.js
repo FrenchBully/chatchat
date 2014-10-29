@@ -155,7 +155,7 @@ var ready = function(){
 
 		function openSidepage() {  
 		 $('#site').animate({  
-		  left: '300px'  
+		  left: '250px'  
 		 }, "fast");   
 		}  
 
