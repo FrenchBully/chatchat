@@ -1,47 +1,43 @@
-<div id='menu-user-info'><%= image_tag current_user.photo, class: 'menu-main-photo' %><%= link_to current_user.name, user_path(@user), id:'logged-in-user-name' %></div>
+<div id='menu-user-info'>
+	<%= image_tag current_user.photo, class: 'menu-main-photo' %><%= link_to current_user.name, user_path(@user), id:'logged-in-user-name' %>
+</div>
 
 <ul id="navigation">
 	<label id='menu-label'>CONVERSATIONS</label>
+
 	<% if params[:controller] == 'events' %>
-	<!-- could add the name of the current event here -->
-	<%#= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %>
-	<% @user.chats.order('created_at ASC').each do |c| %>
-		<li class='menu-item'>
-			<% if c.category == 'main' %>
-			<%= link_to "#{c.category}"+" - #{truncate(@chat.event.name, length: 23)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
-			<% else %>
-			<%= link_to "#{truncate(c.category, length: 30)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
-			<% end %>
-			<% if c.category != 'main' %>
-				<%= link_to remove_chat_path(c), method: :delete, remote: true do %>
-					<span class='close fa fa-times'></span>
+		<% @user.chats.order('created_at ASC').each do |c| %>
+			<li class='menu-item'>
+				<% if c.category == 'main' %>
+					<%= link_to "#{c.category}"+" - #{truncate(@chat.event.name, length: 23)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+				<% else %>
+					<%= link_to "#{truncate(c.category, length: 30)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
 				<% end %>
-			<% end %>
-		</li>
+				<% if c.category != 'main' %>
+					<%= link_to remove_chat_path(c), method: :delete, remote: true do %>
+					<span class='close fa fa-times'></span>
+					<% end %>
+				<% end %>
+			</li>
+		<% end %>
 	<% end %>
 
-<%#=  link_to "Join main", '#', class: "start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
+	<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 100 %>
 
-<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 100 %>
-
-		<% get_current_users.each do |u| %>
-			<div class='menu-section'>
-				<label id='menu-label'>PEOPLE</label>
+		<div class='menu-section'>
+			<label id='menu-label'>PEOPLE</label>
+			<% get_current_users.each do |u| %>
 				<li class='menu-item'>
 					<%= image_tag u.photo, class: 'menu-photo' %>
 					<%= link_to u.name, user_path(u) %>
-					<!-- <div class="is-active">
-						&nbsp;
-					</div> -->
 				</li>
-			</div>
-		<% end %>
+			<% end %>
+		</div>
 	<% end %>
-	<% end %> 
 
 	<div class='menu-section'>
-	<label id='menu-label'>SETTINGS</label>
-	<li class='left-padding'><%= link_to 'Account Settings', edit_user_registration_path %></li>
-	<li class='left-padding'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+		<label id='menu-label'>SETTINGS</label>
+		<li class='left-padding'><%= link_to 'Account Settings', edit_user_registration_path %></li>
+		<li class='left-padding'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
 	</div>
 </ul>
