@@ -1,4 +1,4 @@
-<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 100 %>
+<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 10000 %>
 
 	<script>
 		// on load, make first chat room based on event params

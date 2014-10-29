@@ -411,13 +411,14 @@ header {
 
 .detecting-location {
     background: url(ajax-loader.gif) no-repeat center bottom;
-    height: 70px;
+    /*background: image-url('preloader.gif') no-repeat;*/
+    height: 100px;
     text-align: center;
-    color: #a072b6;
+    color: #CCC;
     font-family: 'Roboto', sans-serif;
-    font-weight: lighter;
-    font-size: 14px;
-    margin-top: 40px;
+    /*font-weight: lighter;*/
+    font-size: 16px;
+    /*margin-top: 20px;*/
 }
 
 #devise-links {
