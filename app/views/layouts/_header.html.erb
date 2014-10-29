@@ -1,7 +1,7 @@
 <header>
 	<% if params[:controller] == 'users' && params[:action] == 'show' %>
 		<%= link_to "Back", event_path(@user.event_id), class: 'back' %>
-		<% if @user.phone? %>
+		<% if @user.phone != nil %>
 		<a href="sms:#{@user.phone.gsub(/[^0-9a-z ]/, '')};body=supppppp"><span class='fa fa-envelope' id='mail'></span></a>
 		<% end %>
 		<!-- <p class='current-room'><%#= truncate(@user.event_name, length: 30) %></p> -->
