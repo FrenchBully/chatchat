@@ -44,7 +44,7 @@ class ChatsController < ApplicationController
     # message with
     # @reciever = interlocutor(@chat)
     # make chats show in right order
-    @messages = @chat.messages.reverse
+    @messages = @chat.messages
     # sets input field for new message
     @message = Message.new
     # @user = User.find(params[:id])
@@ -55,10 +55,26 @@ class ChatsController < ApplicationController
   end
 
   def destroy
-    @chat = Chat.find(params[:id])
-    @chat.destroy
+    # find that chat user relation and destroy it
+    current_user.chat_users.find_by(chat_id: params[:id]).destroy
     render nothing: true
   end
+
+  def chat_user_exists
+    binding.pry
+    chatuser = Chat.find_by(event_id: params[:event_id], category: params[:category]).chat_users.find_by(user_id: current_user.id)
+    # append with jquery this if it doesn't exist
+    if !chatuser.present?
+      render json: { k: value}
+    # otherwise don't append
+    else
+      render json: { k: value}
+    end 
+
+  end
+
+
+
   
   private
   # returns {"sender_id": "x", "recipient_id": "y"}

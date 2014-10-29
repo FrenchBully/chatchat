@@ -50,12 +50,12 @@
 				<div class="switch">
 					<%= f.check_box :private_messages?, checked: @user.private_messages, id: 'cmn-toggle-1', class: 'cmn-toggle cmn-toggle-round' %>
 					<label for="cmn-toggle-1"></label>
-					<p id='private-messages'>Allow private messages</p>
+					<p id='private-messages'>Allow private</p>
 				</div>
 				<div class="switch">
 					<%= f.check_box :linkedin, id: 'cmn-toggle-2', class: 'cmn-toggle cmn-toggle-round' %>
 					<label for="cmn-toggle-2"></label>
-					<p id='private-messages'>Display LinkedIn profile</p>
+					<p id='private-messages'>Display LinkedIn</p>
 				</div>
 					<%=f.hidden_field :lat, id: 'lat'%>
 					<%=f.hidden_field :lon, id: 'lon'%>

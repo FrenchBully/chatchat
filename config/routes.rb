@@ -23,7 +23,10 @@ Rails.application.routes.draw do
 
   # direct to chat room
   get '/events/:id' => 'events#show'
-resources :events
+  resources :events
+
+  post '/chat_user_check' => 'chats#chat_user_exists'
+
   post '/unsubscribe/:id' => 'chats#leavechat'
 
 end

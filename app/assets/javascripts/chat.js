@@ -42,7 +42,7 @@ var ready = function () {
                 }
                 else{
                     // $("#chatbox_" + chatBoxes[x]).css('display', 'none');
-                    $("#chatbox_" + chatBoxes[x]).css('display', 'none');
+                    $("#chatbox_" + chatBoxes[x]).remove();
 
                 }
             }

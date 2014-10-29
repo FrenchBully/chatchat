@@ -30,6 +30,39 @@
 	        }); 
 	    });
 
+	    // delegate to keep track of all items dynamically generated for starting other chats
+		$(document).delegate("a.hashtag.start-chat", "click", function (e) {
+			e.preventDefault();
+			// gets data and also incase its a finicky link
+			var category = $(this).data('category');
+			var event_id = $(this).data('event_id');
+			if (event_id == null){
+	        	event_id = $(this).data('event-id');
+	        }
+
+			// check if that chat belongs to user
+			$.post("/chat_user_check", { category: category, event_id: event_id}, function (data) {
+	            // data consists of chat_id from chat controller
+
+	            
+	            // chatBox.chatWith(data.chat_id, data.chat_name, data.user_count, data.event_name);
+	        }); 			
+
+			// console.log("starting chat");
+	  //       // e.preventDefault();
+	  //       var category = $(this).data('category');  
+	  //       var event_id = $(this).data('event_id');
+	  //       // menu is finnicky with its labeling of data fields - set if unset
+	  //       if (event_id == null){
+	  //       	event_id = $(this).data('event-id');
+	  //       }
+
+	  //       $.post("/chats", { category: category, event_id: event_id}, function (data) {
+	  //           // data consists of chat_id from chat controller
+	  //           chatBox.chatWith(data.chat_id, data.chat_name, data.user_count, data.event_name);
+	  //       }); 
+	    });
+
 		// set chatboxcontent to size of current open window subtract to size appropriately
 	    heightpixels = $(window).height()-118;
 	    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
