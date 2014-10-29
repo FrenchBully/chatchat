@@ -9,7 +9,10 @@
   <%#= devise_error_messages! %>
 
   <div>
-  <%= f.email_field :email, autofocus: true, placeholder: 'Enter your email', class: 'expand center' %></div>
+    <%= label_tag 'email' %>
+  <%= f.email_field :email, autofocus: true, placeholder: 'Enter your email', class: 'expand center' %>
+  <%= label_tag 'phone' %>
+<%= f.phone :phone, placeholder: 'ex) 555-555-5555', class: 'expand center' %></div>
 
   <!-- <div><%#= f.label :password %> <%# if @validatable %><i>(<%#= @minimum_password_length %> characters minimum)</i><%# end %><br />
     <%#= f.password_field :password, autocomplete: "off" %></div>
