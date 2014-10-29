@@ -1,4 +1,4 @@
-<div id='menu-user-info'><%= image_tag current_user.photo, class: 'menu-photo' %><%= link_to current_user.name, user_path, id:'logged-in-user-name' %></div>
+<div id='menu-user-info'><%= image_tag current_user.photo, class: 'menu-photo' %><%= link_to current_user.name, user_path(@user), id:'logged-in-user-name' %></div>
 
 <ul id="navigation">
 	<label id='menu-label'>CONVERSATIONS</label>
@@ -16,6 +16,7 @@
 
 <%#=  link_to "Join main", '#', class: "start-chat", "data-category" => "angularjs", "data-event_id" => 1%>
 
+<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 100 %>
 
 		<% get_current_users.each do |u| %>
 			<div class='menu-section'>
@@ -30,6 +31,7 @@
 			</div>
 		<% end %>
 	<% end %>
+	<% end %> 
 
 	<div class='menu-section'>
 	<label id='menu-label'>SETTINGS</label>

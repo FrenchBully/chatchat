@@ -20,7 +20,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
   </head>
-  <body data-no-turbolink id='body'>
+
+  <body data-no-turbolink id='body' class=<%= params[:controller] == 'devise/sessions' ? 'homepage' : ''%>>
     		<% if flash[:alert] %>
   		    <p id="alert"><%= alert %></p>
   		<% end %>

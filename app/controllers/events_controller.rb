@@ -30,6 +30,8 @@ helper_method :get_current_users
 
     # get_users_with_matching_interests("dcmvrhysnbkc", "ice cream")
     # this is where the chat room is and where it gets setup
+
+    
   end
 
   def get_current_users
