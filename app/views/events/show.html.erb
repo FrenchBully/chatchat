@@ -35,21 +35,28 @@
 	    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
 		$('html > head').append(style);
 
+		widthpixels = $(window).width()-90;
+		var widthstyle = $('<style>.textcontentofmessage { width: '+widthpixels+'px; }</style>');
+		$('html > head').append(widthstyle);
+
 		// track and make message input follow bottom
 		$(window).resize(function() {
 		    heightpixels = $(window).height()-118;
 		    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
 			$('html > head').append(style);	
+
+			widthpixels = $(window).width()-90;
+			var widthstyle = $('<style>.textcontentofmessage { width: '+widthpixels+'px; }</style>');
+			$('html > head').append(widthstyle);
+
 		});
 	</script>
 
 
 <% else %>
-
 <div class='container center' id='welcome-container'>
 <p class='apologies'>Oops, you're still <%= @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles away from the event! Once you arrive, check back again.</p>
 <%= link_to 'Refresh', event_path, class: 'button expand' %>
-</div>
+</div> 
 
 <% end %>
-

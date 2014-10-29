@@ -37,12 +37,13 @@ var ready = function () {
                     $("#chatbox_" + chatBoxes[x]).css('display', 'block');
                     
                     // switch out header info
-                    $(".page-title").text(chat_name + " - " + event_name + " (" + user_count + ")");
+                    var newHeader = chat_name + " - " + event_name;
+                    $(".page-title").text(newHeader.substring(0,24)+" (" + user_count + ")");
                 }
                 else{
                     // $("#chatbox_" + chatBoxes[x]).css('display', 'none');
                     $("#chatbox_" + chatBoxes[x]).css('display', 'none');
-                    
+
                 }
             }
         },
