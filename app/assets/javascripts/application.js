@@ -59,6 +59,10 @@ var ready = function(){
 		    $('#scroll-down').hide();
 		});
 
+		$('.close').click(function(){
+				$(this).parent().parent().hide();
+		})
+
 		function getLocation() {
 		    if (navigator.geolocation) {
 		    	// $(".detecting-location").show();
