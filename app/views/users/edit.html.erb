@@ -7,20 +7,20 @@
 			</div>
 			<div id='profile-info-container'>
 				<h1 id='name'><%= @user.name %></h1>
-				<p id='location'><%= @user.location %></p>
+				<p id='location'><%= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %></p>
 
 			</div>
 		</section>
 <div class="container">
 
-		<div class=''>
+		<!-- <div class=''>
 			<label for="event-name">
 				YOU ARE ABOUT TO ENTER THE CHAT FOR:
 			</label>
 		 	<h1 id='event-name'>
-		 		<%= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %>
+		 		<%#= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %>
 		 	</h1>
- 		</div>
+ 		</div> -->
 		
 	 	<section id='interests'>
 	 		<label>YOUR INTERESTS:</label>

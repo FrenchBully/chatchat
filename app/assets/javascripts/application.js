@@ -41,6 +41,7 @@
 
 var ready = function(){
 
+
 		$(window).load(function() {
 		$('#welcome-container').css('height', window.innerHeight+'px');
 		});

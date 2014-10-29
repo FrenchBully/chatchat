@@ -47,7 +47,7 @@ a:hover {
 #logo {
     position: relative;
     left: 5px;
-    width: 200px;
+    width: 180px;
 }
 
 /*#logo-container {
@@ -59,7 +59,7 @@ a:hover {
 
 #logo-container {
     margin-top: 20px;
-    width: 200px;
+    width: 180px;
 }
 
 .welcome {
@@ -72,30 +72,59 @@ a:hover {
 }
 
 .welcome-button {
-    background-color: rgba(64, 123, 251, .2);
-    padding: 38px 20px 20px 20px;
-    border: 0;
+    background-color: rgba(64, 123, 251, .8);
+    padding: 34px 10px 20px 10px;
+    margin-top: 20px;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: #FFF;
-    margin: 10px 0px 10px 0px;
+    position: absolute;
+    /*right-margin: auto;*/
     outline: none;
     text-align: center;
     height: 100px;
-    border: 2px solid #FFF;
+    /*border: 2px solid #FFF;*/
     /*border-radius: 3px;*/
 }
 
 .welcome-button:hover {
-    background-color: rgba(64, 123, 251, .4);
+    background-color: rgba(64, 123, 251, 1);
     color: #FFF;
     text-decoration: none;
 }
 
 #welcome-container {
     margin: 0 auto;
+    position: relative;
     width: 90%;
     max-width: 600px;
+}
+
+
+#scroll-down {
+    /*bottom: 0;*/
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    background-color: rgba(255,255,255,.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 9px 5px 5px 5px;
+}
+
+#scroll-down:hover {
+    background-color: rgba(255,255,255,.8);    
+}
+
+#about-text {
+    position: relative;
+    text-align: center;
+    margin: 600px 0px 250px 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #333;
 }
 
 h2 {
@@ -212,6 +241,13 @@ header {
     color: #FFF;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+<<<<<<< HEAD
+=======
+    text-align: center;
+    width: 85%;
+    padding-left: 10%;
+    margin: 0 auto;
+>>>>>>> a29c2ee92dbde48adcb786044e296aa503440df8
     display: inline-block;
     position: relative;
     transform: translateY(-50%);
@@ -237,7 +273,7 @@ header {
     border-bottom: 1px solid #444;
     padding: 5px 10px 5px 10px;
     font-family: 'Roboto', sans-serif;
-    width: 300px;
+    width: 250px;
 }
 
 .menu-section {
@@ -261,7 +297,7 @@ header {
 
 .back {
     position: absolute;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 5px;
     border: 1px solid #222;
     border-radius: 3px;
@@ -339,7 +375,7 @@ header {
 .notice {
 	background-color: #DFF1D7;
 	padding: 15px;
-	border: 1px solid #3d793b;
+	/*border: 1px solid #3d793b;*/
 	/*border-radius: 5px;*/
 	font-size: 11px;
 	color: #3d793b;
@@ -350,7 +386,7 @@ header {
 #alert {
 	background-color: #FCF9E2;
 	padding: 15px;
-	border: 1px solid #8a6e37;
+	/*border: 1px solid #8a6e37;*/
 	/*border-radius: 5px;*/
 	font-size: 11px;
 	color: #8a6e37;
@@ -366,30 +402,6 @@ header {
 	margin-top: -15px;
 */}
 
-#scroll-down {
-    /*bottom: 0;*/
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    background-color: rgba(255,255,255,.2);
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    padding: 9px 5px 5px 5px;
-}
-
-#scroll-down:hover {
-    background-color: rgba(255,255,255,.8);    
-}
-
-#about-text {
-    position: relative;
-    text-align: center;
-    margin: 400px 0px 250px 0px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    color: #333;
-}
 
 #meetup-dropdown {
     height: 50px;

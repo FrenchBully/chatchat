@@ -7,7 +7,7 @@
 		</div>
 		<div id='profile-info-container'>
 			<h1 id='name'><%= @user.name %></h1>
-			<p id='location'><%= @user.location %></p>
+			<p id='location'><%= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %></p>
 		</div>
 	</section>
 <div class="container">
