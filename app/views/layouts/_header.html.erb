@@ -1,9 +1,13 @@
 <header>
-		<% if params[:controller] == 'events' %>
+	<% if params[:controller] == 'users' && params[:action] == 'show' %>
+		<%= link_to "Back", event_path(@user.event_id), class: 'back' %>
+		<span class='fa fa-envelope' id='mail'></span>
+		<!-- <p class='current-room'><%#= truncate(@user.event_name, length: 30) %></p> -->
+		<% else %>
 			<span class="main-menu fa fa-list-ul"></span>
 			<%# if params[:controller] == 'events' %>
-				<div class='page-title'><%= @chat.category %> (<%=@chat.users.count%>)</div>
-				<% else %>
+				<div class='page-title'><%#= @chat.category %> <%#=@chat.users.count%></div>
+				<%# else %>
 			<%# end %>
 		<% end %>
 </header>

@@ -1,4 +1,6 @@
-<div class="container profile">
+<%#= @user.private_messages? ? (link_to " Send Private Message", users_path, class: 'private-message fa fa-envelope') : "" %>
+<%= render 'layouts/header' %>
+
 	<section id='profile-details'>
 		<div id='photo-container'>
 			<%= image_tag @user.photo, class: 'photo' %>
@@ -6,18 +8,23 @@
 		<div id='profile-info-container'>
 			<h1 id='name'><%= @user.name %></h1>
 			<p id='location'><%= @user.location %></p>
-			<p><%= @user.private_messages? ? (link_to " Send Private Message", users_path, class: 'private-message fa fa-envelope') : "" %></p>
 		</div>
 	</section>
+<div class="container">
 <!-- 	<label>Meetup Introduction</label>
 	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
  -->	<%#= @member %>
 	<section id='interests'>
-		<label>Interests</label>
+		<label>INTERESTS</label>
 		<ul class='interest-cloud'>
 			<% @user.interests.each do |interest| %>
-				<li class="interest"><%= link_to ("#" + interest.name), interest_path(interest), class: 'button' %></li>
+				<li class="interest"><%= link_to ("#" + interest.name), interest_path(interest), class: 'green button' %></li>
 			<% end %>
 		</ul>
+	</section>
+	<section>
+		<label>LINKEDIN SUMMARY</label>
+		<p><%# @user.linkedin_summary %>The page you were looking for doesn't exist. You may have mistyped the address or the page may have moved. If you are the application owner check the logs for more information.</p>
+		<a class='' id='linkedin-button' href='<%#= @user.linkedin_url %>'>View Profile on <span>LinkedIn<span></a>
 	</section>
 </div>

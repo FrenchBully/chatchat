@@ -88,8 +88,6 @@ a:hover {
     max-width: 600px;
 }
 
-
-
 h2 {
 	font-family: 'Roboto', sans-serif;
 }
@@ -102,11 +100,12 @@ label {
 
 #menu {  
     position: absolute;  
-    width: 180px;   
+    width: 300px;   
+    padding: 0;
     min-height: 100%;  
     padding: 0px 8px;  
-    padding-top: 220px;  
-} 
+    background-color: #000; 
+}
 
 .menu-photo {
     width: 30px;
@@ -123,6 +122,19 @@ label {
     bottom: 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
+}
+
+#mail {
+    color: #FFF;
+    float: right;
+    position: relative;
+    margin-right: 10px;
+    margin-top: 8px;
+    font-size: 24px;
+}
+
+#mail:hover {
+    color: #CCC;
 }
 
 .is-active {
@@ -176,12 +188,6 @@ header {
     /*position: fixed;*/
 }
 
-#menu {
-    background-color: #000;
-    width: 300px;
-    padding: 0;
-}
-
 #navigation { 
     list-style: none; 
     padding-left: 0px;
@@ -205,15 +211,34 @@ header {
     color: #FFF;
 }
 
+.back {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 5px;
+    border: 1px solid #222;
+    border-radius: 3px;
+    background-color: #111;
+    padding: 5px 20px 5px 20px;
+    color: #EEE;
+}
+
+.back:hover {
+    text-decoration: none;
+    color: #EEE;
+    background-color: #222;
+}
+
+.current-room {
+    text-align: center;
+    color: #FFF;
+    padding-top: 10px;
+}
+
 .container {
     /*width: 100%;*/
 	margin: 0;
     padding: 20px;
     /*left:50%;*/
-}
-
-.tall {
-    /*height: 1500px;*/
 }
 
 .button {
@@ -225,7 +250,7 @@ header {
 	font-size: 18px;
 	color: #FFF;
 	margin: 10px 0px 10px 0px;
-    top: 10px;
+    /*top: 10px;*/
 	outline: none;
     white-space: nowrap;
     text-align: center;
@@ -271,6 +296,7 @@ header {
 	font-size: 11px;
 	color: #3d793b;
 	margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 #alert {
@@ -320,6 +346,7 @@ header {
 #meetup-dropdown {
     height: 50px;
     font-size: 20px;
+    border: 1px solid #CCC;
 }
 
 .detecting-location {
@@ -349,7 +376,7 @@ header {
 #profile-details {
     width: 100%;
     height: 100px;
-    /*margin-bottom: 30px;*/
+    margin-bottom: 30px;
 }
 
 .photo {
@@ -413,14 +440,14 @@ header {
 
 
 #interests-field {
-    /*margin-bottom: 40px;*/
+    margin-bottom: 20px;
     height: 50px;
     font-size: 20px;
 }
 
 .interest-cloud {
     list-style-type: none;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     padding: 0;
 }
 
@@ -428,6 +455,18 @@ header {
     line-height: 70px;
     margin-right: 10px;
     display: inline;
+}
+
+#linkedin-button {
+    position: absolute;
+    margin-top: 10px;
+    padding-top: 15px;
+    background-color: #EEE;
+    color: #666;
+    border: none;
+    height: 50px;
+    text-align: center;
+    width: 80%;
 }
 
 .switch {
@@ -493,8 +532,8 @@ input.cmn-toggle-round:checked + label:after {
 }
 
 #event-name {
-    color: #666;
-    font-size: 30px;
+    color: #333;
+    font-size: 20px;
     /*padding-bottom: 20px;*/
     margin: 0px 0px 20px 0px;
 }
@@ -716,12 +755,12 @@ select {
 
 .click-to-send-message{
     /*top: -25px;*/
-    padding: 20px;
+    padding: 20px 1vw 20px 1vw;
     background-color: green;
     color:white;
     cursor: pointer;
     display:inline-block;
-    width: 10.0%;
+    width: 15%;
     text-align: center;
     float: right;
 
@@ -735,7 +774,7 @@ select {
     border: 1px solid #eeeeee;
     /*margin: 1px;*/
     height: 60px;
-    width: 89.5%;
+    width: 84.5%;
     overflow-y: auto;
     resize: none !important;
     display:inline-block;
