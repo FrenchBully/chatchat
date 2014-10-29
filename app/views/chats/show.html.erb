@@ -11,7 +11,7 @@
 
 
 <!-- hide this data and replace it in the header -->
-<div class="chatboxcontent" id="chatboxcontent_<%=@chat.id%>" data-chatname=<%=@chat.category%> data-numberofusers=<%=@chat.users.count%>>
+<div class="chatboxcontent" id="chatboxcontent_<%=@chat.id%>">
   <% if @messages.any? %>
       <%= render @messages %>
   <% end %>

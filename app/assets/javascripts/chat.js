@@ -8,10 +8,10 @@ var ready = function () {
     chatBox = {
    
         // Make chatbox by calling createChatBox and adds focus
-        chatWith: function (chat_id, chat_name, user_count) { 
-            chatBox.createChatBox(chat_id, chat_name, user_count);
+        chatWith: function (chat_id, chat_name, user_count, event_name) { 
+            chatBox.createChatBox(chat_id, chat_name, user_count, event_name);
         },
-        createChatBox: function (chat_id, chat_name, user_count) {
+        createChatBox: function (chat_id, chat_name, user_count, event_name) {
             console.log("creating chat");
             
             // adds chatbox with unique id to site div
@@ -37,14 +37,15 @@ var ready = function () {
                     $("#chatbox_" + chatBoxes[x]).css('display', 'block');
                     
                     // switch out header info
-                    $(".page-title").text(chat_name + " (" + user_count + ")");
+                    $(".page-title").text(chat_name + " - " + event_name + " (" + user_count + ")");
                 }
                 else{
                     $("#chatbox_" + chatBoxes[x]).css('display', 'none');
                 }
             }
         },
- 
+        
+
         
         // checks input box for enter key
         checkInputKey: function (event, chatboxtextarea, chat_id) {
@@ -52,9 +53,9 @@ var ready = function () {
             // when u go to a new line using shift enter don't submit
             // otherwise execute this
             if (event.keyCode == 13 && event.shiftKey == 0) {
-                // event.preventDefault();
+                event.preventDefault();
                 // console.log(event.shiftKey);
- 
+            
                 message = chatboxtextarea.val();
                 // empty input field
                 message = message.replace(/^\s+|\s+$/g, "");
