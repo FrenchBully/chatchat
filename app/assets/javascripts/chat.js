@@ -53,9 +53,9 @@ var ready = function () {
             // when u go to a new line using shift enter don't submit
             // otherwise execute this
             if (event.keyCode == 13 && event.shiftKey == 0) {
-                // event.preventDefault();
+                event.preventDefault();
                 // console.log(event.shiftKey);
- 
+            
                 message = chatboxtextarea.val();
                 // empty input field
                 message = message.replace(/^\s+|\s+$/g, "");
