@@ -1,14 +1,11 @@
-<!-- Fix headers for chats/ jquery to update-->
-
-<!-- Find instances of event_id and fix -->
-
-<!-- try to animate auto scroll when new message appended -->
-
-<!-- styling ideas -->
-
-<!-- query common interests -->
+<!-- Prevent multiple chats subscription -->
+<!-- add row to chatusers model subscribed? -->
+<!-- on events controller add all chat_users set subscribe to false -->
+<!-- each click subscribe if true -->
 
 
+<!-- maxed number of chats -->
+<!-- toggle between chats -->
 
 <!-- hide this data and replace it in the header -->
 <div class="chatboxcontent" id="chatboxcontent_<%=@chat.id%>">
@@ -30,5 +27,10 @@
   </div>
 </div>
  
- <!-- faye - to listen for messages on this (chat_path(@chat)) channel to update -->
-<%= subscribe_to chat_path(@chat) %>
+<!-- check to see if user already subscribed without refreshing, set and save after -->
+<% if current_user.chat_users.find_by(chat_id: @chat.id).subscribed == false%>
+  <%= subscribe_to chat_path(@chat) %>
+  <% x = current_user.chat_users.find_by(chat_id: @chat.id); x.subscribed = true; x.save%>
+<%end%>  
+  
+

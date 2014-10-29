@@ -40,7 +40,9 @@ var ready = function () {
                     $(".page-title").text(chat_name + " - " + event_name + " (" + user_count + ")");
                 }
                 else{
+                    // $("#chatbox_" + chatBoxes[x]).css('display', 'none');
                     $("#chatbox_" + chatBoxes[x]).css('display', 'none');
+                    
                 }
             }
         },

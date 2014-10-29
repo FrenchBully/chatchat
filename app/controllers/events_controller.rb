@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 before_filter :authenticate_user!
-# before_filter :belongs_to_event?
+before_filter :belongs_to_event?
 before_action :get_current_users, only: [:show]
 helper_method :get_current_users
 
@@ -12,6 +12,13 @@ helper_method :get_current_users
 #   end
 
   def show
+
+    # on refresh reset to prevent duplicate subscriptions
+    current_user.chat_users.each do |chat_user|
+      chat_user.subscribed = false
+      chat_user.save
+    end
+
     @user = current_user
 
     # pass these to page
@@ -41,8 +48,9 @@ helper_method :get_current_users
   end
 
   def belongs_to_event?
-    # check user to see if he belongs to event
-    # redirect_to root_path
+    if current_user.event_id.to_s != params[:id]
+      redirect_to root_path
+    end
   end
 
   def get_users_with_matching_interests(event_id, interest_id)
@@ -51,3 +59,4 @@ helper_method :get_current_users
 
   end
 end
+  

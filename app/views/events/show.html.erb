@@ -31,13 +31,13 @@
 	    });
 
 		// set chatboxcontent to size of current open window subtract to size appropriately
-	    heightpixels = $(window).height()-108;
+	    heightpixels = $(window).height()-118;
 	    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
 		$('html > head').append(style);
 
 		// track and make message input follow bottom
 		$(window).resize(function() {
-		    heightpixels = $(window).height()-108;
+		    heightpixels = $(window).height()-118;
 		    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
 			$('html > head').append(style);	
 		});
