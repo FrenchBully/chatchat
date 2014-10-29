@@ -7,11 +7,12 @@
 			</div>
 			<div id='profile-info-container'>
 				<h1 id='name'><%= @user.name %></h1>
-				<p id='location'><%= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %></p>
+				<p id='location'><%= truncate(@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'], length: 26) %></p>
 
 			</div>
 		</section>
-<div class="container">
+
+		<div class="container">
 
 		<!-- <div class=''>
 			<label for="event-name">

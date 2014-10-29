@@ -471,18 +471,21 @@ header {
     height: 100px;
     /*padding-left: 30px;*/
     width: 100%;
+    /*min-width: 300px;*/
     background-color: #333;
 }
 
 #profile-info-container > #name {
     color: #FFF;
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 5vw;
     font-weight: normal;
     position: relative;
     padding-top: 25px;
+    /*padding-right: 20px;*/
     left: 10px;
     margin: 0px;
+    width: 90%;
 }
 
 #profile-info-container > #location {
@@ -492,6 +495,8 @@ header {
     position: relative;
     left: 10px;
     margin: 0;
+        width: 90%;
+
 }
 
 .container-edit {
@@ -550,10 +555,11 @@ header {
 }
 
 #private-messages {
-    font-size: 20px;
+    font-size: 16px;
     position: relative;
     bottom: 40px;
     left: 90px;
+    width: 200px;
 }
 
 .cmn-toggle {
