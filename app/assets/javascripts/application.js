@@ -61,8 +61,8 @@ var ready = function(){
 
 		function getLocation() {
 		    if (navigator.geolocation) {
-		    	// $(".detecting-location").show();
-		    	// $("#devise-links").hide();
+		    	$(".detecting-location").show();
+		    	$("#start-chat").hide();
 		        navigator.geolocation.getCurrentPosition(showPosition);
 		    } 
 		}
@@ -71,8 +71,8 @@ var ready = function(){
 			$("#lat").val(position.coords.latitude);
 			$("#lon").val(position.coords.longitude);
 			// console.log(position.coords.latitude, position.coords.longitude);
-			// $(".detecting-location").hide();
-			// $("#devise-links").show();
+			$(".detecting-location").hide();
+			 $("#start-chat").show();
 		}
 		// getLocation();
 		// $("#meetup-auth").click(getLocation());
