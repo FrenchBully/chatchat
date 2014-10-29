@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   def update_interest
     # @user = User.find(params[:id])
     
-    @user.update_attributes(:private_messages => params['update_interest']['private_messages'], :lat => params['update_interest']['lat'], :lon => params['update_interest']['lon'] )
+    @user.update_attributes(:private_messages => params['update_interest']['private_messages'], :lat => params['update_interest']['lat'], :lon => params['update_interest']['lon'], :phone => params['update_interest']['phone'] )
     # we need to set this redirect to the main chat room
     # redirect_to edit_user_path(@user)
     redirect_to event_path(@user.event_id)
