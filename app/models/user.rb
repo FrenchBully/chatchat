@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
     options = { 
         member_id: user.uid,
 
-        time: "0d,3d"
+        time: "0d,7d"
     }
     meetup_api = MeetupApi.new
     return meetup_api.events(options)

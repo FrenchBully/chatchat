@@ -22,8 +22,6 @@ group :development, :test do
 end
 # Bind that shit
 gem 'pry'
-# A necessary evil
-gem 'ruby_meetup2'
 # Ugh
 gem 'omniauth'
 # Double-ugh
