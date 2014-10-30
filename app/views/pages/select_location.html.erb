@@ -1,7 +1,25 @@
+<!-- page where user selects event  -->
 <% if @no_events %>
+
 	<div class='top-margin container'>
 		<p class='apologies'>Consider joining one of these great <a href='http://www.meetup.com/find/'>Meetup.com groups</a></p>
 	</div>
+
 <% else %>
-	<%= render 'select_location' %>
+
+	<style type="text/css">
+		body {background-color: #E5E5E5;}
+	</style>
+
+<!-- drop down menu of upcoming events -->
+	<div class="container top-margin">
+		<p class='apologies'>Which of these events today are you attending?</p>
+		<%= form_for @user do |f| %>
+			<div class=''>
+				<%= select_tag :event_id, options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }), id: 'meetup-dropdown', class: 'expand' %>
+				<%= f.submit "Next", class: "button expand" %>
+			</div>
+		<% end %>		
+	</div>
+
 <% end %>
