@@ -9,7 +9,7 @@
 		<% @user.chats.order('created_at ASC').each do |c| %>
 			<li class='menu-item'>
 				<% if c.category == 'main' %>
-					<%= link_to "#{c.category}"+" - #{truncate(@chat.event.name, length: 23)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+					<%= link_to "#{c.category}"+" - #{truncate(c.event.name, length: 23)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
 				<% else %>
 					<%= link_to "#{truncate(c.category, length: 30)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
 				<% end %>

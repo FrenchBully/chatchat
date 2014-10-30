@@ -16,7 +16,7 @@
 	<%= form_for :update_interest do |f| %>
 		<section>
 			<label>YOUR INTRO:</label>
-			<%= f.text_area :bio, value: @user.bio, placeholder: '140 characters max',maxlength: 140, id: 'bio-field', class: 'expand' %>			
+			<%= f.text_area :bio, value: @user.bio, placeholder: '140 characters max', maxlength: 140, id: 'bio-field', class: 'expand' %>			
 
 		</section>
 
@@ -62,7 +62,7 @@
 
 					<div id='phone'>
 					<%= label_tag 'phone' %>
-					<%= f.text_field :phone, value: @user.phone, placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
+					<%= f.text_field :phone, value: @user.phone,maxlength: 10 placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
 					</div>
 
 				</div>
@@ -71,6 +71,7 @@
 					<label for="cmn-toggle-2"></label>
 					<p id='private-messages'>Display LinkedIn profile</p>
 				</div> -->
+
 					<%=f.hidden_field :lat, id: 'lat'%>
 					<%=f.hidden_field :lon, id: 'lon'%>
 					

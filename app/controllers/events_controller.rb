@@ -60,5 +60,7 @@ helper_method :get_current_users
     matching_emails = ActiveRecord::Base.connection.execute(sql)
 
   end
+
+  
 end
   

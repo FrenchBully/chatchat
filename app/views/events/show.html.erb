@@ -23,13 +23,24 @@
 	        if (event_id == null){
 	        	event_id = $(this).data('event-id');
 	        }
-
 	        $.post("/chats", { category: category, event_id: event_id}, function (data) {
-	            // data consists of chat_id from chat controller
+	        	console.log(data.user_count);
 	            chatBox.chatWith(data.chat_id, data.chat_name, data.user_count, data.event_name);
 	        }); 
+	        // refresh if tag was clicked
+	        $.get("/event_update", function (data) {
+	            $('#navigation').html(data);
+	        }, "html");
 	    });
-
+		
+		// replace data with new data in menu
+		$('.main-menu').click(function (e) {
+			e.preventDefault();
+			$.get("/event_update", function (data) {
+			    $('#navigation').html(data);
+			}, "html");
+		}); 
+		
 		// set chatboxcontent to size of current open window subtract to size appropriately
 	    heightpixels = $(window).height()-118;
 	    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
