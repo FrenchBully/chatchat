@@ -3,8 +3,10 @@ class MessagesController < ApplicationController
  
   def create    
     @chat = Chat.find(params[:chat_id])
+
     # message_params gets the text to be passed 
     @message = @chat.messages.new(message_params)
+    
     # pass in data to find hash tags, event_id is needed to generate hashtag link
     @message.body = @message.find_hash_tags(@message.body, current_user.event_id)
     @message.user_id = current_user.id

@@ -1,11 +1,12 @@
 class ChatsController < ApplicationController
-  
+
   before_filter :authenticate_user!
-  
   layout false
   
   def create
+
     # look for chat based on event id from meetups create it if it doesn't exist
+    
     # users can't have more than 5 chats
     if current_user.chats.count < 5 
       if Chat.existing_chat(params[:event_id],params[:category]).present?
