@@ -5,7 +5,6 @@ class ChatsController < ApplicationController
   layout false
   
   def create
-
     # look for chat based on event id from meetups create it if it doesn't exist
     # users can't have more than 5 chats
     if current_user.chats.count < 5 
@@ -23,7 +22,6 @@ class ChatsController < ApplicationController
         # adds user to chat (ChatUser join table)
         ChatUser.create(user_id: current_user.id, chat_id: @chat.id)
       end
-
       # return this as data in ajax request, chat id, name, user (later two for heading)
       render json: { chat_id: @chat.id, chat_name: params[:category], user_count: @chat.users.count, event_name: @chat.event.name[0..15]}
     else
@@ -70,7 +68,6 @@ class ChatsController < ApplicationController
   end
   
   private
-
   def chat_params
     params.permit(:event_id, :category)
   end
