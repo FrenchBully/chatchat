@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   # not using this anymore
   # belongs_to :event
   validates :name, :presence => true
+  # validates :bio, :presence => true
   # validates :meetup_id, :presence => true
   
   def distance a, b

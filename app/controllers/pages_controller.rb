@@ -128,9 +128,7 @@ class PagesController < ApplicationController
       # send to edit profile page
       redirect_to edit_user_path(@user)
   	end
-			#  go straight into a chat
-			# need to first go to the edit user page, then go into chat
-			 # redirect_to select_location_path
+
 		elsif @events_today.length > 1
 			# stay here
 		end

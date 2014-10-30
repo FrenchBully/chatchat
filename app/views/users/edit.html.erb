@@ -13,6 +13,14 @@
 		</section>
 <div class="container">
 
+	<%= form_for :update_interest do |f| %>
+		<section>
+			<label>YOUR INTRO:</label>
+			<%= f.text_area :bio, value: @user.bio, placeholder: '140 characters max',maxlength: 140, id: 'bio-field', class: 'expand' %>			
+
+		</section>
+
+
 		<!-- <div class=''>
 			<label for="event-name">
 				YOU ARE ABOUT TO ENTER THE CHAT FOR:
@@ -46,11 +54,18 @@
 				
 
 			
-			<%= form_for :update_interest do |f| %>
+			
 				<div class="switch">
 					<%= f.check_box :private_messages?, checked: @user.private_messages, id: 'cmn-toggle-1', class: 'cmn-toggle cmn-toggle-round' %>
 					<label for="cmn-toggle-1"></label>
 					<p id='private-messages'>Allow private messages</p>
+<<<<<<< HEAD
+=======
+					<div id='phone'>
+					<%= label_tag 'phone' %>
+					<%= f.text_field :phone, value: @user.phone, placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
+					</div>
+>>>>>>> 11974424dac7acb349cb20c13049d9b6bbd57445
 				</div>
 				<div class="switch">
 					<%= f.check_box :linkedin, id: 'cmn-toggle-2', class: 'cmn-toggle cmn-toggle-round' %>
