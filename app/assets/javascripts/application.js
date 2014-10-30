@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
 
 //= require chat
 
@@ -52,7 +51,7 @@ var ready = function(){
 
 		$('#scroll-down').click(function() {
 			// e.preventDefault();
-			$(this).parent().append( "<div id='about-text'><h1>About</h1>Tired of having the same old conversations with the wrong people? MetaMeetup helps people connect with the right people at Meetup.com events. Sign into MetaMeetup when you arrive and spend your time wisely. <br><br>Don't yet have a meetup.com account? Sign up for one <a href='http://meetup.com'>here</a><br><br>MetaMeetup was created by Andy Chen, Kevin Ng, and Ran Craycraft in the heart of Silicon Beach.</div>" );
+			$(this).parent().append( "<div id='about-text'><h1>About</h1>Tired of having the same old conversations with the wrong people? MetaMeetup helps people connect with the right people at Meetup.com events. Sign into MetaMeetup when you arrive and spend your time wisely. <br><br>Don't yet have a meetup.com account? Sign up for one <a href='http://meetup.com'>here</a><br><br>MetaMeetup was created by <a href='www.linkedin.com/pub/andy-chen/22/3b6/2a1'>Andy Chen</a>, <a href='www.linkedin.com/in/kevindng'>Kevin Ng</a>, and <a href='https://www.linkedin.com/in/craycraft'>Ran Craycraft</a> as <a href='https://generalassemb.ly/'>General Assembly</a> students in the heart of Silicon Beach.</div>" );
 		    // $.post(this.href, { _method: 'delete' }, null, "script");
     		$('html, body').animate({
 		        scrollTop: $("#about-text").offset().top
