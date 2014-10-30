@@ -56,9 +56,11 @@ helper_method :get_current_users
   end
 
   def get_users_with_matching_interests(event_id, interest_id)
-    sql = "Select * from users left outer join interests_users on user_id = users.id left outer join interests on interests.id = interests_users.interest_id where users.event_id = 'dcmvrhysnbkc'"
+    sql = "Select * from users left outer join interests_users on user_id = users.id left outer join interests on interests.id = interests_users.interest_id where users.event_id = 'dfgklcysnbmc'"
     matching_emails = ActiveRecord::Base.connection.execute(sql)
 
   end
+
+  
 end
   

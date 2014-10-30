@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 20141029212851) do
   add_index "messages", ["chat_id"], name: "index_messages_on_chat_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
+  create_table "user_providers", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_providers", ["user_id"], name: "index_user_providers_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",                                                                                      null: false
     t.string   "encrypted_password",     default: "",                                                                                      null: false
@@ -73,17 +83,17 @@ ActiveRecord::Schema.define(version: 20141029212851) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "auth_token"
+    t.string   "uid"
     t.float    "lat"
     t.float    "lon"
     t.string   "name"
     t.string   "photo",                  default: "http://blog.ramboll.com/fehmarnbelt/wp-content/themes/ramboll2/images/profile-img.jpg"
-    t.string   "provider"
-    t.string   "auth_token"
-    t.string   "uid"
     t.boolean  "private_messages",       default: true
     t.text     "bio"
-    t.string   "location"
     t.string   "refresh_token"
+    t.string   "location"
     t.integer  "expires_at"
     t.string   "event_name"
     t.string   "meetup_id"

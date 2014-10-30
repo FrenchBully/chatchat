@@ -11,7 +11,9 @@
       <%if message.user.photo != nil%>
         <%=link_to image_tag(message.user.photo), user_path(message.user)%>
       <%else%>
-        <%=image_tag "http://placehold.it/50x50"%>
+
+        <%=link_to image_tag("http://blog.ramboll.com/fehmarnbelt/wp-content/themes/ramboll2/images/profile-img.jpg"), user_path(message.user)%>
+
       <%end%>
     </div>
 
