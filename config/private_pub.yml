@@ -7,5 +7,4 @@ test:
 production:
   server: "http://metameetupchat.herokuapp.com/faye/faye"
   secret_token: "fc01384c7947872ad98f6f9abc214dec641af02d82952041b5926df3b0270344"
-  signature_expiration: 10 # ten seconds
-  # signature_expiration: 3600 # one hour
+  signature_expiration: 3600 # one hour
