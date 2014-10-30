@@ -234,14 +234,6 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  # config.omniauth :meetup, 'n5qbl8a65gcmjlp8v779sm66o4', 'enqesvtmg4d9h7kojk91bn0cb4'
-
-  # config.omniauth :meetup, 'eq2t7ckvp7ojknr5bs8i0g09bm', 'e2vbregc388e125monnnl1jbsl'
-  # config.omniauth :meetup, 't3jnfiss7f0e66jmjq4mumdk5q', 'mou7ho17ceica9dg8fblqjm2el'
-   # config.omniauth :meetup, 'brjed9l62an3u176rh587osbee', '9n9t5svl5lm43p9iql7nv154m5'
-   # config.omniauth :meetup, '39n18fdt723pp2jeg647r6cniu', 'piltk3bukmmpohgi8ibndmm3r4' #live production
-   # config.omniauth :meetup, 'kh7g6ftltd801se8litt1929f7', 'rrc6gh7tkvl0vepsooippg45qr' #local only!
-   # config.omniauth :meetup, 'ibcmrf5jkn5uf6u4iukis61hm6', 'i555t2pchc4csqmg7dhtqsqte3' #local only!
    config.omniauth :meetup, 'ng7fn9r3du3gdb74f5d1c5bp8e', 'ejn7brts0rq94uinqse3f6d38h' #PRODUCTION
    # config.omniauth :meetup, 'epnsloj980ljauc7u0i085tv8v', '5r9od38er9b6ok1g4uitnqsbb5' #LOCAL
    config.omniauth :linkedin, '75iwmjtg6vf6h1', 'FPSeOQ2f7bJ8sbIE'
