@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@mixin fade{
+/*@mixin fade{
    -webkit-animation: fadeIn 3s; 
    -moz-animation:    fadeIn 3s; 
    -o-animation:      fadeIn 3s; 
@@ -43,7 +43,7 @@
   33%  {opacity: 1;}
   66%  {opacity: 0;} 
   100%{ opacity: 1; }
-}
+}*/
 
 
 body {
@@ -797,7 +797,7 @@ select {
     float:right;
     position: relative;
     top: 17px;
-    @include fade;
+    /*@include fade;*/
 }
 
 .time-div{

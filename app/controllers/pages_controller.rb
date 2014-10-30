@@ -123,7 +123,6 @@ class PagesController < ApplicationController
 	    chat = Chat.find_or_create_by(category: "main", event_id: event.id)
 
 	    ChatUser.find_or_create_by(chat_id: chat.id, user_id: current_user.id)
-
   	if @user.update_attributes(event_id: event.id, event_name: event.name)
       # send to edit profile page
       redirect_to edit_user_path(@user)
