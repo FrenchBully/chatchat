@@ -58,11 +58,11 @@
 				<div class="switch">
 					<%= f.check_box :private_messages?, checked: @user.private_messages, id: 'cmn-toggle-1', class: 'cmn-toggle cmn-toggle-round' %>
 					<label for="cmn-toggle-1"></label>
-					<p id='private-messages'>Allow private messages</p>
+					<p id='private-messages'>Allow SMS messages</p>
 
 					<div id='phone'>
 					<%= label_tag 'phone' %>
-					<%= f.text_field :phone, value: @user.phone,maxlength: 10 placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
+					<%= f.telephone_field :phone, value: @user.phone, maxlength: 12, placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
 					</div>
 
 				</div>
