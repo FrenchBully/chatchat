@@ -88,11 +88,12 @@ var ready = function(){
 	        	// the value in the text box should be passed in via 'data'...strip out bad characters
 	        	data: {interest: $("#interests-field").val().replace(/[^a-z0-9\s]/gi, '').toLowerCase() }
 	        }).done(function(response){
-
+	        	
 	        	// if the response is not an error, then display the interest in a button so refresh is not needed
 	        	if (!response.error){
 	        		$("#my-interests").append("<li class='interest'><a class='button remote-delete green' href='/interests/" + response.id + "'>" + "#" + response.name + "</a></li>")
 	        	}
+	        	$("#interests-field").val('');
 	        })	        
 	    }
 	});
