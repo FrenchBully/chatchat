@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use postgresql as the database for Active Record
@@ -9,7 +8,6 @@ gem 'pg'
 gem 'devise'
 
 gem 'thin'
-
 
 group :development do
   gem "better_errors"
@@ -23,9 +21,6 @@ group :development, :test do
 end
 
 gem 'pry'
-
-gem 'linkedin'
-gem 'omniauth-linkedin'
 
 gem 'ruby_meetup2'
 
@@ -55,11 +50,11 @@ gem 'pry-rails', :group => :development
 
 gem 'private_pub'
 
-gem 'bootstrap-sass', '~> 3.2.0'
+# gem 'bootstrap-sass', '~> 3.2.0'
 
-group :production do
-  gem 'rails_12factor'
-end
+# group :production do
+#   gem 'rails_12factor'
+# end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
