@@ -1,11 +1,12 @@
 class ChatsController < ApplicationController
+  
   before_filter :authenticate_user!
   
   layout false
   
   def create
-    # look for chat based on event id from meetups create it if it doesn't exist
 
+    # look for chat based on event id from meetups create it if it doesn't exist
     # users can't have more than 5 chats
     if current_user.chats.count < 5 
       if Chat.existing_chat(params[:event_id],params[:category]).present?
@@ -54,7 +55,7 @@ class ChatsController < ApplicationController
     render nothing: true
   end
 
-# update menu
+  # update menu
   def event_update 
     @user = current_user
     @users = get_current_users   
@@ -67,18 +68,11 @@ class ChatsController < ApplicationController
     end
       return @users
   end
-
-
-
   
   private
-  # returns {"sender_id": "x", "recipient_id": "y"}
+
   def chat_params
-    # params.permit(:sender_id, :recipient_id)
     params.permit(:event_id, :category)
   end
-  
-  # def interlocutor(chat)
-    # current_user ? chat.sender : chat.recipient
-  # end
+
 end

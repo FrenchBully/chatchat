@@ -42,8 +42,6 @@ class UsersController < ApplicationController
 
     ChatUser.find_or_create_by(chat_id: chat.id, user_id: current_user.id)
 
-
-
     # DELETE CHAT USERS OF OTHER EVENTS
 
     # update user profile

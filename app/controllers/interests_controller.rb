@@ -1,4 +1,5 @@
 class InterestsController < ApplicationController
+  
   def index
   end
 
@@ -8,6 +9,7 @@ class InterestsController < ApplicationController
     if @user.interests.count < 5
 
       new_interest = Interest.find_or_create_by(name: params[:interest])
+      
       # add join only if it join doesn't exist
       if @user.interests.include? new_interest
         new_interest = {new_interest: nil, error: "you already added that interest"}
