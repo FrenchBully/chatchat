@@ -1,3 +1,6 @@
+<!-- This partial only renders on the events controller per application.js -->
+
+<!-- Container at the top for the logged in user -->
 <div id='menu-user-info'>
 	<%= image_tag current_user.photo, class: 'menu-main-photo' %><%= link_to current_user.name, user_path(@user), id:'logged-in-user-name' %>
 </div>
@@ -5,24 +8,26 @@
 <ul id="navigation">
 	<label id='menu-label'>CONVERSATIONS</label>
 
-	<% if params[:controller] == 'events' %>
-		<% @user.chats.order('created_at ASC').each do |c| %>
-			<li class='menu-item'>
-				<% if c.category == 'main' %>
-					<%= link_to "#{c.category}"+" - #{truncate(c.event.name, length: 23)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
-				<% else %>
-					<%= link_to "#{truncate(c.category, length: 30)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+	<!-- Display all of the user's chatrooms -->
+	<% @user.chats.order('created_at ASC').each do |c| %>
+		<li class='menu-item'>
+
+			<!-- If the chatroom name is 'main', display the meetup event name and don't let the user delete it -->
+			<% if c.category == 'main' %>
+				<%= link_to "#{c.category}"+" - #{truncate(c.event.name, length: 23)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+			<% else %>
+
+			<!-- If the chatroom name is not main, allow the user to delete it from their menu -->
+				<%= link_to "#{truncate(c.category, length: 30)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+				<%= link_to remove_chat_path(c), method: :delete, remote: true do %>
+				<span class='close fa fa-times'></span>
 				<% end %>
-				<% if c.category != 'main' %>
-					<%= link_to remove_chat_path(c), method: :delete, remote: true do %>
-					<span class='close fa fa-times'></span>
-					<% end %>
-				<% end %>
-			</li>
-		<% end %>
+			<% end %>
+		</li>
 	<% end %>
 
-	<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 100 %>
+	<!-- If the user is less than x miles from the event venue, then let them see the attendees/profiles -->
+	<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 1 %>
 
 		<div class='menu-section'>
 			<label id='menu-label'>PEOPLE</label>

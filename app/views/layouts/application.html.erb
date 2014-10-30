@@ -24,6 +24,8 @@
         <!-- sets meta data for view used for chats-->
         <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
     </head>
+
+    <!-- disable turbolinks and if the user is on the sessions controller, give body the class 'homepage' -->
     <body data-no-turbolink id='body' class=<%= params[:controller] == 'devise/sessions' ? 'homepage' : ''%>>
         <% if flash[:alert] %>
   		    <p id="alert"><%= alert %></p>
@@ -35,11 +37,17 @@
             <div id="menu"><%= render 'layouts/menu' %></div>
             <div id="site"><%= render 'layouts/header' %>
         <% end %>
+
+        <!-- Display a sign out link atop the page when the user is on the select_location screen -->
         <% if params[:action] == 'select_location' %>
             <p class='sign-out'>Signed in as <%= @user.email %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
         <% end %>
+
+        <!-- Render the magic here -->
         <%= yield %>
+
+        <!-- Disjointed closing div to wrap the site in an element to allow it to slide when the menu opens -->
             </div>
-      
   </body>
+  
 </html>
