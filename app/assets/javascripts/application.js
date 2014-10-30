@@ -71,7 +71,7 @@ var ready = function(){
 		$(this).hide();
 	});
 
-	$(".alert").click(function(){
+	$("#alert").click(function(){
 		$(this).hide();
 	});
 
