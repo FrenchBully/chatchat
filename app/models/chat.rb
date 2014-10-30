@@ -9,24 +9,4 @@ class Chat < ActiveRecord::Base
     Chat.find_by(event_id: event_id, category: category)
   end
 
-  # def get_current_users
-  #   users = []
-  #   chat = Chat.find_by(event_id: @user.event_id)
-  #   chat.users.each do |u| 
-  #     users << u.name
-  #   end
-  #   return users
-  # end
-
 end
-
-
- # validates_uniqueness_of :sender_id, :scope => :recipient_id
- 
-  # scope :involving, -> (user) do
-  #   where("chat.sender_id =? OR chat.recipient_id =?",user.id,user.id)
-  # end
- 
-  # scope :between, -> (sender_id,recipient_id) do
-  #   where("(chat.sender_id = ? AND chat.recipient_id =?) OR (chat.sender_id = ? AND chat.recipient_id =?)", sender_id,recipient_id, recipient_id, sender_id)
-  # end

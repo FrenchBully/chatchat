@@ -11,19 +11,14 @@ class EventsController < ApplicationController
       chat_user.subscribed = false
       chat_user.save
     end
-
     @user = current_user
-
     # pass these to page
     @event = Event.find(params[:id])
-
     # these go to startup main chat in erb file to make main chat
     @event_category = "main"
     @event_id = @event.id
-
     # find main chat so partial header can load with chat info
     @chat = current_user.chats.find_by(event_id: @event.id, category: @event_category)
-    
   end
 
   def get_current_users
