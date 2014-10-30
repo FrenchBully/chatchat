@@ -1,5 +1,7 @@
+<!-- If the event's location is private, skip this page and spit out a message -->
 <% if @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue'] != nil %>
 
+	<!-- As long as there are events in the queue, run this code -->
 	<% if @events["results"] != nil && @events["results"].length > 0 %>
 		<section id='profile-details'>
 			<div id='photo-container'>
@@ -8,85 +10,56 @@
 			<div id='profile-info-container'>
 				<h1 id='name'><%= @user.name %></h1>
 				<p id='location'><%= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %></p>
-
 			</div>
 		</section>
-<div class="container">
-Browser: <%= request.env['HTTP_USER_AGENT'] %>
-	<%= form_for :update_interest do |f| %>
-		<section>
-			<label>YOUR INTRO:</label>
-			<%= f.text_area :bio, value: @user.bio, placeholder: '140 characters max', maxlength: 140, id: 'bio-field', class: 'expand' %>			
 
-		</section>
+		<div class="container">
+			<%= form_for :update_interest do |f| %>
 
+				<section>
+					<label>YOUR INTRO:</label>
+					<%= f.text_area :bio, value: @user.bio, placeholder: '140 characters max', maxlength: 140, id: 'bio-field', class: 'expand' %>			
+				</section>
 
-		<!-- <div class=''>
-			<label for="event-name">
-				YOU ARE ABOUT TO ENTER THE CHAT FOR:
-			</label>
-		 	<h1 id='event-name'>
-		 		<%#= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %>
-		 	</h1>
- 		</div> -->
-		
-	 	<section id='interests'>
-	 		<label>YOUR INTERESTS:</label>
+			 	<section id='interests'>
+			 		<label>YOUR INTERESTS:</label>
 					<%= text_field_tag :interests, nil, placeholder: " Add up to five", id: 'interests-field', class: 'expand' %>	
+					<div>
 
-				<div>
-					<ul class='interest-cloud' id='my-interests'>
-						<% @user.interests.order("name ASC").each do |interest| %>
-							<li class="interest"><%= link_to ('#' + interest.name), interest_path(interest), :class => 'remote-delete button green', :title => 'Delete ' + interest.name %></li>
-						<% end %>
-					</ul>
-				</div>
-				<!-- <div class="popular-interests">
-					<label>Popular topics at this Meetup:</label>
-					<ul class='interest-cloud'>
-						
-					<%# @interests.order("name ASC").limit(5).each do |i| %>
-					<li class="interest"><%#= link_to ('#' + i.name), interest_path(i), class: 'button green remote-add' %></li>
-
-					<%# end %>
-					</ul>
-				</div> -->
-				
-
-			
-			
-				<div class="switch">
-					<%= f.check_box :private_messages?, checked: @user.private_messages, id: 'cmn-toggle-1', class: 'cmn-toggle cmn-toggle-round' %>
-					<label for="cmn-toggle-1"></label>
-					<p id='private-messages'>Allow SMS messages</p>
-
-					<div id='phone'>
-					<%= label_tag 'phone' %>
-
-					<%= f.telephone_field :phone, value: @user.phone, maxlength: 12, placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
-
+						<!-- Users can type in interests, then on click, they will disappear -->
+						<ul class='interest-cloud' id='my-interests'>
+							<% @user.interests.order("name ASC").each do |interest| %>
+								<li class="interest"><%= link_to ('#' + interest.name), interest_path(interest), :class => 'remote-delete button green', :title => 'Delete ' + interest.name %></li>
+							<% end %>
+						</ul>
+					</div>					
+					<div class="switch">
+						<%= f.check_box :private_messages?, checked: @user.private_messages, id: 'cmn-toggle-1', class: 'cmn-toggle cmn-toggle-round' %>
+						<label for="cmn-toggle-1"></label>
+						<p id='private-messages'>Allow SMS messages</p>
+						<div id='phone'>
+							<%= label_tag 'phone' %>
+							<%= f.text_field :phone, value: @user.phone, maxlength: 12, placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
+						</div>
 					</div>
-
-				</div>
-				<!-- <div class="switch">
-					<%#= f.check_box :linkedin, id: 'cmn-toggle-2', class: 'cmn-toggle cmn-toggle-round' %>
-					<label for="cmn-toggle-2"></label>
-					<p id='private-messages'>Display LinkedIn profile</p>
-				</div> -->
-
 					<%=f.hidden_field :lat, id: 'lat'%>
-					<%=f.hidden_field :lon, id: 'lon'%>
-					
-				<%= f.submit "Continue", id: "start-chat", class: "button expand" %>
-				<p class="detecting-location">Detecting Location</p>
-				
-				<% end %>
-			</section>
+					<%=f.hidden_field :lon, id: 'lon'%>	
+					<%= f.submit "Continue", id: "start-chat", class: "button expand" %>
+					<p class="detecting-location">Detecting Location</p>
+				</section>
+			<% end %>	
+		</div>
 	<% else %>
-	<p class='apologies'>Sorry, no events for this user. Come back on the day of a Meetup.</p>
-	<% end %>
-	<% else %>
-	<p class='apologies'>Your place isn't public, yo! WTF?</p>
+		<div class="container">
 
+			<!-- If the user has events today, this message is displayed -->
+			<p class='apologies'>Sorry, no events for this user. Come back on the day of a Meetup.</p>
+		</div>
 	<% end %>
-</div>
+<% else %>
+	<div class="container">
+		
+		<!-- This is displayed if the place of the event isn't public -->
+		<p class='apologies'>Your place isn't public, yo! WTF?</p>
+	</div>
+<% end %>
