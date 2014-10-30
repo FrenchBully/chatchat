@@ -60,9 +60,12 @@ var ready = function(){
 		    $('#scroll-down').hide();
 		});
 
-		$('.close').click(function(){
+		$(document).delegate(".close", "click", function (e) {
+					e.preventDefault();
+					alert();
 				$(this).parent().parent().hide();
-		})
+		});
+
 
 		function getLocation() {
 		    if (navigator.geolocation) {

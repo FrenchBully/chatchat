@@ -34,8 +34,8 @@ var ready = function () {
             for (x in chatBoxes) {
                 // if that chat box was clicked show otherwise hide
                 if(chatBoxes[x] == chat_id){
-                    // $("#chatbox_" + chatBoxes[x]).css('display', 'block');
-                    $("#chatbox_" + chatBoxes[x]).fadeIn("slow");
+                    $("#chatbox_" + chatBoxes[x]).css('display', 'block');
+                    // $("#chatbox_" + chatBoxes[x]).fadeIn();
                     // switch out header info
                     var newHeader = chat_name + " - " + event_name;
                     $(".page-title").text(newHeader.substring(0,24)+" (" + user_count + ")");
