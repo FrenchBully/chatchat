@@ -19,7 +19,7 @@
 
 var ready = function(){
 
-	// settig dynamic height of main landing page
+	// setting dynamic height of main landing page
 	$(window).load(function() {
 	$('#welcome-container').css('height', window.innerHeight+'px');
 	});

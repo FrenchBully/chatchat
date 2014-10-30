@@ -1,6 +1,4 @@
-<%#= @user.private_messages? ? (link_to " Send Private Message", users_path, class: 'private-message fa fa-envelope') : "" %>
 <%= render 'layouts/header' %>
-
 	<section id='profile-details'>
 		<div id='photo-container'>
 			<%= image_tag @user.photo, class: 'photo' %>
@@ -11,12 +9,7 @@
 		</div>
 	</section>
 <div class="container">
-
-	<%= session[:mobile_param] %>
-<!-- 	<label>Meetup Introduction</label>
-	<p id='bio'><%#= truncate(@user.bio, :length => 140) %></p>
- -->	<%#= @member %>
- <% if @user.bio != '' %>
+ 	<% if @user.bio != '' %>
 	 <section id="bio">
 		<label>EVENT STATUS</label>
 		<p><%= @user.bio %></p>

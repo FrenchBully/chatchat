@@ -286,8 +286,16 @@ a:hover {
     font-size: 20px;
     display: inline-block;
     position: relative;
+<<<<<<< HEAD
+    transform: translateY(9px);
+    -ms-transform: translateY(9px);
+    -webkit-transform: translateY(9px); 
+    /*top: 48%;*/
+
+=======
     transform: translateY(-50%);
     top: 48%;
+>>>>>>> d590a56726cc9a7f12283196a0831a574aa06dee
 }
 
 .color-filter {
@@ -767,7 +775,9 @@ input.cmn-toggle-round:checked + label:after {
     background-color: #407bfb;
     color: white;
     position: relative;
-    transform: translateY(34%);
+    transform: translateY(14px);
+    -ms-transform: translateY(14px);
+    -webkit-transform: translateY(14px); 
     cursor: pointer;
     display: inline-block;
     width: 24.0%;
@@ -788,7 +798,10 @@ input.cmn-toggle-round:checked + label:after {
     resize: none !important;
     display: inline-block;
     position: relative;
-    transform: translateY(34%);
+    transform: translateY(14px);
+    -ms-transform: translateY(14px);
+    -webkit-transform: translateY(14px); 
+=
 }
  
 .chatboxtextareaselected {
