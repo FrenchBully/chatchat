@@ -91,6 +91,7 @@ var ready = function(){
 
 	        	// if the response is not an error, then display the interest in a button so refresh is not needed
 	        	if (!response.error){
+	        		$("#interests-field").val('');
 	        		$("#my-interests").append("<li class='interest'><a class='button remote-delete green' href='/interests/" + response.id + "'>" + "#" + response.name + "</a></li>")
 	        	}
 	        })	        
