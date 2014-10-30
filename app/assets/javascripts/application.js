@@ -40,7 +40,6 @@ var ready = function(){
 	// hides chatrooms from view when the user clicks X
 	$(document).delegate(".close", "click", function (e) {
 				e.preventDefault();
-				alert();
 			$(this).parent().parent().hide();
 	});
 
@@ -117,10 +116,7 @@ var ready = function(){
 	  	}  
 	});
 
-	// hide menu when chat room is clicked
-	$(".hide-menu").on("click", function(e){
-		closeSidepage();
-	});
+	
 
 	// animation functions
 	function openSidepage() {  
