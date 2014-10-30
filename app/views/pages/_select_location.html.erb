@@ -8,6 +8,7 @@
 	<%= form_for @user do |f| %>
 		<div class=''>
 		<%= select_tag :event_id, options_for_select(@events["results"].collect {|u| [ u["name"], u["id"]] }), id: 'meetup-dropdown', class: 'expand' %>
+		
 		<%= f.submit "Next", class: "button expand" %>
 	<% end %>
 	</div>
