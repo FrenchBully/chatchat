@@ -33,10 +33,10 @@ class UsersController < ApplicationController
     ChatUser.find_or_create_by(chat_id: chat.id, user_id: current_user.id)
     # update user profile
     if @user.update_attributes(event_id: event.id, event_name: @selected_events)
+    
       # send to edit profile page
       redirect_to edit_user_path(@user)
   	end
-
   end
 
   def update_interest    
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     new_interest = Interest.find_or_create_by(:name => params[:interest])
     @user.interests << new_interest
     respond_to do |format|
-     format.json { render json: new_interest }
+    format.json { render json: new_interest }
     end
   end
 end

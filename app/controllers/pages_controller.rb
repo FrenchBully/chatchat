@@ -40,6 +40,3 @@ class PagesController < ApplicationController
 		end		
 	end
 end
-
-# member = User.find_by(meetup_id: params[:random][:meetup_id])
-# @member = member.get_meetup_info(params[:random][:lon], params[:random][lat])
