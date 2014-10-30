@@ -40,7 +40,6 @@ var ready = function(){
 	// hides chatrooms from view when the user clicks X
 	$(document).delegate(".close", "click", function (e) {
 				e.preventDefault();
-				alert();
 			$(this).parent().parent().hide();
 	});
 
@@ -88,12 +87,13 @@ var ready = function(){
 	        	// the value in the text box should be passed in via 'data'...strip out bad characters
 	        	data: {interest: $("#interests-field").val().replace(/[^a-z0-9\s]/gi, '').toLowerCase() }
 	        }).done(function(response){
-
+	        	
 	        	// if the response is not an error, then display the interest in a button so refresh is not needed
 	        	if (!response.error){
 	        		$("#interests-field").val('');
 	        		$("#my-interests").append("<li class='interest'><a class='button remote-delete green' href='/interests/" + response.id + "'>" + "#" + response.name + "</a></li>")
 	        	}
+	        	$("#interests-field").val('');
 	        })	        
 	    }
 	});
@@ -116,10 +116,7 @@ var ready = function(){
 	  	}  
 	});
 
-	// hide menu when chat room is clicked
-	$(".hide-menu").on("click", function(e){
-		closeSidepage();
-	});
+	
 
 	// animation functions
 	function openSidepage() {  

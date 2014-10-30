@@ -6,7 +6,6 @@
  
     chatbox.append("<%= j render( partial: @message ) %>");
     chatbox.scrollTop(chatbox[0].scrollHeight);
- 
     chatbox.children().last().removeClass("self").addClass("other");        
 	chatbox.scrollTop(chatbox[0].scrollHeight);
 

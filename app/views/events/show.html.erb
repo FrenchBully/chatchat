@@ -2,12 +2,21 @@
 <% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 1000 %>
 
 	<script>
-	
+		function closeSidepage() { 
+			$("#navigation li a").removeClass("open");  
+		 	$('#site').animate({  
+		  		left: '0px'  
+		 	}, "slow");   
+		}
+		// function openSidepage() {  
+		// 	$('#site').animate({  
+		//   		left: '250px'  
+		//  	}, "fast");   
+		// }   
 		// on load, make first chat room based on event params
 		// grabs data out of the item that was clicked which is setup through html tags
 		var category = "<%= @event_category %>";  
 		var event_id = <%=@event_id%>;
-		
 		$.post("/chats", { category: category, event_id: event_id }, function (data) {
 
 		    // data consists of chat_id from chat controller
@@ -33,7 +42,26 @@
 	            $('#navigation').html(data);
 	        }, "html");
 	    });
+	    // close chat if user clicks on text box
+		$(document).delegate(".chatboxtextarea","click", function(e){
+			closeSidepage();
+		});
+		// close menu when user selects new chat
+		$(document).delegate(".start-chat.hide-menu","click", function(e){
+			closeSidepage();
+		});
+		// $(".chatboxtextarea").on( "swipeleft", function(e){
+		// 	alert();
+	 //   		closeSidepage();  
+		// });
+		// $(".chatboxtextarea").on( "swiperight", function(e){
+		// 	alert();
+		// 	$("#navigation li a").addClass("open");
+		// 	openSidepage();
+		// });
+
 		
+
 		// replace data with new data in menu
 		$('.main-menu').click(function (e) {
 			e.preventDefault();

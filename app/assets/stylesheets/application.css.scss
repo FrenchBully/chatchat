@@ -14,36 +14,28 @@
  *= require_self
  */
 
-/*@mixin fade{
-   -webkit-animation: fadeIn 3s; 
-   -moz-animation:    fadeIn 3s; 
-   -o-animation:      fadeIn 3s; 
-   animation:         fadeIn 3s;
+@mixin fade{
+   -webkit-animation: fadeIn .5s; 
+   -moz-animation:    fadeIn .5s; 
+   -o-animation:      fadeIn .5s; 
+   animation:         fadeIn .5s;
 }
 @-webkit-keyframes fadeIn {
   0%   { opacity: 0;}
-  33%  {opacity: 1;}
-  66%  {opacity: 0;} 
   100%{ opacity: 1; }
 }
 @-moz-keyframes fadeIn {
   0%   { opacity: 0; }
-  33%  {opacity: 1;}
-  66%  {opacity: 0;} 
   100%{ opacity: 1; }
 }
 @-o-keyframes fadeIn {
   0%   { opacity: 0; }
-  33%  {opacity: 1;}
-  66%  {opacity: 0;} 
   100%{ opacity: 1; }
 }
 @keyframes fadeIn {
   0%   { opacity: 0; }
-  33%  {opacity: 1;}
-  66%  {opacity: 0;} 
   100%{ opacity: 1; }
-}*/
+}
 
 
 body {
@@ -479,7 +471,7 @@ a:hover {
 
 #profile-info-container > #location {
     color: #AAA;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
     position: relative;
     left: 10px;
@@ -669,6 +661,7 @@ input.cmn-toggle-round:checked + label:after {
     top: 0;
     right:0;
     width: 100%;
+    @include fade;
 }
  
 .chatboxhead {
@@ -712,6 +705,7 @@ input.cmn-toggle-round:checked + label:after {
 .chatboxcontent .avatar {
     position: relative;
     display:inline-block;
+    left:3px;
 }
  
 .chatboxcontent .avatar img {
@@ -838,3 +832,20 @@ input.cmn-toggle-round:checked + label:after {
     color: #FFF;
 }
 /*end of chat styling*/
+
+
+input#user_email {
+    color: black;
+}
+
+input#user_password {
+    color: black;
+}
+
+input#user_password_confirmation {
+    color: black;
+}
+
+input#user_current_password {
+    color: black;
+}
