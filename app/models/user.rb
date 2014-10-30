@@ -99,6 +99,7 @@ class User < ActiveRecord::Base
     if events["results"] != nil
       while i < events["results"].length 
         #  the hours at the end should be adjusted to 12 or 24 hours after testing
+
         if Time.at(events["results"][i]["time"] / 1000) - Time.now < 1200.hours
           
           events_today << {

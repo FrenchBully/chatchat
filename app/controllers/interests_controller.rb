@@ -1,7 +1,4 @@
 class InterestsController < ApplicationController
-  
-  def index
-  end
 
   # via ajax in user profile
   def save_interest

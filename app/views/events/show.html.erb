@@ -1,13 +1,15 @@
-<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 10000 %>
+<!-- if the user is less than X miles away from the event, do not show the chat room -->
+<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 1000 %>
 
 	<script>
+	
 		// on load, make first chat room based on event params
-		console.log("starting chat");
 		// grabs data out of the item that was clicked which is setup through html tags
 		var category = "<%= @event_category %>";  
 		var event_id = <%=@event_id%>;
 		
 		$.post("/chats", { category: category, event_id: event_id }, function (data) {
+
 		    // data consists of chat_id from chat controller
 		    chatBox.chatWith(data.chat_id, data.chat_name, data.user_count, data.event_name);
 		}); 
@@ -15,18 +17,17 @@
 		// delegate to keep track of all items dynamically generated for starting other chats
 		$(document).delegate(".start-chat", "click", function (e) {
 			e.preventDefault();
-			console.log("starting chat");
-	        // e.preventDefault();
 	        var category = $(this).data('category');  
 	        var event_id = $(this).data('event_id');
+
 	        // menu is finnicky with its labeling of data fields - set if unset
 	        if (event_id == null){
 	        	event_id = $(this).data('event-id');
 	        }
 	        $.post("/chats", { category: category, event_id: event_id}, function (data) {
-	        	console.log(data.user_count);
 	            chatBox.chatWith(data.chat_id, data.chat_name, data.user_count, data.event_name);
 	        }); 
+
 	        // refresh if tag was clicked
 	        $.get("/event_update", function (data) {
 	            $('#navigation').html(data);
@@ -61,17 +62,15 @@
 			widthpixels = $(window).width()-90;
 			var widthstyle = $('<style>.textcontentofmessage { width: '+widthpixels+'px; }</style>');
 			$('html > head').append(widthstyle);
-
 		});
-
 		$('#menu').hide();
 	</script>
 
-
 <% else %>
-<div class='container center' id='welcome-container'>
-<p class='apologies'>Oops, you're still <%= @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles away from the event! Once you arrive, check back again.</p>
-<%= link_to 'Refresh', event_path, class: 'button expand' %>
-</div> 
 
+	<!-- if the user isn't at the event location, display this message -->
+	<div class='container center' id='welcome-container'>
+		<p class='apologies'>Oops, you're still <%= @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles away from the event! Once you arrive, check back again.</p>
+		<%= link_to 'Refresh', event_path, class: 'button expand' %>
+	</div> 
 <% end %>
