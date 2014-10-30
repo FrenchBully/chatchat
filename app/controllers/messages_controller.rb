@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
   before_filter :authenticate_user!
  
   def create    
-    
     @chat = Chat.find(params[:chat_id])
     
     # message_params gets the text to be passed 

@@ -12,11 +12,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    # this is to show user's profile
-  	# @user = User.find(params[:id])
+
     @member = @user.show_user(@user)
 
-    # response = HTTParty.get("https://api.meetup.com/2/member_id=#{@user.uid}?&sign=access_token=#{@user.auth_token}")
   end
 
   def edit
@@ -43,36 +41,30 @@ class UsersController < ApplicationController
     ChatUser.find_or_create_by(chat_id: chat.id, user_id: current_user.id)
 
     # DELETE CHAT USERS OF OTHER EVENTS
-
     # update user profile
     if @user.update_attributes(event_id: event.id, event_name: @selected_events)
+    
       # send to edit profile page
       redirect_to edit_user_path(@user)
   	end
-
   end
 
   def update_interest
-    # @user = User.find(params[:id])
-    
     @user.update_attributes(:private_messages => params['update_interest']['private_messages'], :lat => params['update_interest']['lat'], :lon => params['update_interest']['lon'], :phone => params['update_interest']['phone'], :bio => params['update_interest']['bio']  )
+   
     # we need to set this redirect to the main chat room
-    # redirect_to edit_user_path(@user)
     redirect_to event_path(@user.event_id)
-    
   end
 
   def save_interest
-      # if it doesnt exist
-      new_interest = Interest.find_or_create_by(:name => params[:interest])
-      # else find it by name and add it
-
+    # if it doesnt exist
+    new_interest = Interest.find_or_create_by(:name => params[:interest])
+    
+    # else find it by name and add it
     @user.interests << new_interest
-    # @user.event_id
     respond_to do |format|
-     format.json { render json: new_interest }
+    format.json { render json: new_interest }
     end
-
   end
 
 end
