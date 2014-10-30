@@ -1,9 +1,9 @@
 <header>
 	<% if params[:controller] == 'users' && params[:action] == 'show' %>
 		<%= link_to "Back", event_path(@user.event_id), class: 'back' %>
-		<% if @user.phone != nil && @user.private_messages %>
-
-		<a href="sms:<%=@user.phone.gsub(/[^0-9a-z ]/, '') %>;body=supppppp"><span class='fa fa-envelope' id='mail'></span></a>
+		
+		<% if @user.phone != '' && @user.private_messages %>
+		<a href="sms:<%=@user.phone.gsub(/[^0-9a-z ]/, '') %>;body=Hi, this is <%= @user.name %> from <%= truncate(@user.event_name, length: 15) %>. Want to meet?"><span class='fa fa-envelope' id='mail'>&nbsp;SMS</span></a>
 		<% end %>
 		<!-- <p class='current-room'><%#= truncate(@user.event_name, length: 30) %></p> -->
 	<% else %>
