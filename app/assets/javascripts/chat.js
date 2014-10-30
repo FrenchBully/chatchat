@@ -6,7 +6,7 @@ var chatBoxes = new Array();
 var ready = function () {
  
     chatBox = {
-   
+
         // Make chatbox by calling createChatBox and adds focus
         chatWith: function (chat_id, chat_name, user_count, event_name) { 
             chatBox.createChatBox(chat_id, chat_name, user_count, event_name);
@@ -48,8 +48,6 @@ var ready = function () {
             }
         },
         
-
-        
         // checks input box for enter key
         checkInputKey: function (event, chatboxtextarea, chat_id) {
 
@@ -62,7 +60,6 @@ var ready = function () {
                 message = chatboxtextarea.val();
                 // empty input field
                 message = message.replace(/^\s+|\s+$/g, "");
-
  
                 if (message != '') {
                     $('#chat_form_' + chat_id).submit();
@@ -71,26 +68,26 @@ var ready = function () {
                     // $(chatboxtextarea).css('height', '44px');
                 }
             }
- 
         },
 
         // send message via button
         sendMessage: function (chatboxtextarea, chat_id) {
-                message = chatboxtextarea.val();
-                // empty input field
-                message = message.replace(/^\s+|\s+$/g, "");
+            message = chatboxtextarea.val();
+            
+            // empty input field
+            message = message.replace(/^\s+|\s+$/g, "");
 
- 
-                if (message != '') {
-                    $('#chat_form_' + chat_id).submit();
-                    $(chatboxtextarea).val('');
-                    $(chatboxtextarea).focus();
-                }
-                // if it isn't empty
-                else{
-                    $(chatboxtextarea).focus();
-                }
+            if (message != '') {
+                $('#chat_form_' + chat_id).submit();
+                $(chatboxtextarea).val('');
+                $(chatboxtextarea).focus();
             }
+            
+            // if it isn't empty
+            else{
+                $(chatboxtextarea).focus();
+            }
+        }
     }
 }
  

@@ -52,13 +52,29 @@ body {
     box-sizing: border-box;
 }
 
-.homepage {
-    background-color: #E5E5E5;
-    background: image-url('suits.jpg') no-repeat; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+header {
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #000;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+label {
+    color: #AAA;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+}
+
+select {
+    height: 50px;
+    -webkit-appearance: menulist-button;
+    font-size: 20px;
 }
 
 p {
@@ -75,24 +91,29 @@ a:hover {
 	color: #2c7a99
 }
 
+// sets the background of the main landing page
+.homepage {
+    background-color: #E5E5E5;
+    background: image-url('suits.jpg') no-repeat; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+// position of logo
 #logo {
     position: relative;
     left: 5px;
     width: 180px;
 }
 
-/*#logo-container {
-    margin-top: 200px;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-}*/
-
 #logo-container {
     margin-top: 20px;
     width: 180px;
 }
 
+// sets the text attributes for for welcome page
 .welcome {
     font-family: 'Roboto', sans-serif;
     color: #FFF;
@@ -102,6 +123,7 @@ a:hover {
     margin-bottom: 5vmax;
 }
 
+// large connect with meetup button on the main landing page
 .welcome-button {
     background-color: rgba(64, 123, 251, .8);
     padding: 34px 10px 20px 10px;
@@ -110,12 +132,9 @@ a:hover {
     font-size: 20px;
     color: #FFF;
     position: absolute;
-    /*right-margin: auto;*/
     outline: none;
     text-align: center;
     height: 100px;
-    /*border: 2px solid #FFF;*/
-    /*border-radius: 3px;*/
 }
 
 .welcome-button:hover {
@@ -133,7 +152,6 @@ a:hover {
 
 
 #scroll-down {
-    /*bottom: 0;*/
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -149,6 +167,7 @@ a:hover {
     background-color: rgba(255,255,255,.8);    
 }
 
+// positions and sets about text information on main page
 #about-text {
     position: relative;
     text-align: center;
@@ -163,16 +182,6 @@ a:hover {
     font-size: 20px;
 }
 
-h2 {
-	font-family: 'Roboto', sans-serif;
-}
-
-label {
-	color: #AAA;
-	font-family: 'Roboto', sans-serif;
-	font-size: 11px;
-}
-
 #menu {  
     position: absolute;  
     width: 250px;   
@@ -180,8 +189,6 @@ label {
     min-height: 100%;  
     padding: 0px;  
     background-color: rgba(0,0,0,.8); 
-    /*display:none;*/
-    /*@include fade;*/
 }
 
 #menu-user-info {
@@ -189,10 +196,9 @@ label {
     height: 50px;
     background-color: #222;
     margin-bottom: 5px;
-    /*border-bottom: 1px solid #BBB;*/
-
 }
 
+// sets main menu photo size
 .menu-main-photo {
     width: 50px;
     height: 50px;
@@ -211,7 +217,6 @@ label {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     top: 2px;
-    /*padding-top: 20px;*/
     color: #FFF;
 }
 
@@ -223,13 +228,10 @@ label {
 .menu-item {
     position: relative;
     color: #FFF;
-    /*padding: 5px;*/
-    /*bottom: 10px;*/
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     border-bottom: 1px solid #444;
     width: 250px;
-    /*height: 30px;*/
 }
 
 .left-padding {
@@ -263,7 +265,6 @@ label {
     height: 100%;
     height: auto;  
     display: block;  
-    /*min-height: 800px;  */
     overflow: hidden;  
     position: relative;  
     z-index: 2;  
@@ -271,15 +272,6 @@ label {
     left:0;
     bottom:0;
     right:0;
-}
-
-header {
-    width: 100%;
-    height: 50px;
-    margin: 0 auto;
-    position: relative;
-    background-color: #000;
-    text-align: center;
 }
 
 .sign-out {
@@ -294,9 +286,16 @@ header {
     font-size: 20px;
     display: inline-block;
     position: relative;
+<<<<<<< HEAD
+    transform: translateY(9px);
+    -ms-transform: translateY(9px);
+    -webkit-transform: translateY(9px); 
+    /*top: 48%;*/
+
+=======
     transform: translateY(-50%);
     top: 48%;
-
+>>>>>>> d590a56726cc9a7f12283196a0831a574aa06dee
 }
 
 .color-filter {
@@ -304,7 +303,6 @@ header {
     height: 100%;
     bottom: 0;
     background-color: rgba(163, 108, 21,.3);
-    /*position: fixed;*/
 }
 
 #navigation { 
@@ -323,10 +321,6 @@ header {
 .menu-section {
     margin-top: 20px;
 }
-/*.close {
-    float: right;
-    color: red;
-}*/
 
 .main-menu {
     margin-left: 10px;
@@ -363,10 +357,8 @@ header {
 }
 
 .container {
-    /*width: 100%;*/
 	margin: 0;
     padding: 20px;
-    /*left:50%;*/
 }
 
 .button {
@@ -378,7 +370,6 @@ header {
 	font-size: 18px;
 	color: #FFF;
 	margin: 10px 0px 10px 0px;
-    /*top: 10px;*/
 	outline: none;
     white-space: nowrap;
     text-align: center;
@@ -419,8 +410,6 @@ header {
 .notice {
 	background-color: #DFF1D7;
 	padding: 15px;
-	/*border: 1px solid #3d793b;*/
-	/*border-radius: 5px;*/
 	font-size: 11px;
 	color: #3d793b;
 	margin-top: 0px;
@@ -430,22 +419,10 @@ header {
 #alert {
 	background-color: #FCF9E2;
 	padding: 15px;
-	/*border: 1px solid #8a6e37;*/
-	/*border-radius: 5px;*/
 	font-size: 11px;
 	color: #8a6e37;
 	margin-bottom: 0px;
 }
-
-#tagline {
-/*	font-family: 'Roboto', sans-serif;
-	font-weight: lighter;
-	font-size: 14px;
-	color: #AAA;
-	position: relative;
-	margin-top: -15px;
-*/}
-
 
 #meetup-dropdown {
     height: 50px;
@@ -455,18 +432,12 @@ header {
 
 .detecting-location {
     background: url(ajax-loader.gif) no-repeat center bottom;
-    /*background: image-url('preloader.gif') no-repeat;*/
     height: 80px;
     text-align: center;
     color: #CCC;
     font-family: 'Roboto', sans-serif;
-    /*font-weight: lighter;*/
     font-size: 16px;
     margin-top: 50px;
-}
-
-#devise-links {
-	/*margin-top: 20px;*/
 }
 
 #no-meetup {
@@ -484,27 +455,20 @@ header {
 #profile-details {
     width: 100%;
     height: 100px;
-    /*margin-bottom: 30px;*/
 }
 
 .photo {
     width: 100px;
     height: 100px;
-    /*margin-right: 15px;*/
-    /*border-radius: 40px;*/
-    /*border: 2px solid #FFF;*/
 }
 
 #photo-container {
-    /*height: 100px;*/
     float: left;
 }
+
 #profile-info-container {
-    /*padding-left: 10px;*/
     height: 100px;
-    /*padding-left: 30px;*/
     width: 100%;
-    /*min-width: 300px;*/
     background-color: #333;
 }
 
@@ -515,7 +479,6 @@ header {
     font-weight: normal;
     position: relative;
     padding-top: 25px;
-    /*padding-right: 20px;*/
     left: 10px;
     margin: 0px;
     width: 90%;
@@ -544,7 +507,6 @@ header {
 }
 
 #bio {
-    /*color: #FFF;*/
     font-size: 14px;
     font-weight: normal;
     margin-bottom: 30px;
@@ -623,6 +585,7 @@ input.cmn-toggle-round + label {
   background-color: #dddddd;
   border-radius: 40px;
 }
+
 input.cmn-toggle-round + label:before,
 input.cmn-toggle-round + label:after {
   display: block;
@@ -632,12 +595,14 @@ input.cmn-toggle-round + label:after {
   bottom: 1px;
   content: "";
 }
+
 input.cmn-toggle-round + label:before {
   right: 1px;
   background-color: #DDD;
   border-radius: 40px;
   transition: background 0.4s;
 }
+
 input.cmn-toggle-round + label:after {
   width: 38px;
   background-color: #fff;
@@ -645,9 +610,11 @@ input.cmn-toggle-round + label:after {
   /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
   transition: margin 0.3s;
 }
+
 input.cmn-toggle-round:checked + label:before {
   background-color: #5CB85C;
 }
+
 input.cmn-toggle-round:checked + label:after {
   margin-left: 40px;
 }
@@ -701,20 +668,10 @@ input.cmn-toggle-round:checked + label:after {
     color: #FFF;
 }
 
-select {
-    height: 50px;
-    -webkit-appearance: menulist-button;
-    font-size: 20px;
-}
-
 /*Chat styling*/
 .chatbox {
-    /*attaches the chat box to the site id*/
     position: relative;
-    /*position: expression("absolute");*/
-    /*width: 280px;*/
     display: none;
-    /*border:10px solid white;*/
     z-index: 100;
     top: 0;
     right:0;
@@ -722,13 +679,9 @@ select {
 }
  
 .chatboxhead {
-    /*background: rgba(20%,20%,20%,1);*/
     color: white;
     padding: 0.5rem;
     overflow: hidden;
- 
-    /*border-right: 1px solid rgba(85, 85, 85, 0.87);
-    border-left: 1px solid rgba(85, 85, 85, 0.87);*/
 }
  
 .chatboxhead h1 {
@@ -750,8 +703,6 @@ select {
     list-style: none;
 }
  
-
-
 .chatboxcontent li {
     padding: 0.5rem;
     overflow: hidden;
@@ -759,16 +710,11 @@ select {
     border-bottom:1px solid rgba(93%,93%,93%,1);
 }
  
-
-
 .avatar-wrapper{
     height:100%;
     width: 70px;
     background-color: red;
 }
-
-
-
 
 .chatboxcontent .avatar {
     position: relative;
@@ -781,8 +727,6 @@ select {
     display: block;
     margin-top: 3px;
 }
- 
-
  
 .chatboxmessagecontent {
     display:block;
@@ -797,7 +741,6 @@ select {
     float:right;
     position: relative;
     top: 17px;
-    /*@include fade;*/
 }
 
 .time-div{
@@ -817,7 +760,6 @@ select {
 }
 
 #chatbox-input-bg {
-    /*float: left;*/
     margin: 0 auto;
     max-width: 90%;
 }
@@ -833,7 +775,9 @@ select {
     background-color: #407bfb;
     color: white;
     position: relative;
-    transform: translateY(34%);
+    transform: translateY(14px);
+    -ms-transform: translateY(14px);
+    -webkit-transform: translateY(14px); 
     cursor: pointer;
     display: inline-block;
     width: 24.0%;
@@ -843,26 +787,21 @@ select {
 .click-to-send-message:hover{
     opacity: .8;
 }
-
  
 .chatboxtextarea {
     font-size: 16px;
-    /* width: 245px; */
-    /*height: 32px;*/
     padding: 7px 0pt 0px 12px;
     border: 1px solid #eeeeee;
-    /* margin: 1px; */
     height: 40px;
     width: 74.5%;
     overflow-y: auto;
     resize: none !important;
     display: inline-block;
-
-
     position: relative;
-    /*top: 50%;*/
-    transform: translateY(34%);
-
+    transform: translateY(14px);
+    -ms-transform: translateY(14px);
+    -webkit-transform: translateY(14px); 
+=
 }
  
 .chatboxtextareaselected {
@@ -877,7 +816,6 @@ select {
 .chatboxinfo {
     margin-left: -1em;
     color: #666666;
- 
 }
  
 .chatboxoptions {
