@@ -207,8 +207,8 @@ label {
     color: #FFF;
     float: right;
     position: relative;
-    margin-right: 10px;
-    margin-top: 8px;
+    margin-right: 20px;
+    margin-top: 12px;
     font-size: 24px;
 }
 
@@ -307,9 +307,9 @@ header {
 }
 
 .back {
-    position: absolute;
+    float: left;
     margin-left: 5px;
-    margin-top: 5px;
+    margin-top: 10px;
     border: 1px solid #222;
     border-radius: 3px;
     background-color: #111;
@@ -471,18 +471,21 @@ header {
     height: 100px;
     /*padding-left: 30px;*/
     width: 100%;
+    /*min-width: 300px;*/
     background-color: #333;
 }
 
 #profile-info-container > #name {
     color: #FFF;
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: normal;
     position: relative;
     padding-top: 25px;
+    /*padding-right: 20px;*/
     left: 10px;
     margin: 0px;
+    width: 90%;
 }
 
 #profile-info-container > #location {
@@ -492,6 +495,8 @@ header {
     position: relative;
     left: 10px;
     margin: 0;
+        width: 90%;
+
 }
 
 .container-edit {
@@ -550,10 +555,11 @@ header {
 }
 
 #private-messages {
-    font-size: 20px;
+    font-size: 16px;
     position: relative;
     bottom: 40px;
     left: 90px;
+    width: 200px;
 }
 
 .cmn-toggle {
@@ -607,6 +613,22 @@ input.cmn-toggle-round:checked + label:after {
   margin-left: 40px;
 }
 
+#phone {
+    margin-top: -30px;
+}
+
+#phone-input {
+    position: relative;
+    /*margin-top: -30px;*/
+    height: 40px;
+    font-size: 20px;
+}
+
+#start-chat {
+    position: relative;
+    top: 40px;
+}
+
 #event-name {
     color: #333;
     font-size: 20px;
@@ -628,11 +650,11 @@ input.cmn-toggle-round:checked + label:after {
 }
 
 .green {
-    background-color: #519a4f;
+    background-color: #5CB85C;
 }
 
 .green:hover {
-    background-color: #3f7f3d;
+    background-color: #78c978;
 }
 
 .pink {
@@ -833,7 +855,7 @@ select {
 }
 
 .hashtag {
-    background-color: #519a4f;
+    background-color: #5CB85C;
     padding: 3px 5px 3px 5px;
     color: #FFF;
     font-size: 14px;
@@ -841,7 +863,7 @@ select {
 }
 
 .hashtag:hover {
-    background-color: #3f7f3d;
+    background-color: #78c978;
     text-decoration: none;
     color: #FFF;
 }

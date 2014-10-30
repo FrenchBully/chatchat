@@ -4,9 +4,7 @@ class ChatsController < ApplicationController
   layout false
   
   def create
-    # look for chat
-    # based on event id from meetups
-    # create it if it doesn't exist
+    # look for chat based on event id from meetups create it if it doesn't exist
 
     # users can't have more than 5 chats
     if current_user.chats.count < 5 
@@ -40,14 +38,10 @@ class ChatsController < ApplicationController
   end
   
   def show
+    # find chat and chat's messages and instantiate new message for form
     @chat = Chat.find(params[:id])
-    # message with
-    # @reciever = interlocutor(@chat)
-    # make chats show in right order
     @messages = @chat.messages
-    # sets input field for new message
     @message = Message.new
-    # @user = User.find(params[:id])
   end
 
   def leavechat
@@ -60,17 +54,18 @@ class ChatsController < ApplicationController
     render nothing: true
   end
 
-  def chat_user_exists
-    binding.pry
-    chatuser = Chat.find_by(event_id: params[:event_id], category: params[:category]).chat_users.find_by(user_id: current_user.id)
-    # append with jquery this if it doesn't exist
-    if !chatuser.present?
-      render json: { k: value}
-    # otherwise don't append
-    else
-      render json: { k: value}
-    end 
+# update menu
+  def event_update 
+    @user = current_user
+    @users = get_current_users   
+  end
 
+  def get_current_users
+    @users = []
+    Chat.find_by(event_id: current_user.event_id, category: "main").users.each do |u|
+      @users << u
+    end
+      return @users
   end
 
 

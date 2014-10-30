@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get '/events/:id' => 'events#show'
   resources :events
 
-  post '/chat_user_check' => 'chats#chat_user_exists'
+  get '/event_update' => 'chats#event_update'
 
   post '/unsubscribe/:id' => 'chats#leavechat'
 

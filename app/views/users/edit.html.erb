@@ -7,11 +7,12 @@
 			</div>
 			<div id='profile-info-container'>
 				<h1 id='name'><%= @user.name %></h1>
-				<p id='location'><%= @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'] %></p>
+				<p id='location'><%= truncate(@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'], length: 26) %></p>
 
 			</div>
 		</section>
-<div class="container">
+
+		<div class="container">
 
 		<!-- <div class=''>
 			<label for="event-name">
@@ -50,13 +51,18 @@
 				<div class="switch">
 					<%= f.check_box :private_messages?, checked: @user.private_messages, id: 'cmn-toggle-1', class: 'cmn-toggle cmn-toggle-round' %>
 					<label for="cmn-toggle-1"></label>
-					<p id='private-messages'>Allow private</p>
+					<p id='private-messages'>Allow private messages</p>
+					<div id='phone'>
+					<%= label_tag 'phone' %>
+					<%= f.text_field :phone, placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
+					</div>
 				</div>
-				<div class="switch">
-					<%= f.check_box :linkedin, id: 'cmn-toggle-2', class: 'cmn-toggle cmn-toggle-round' %>
+				<!-- <div class="switch">
+					<%#= f.check_box :linkedin, id: 'cmn-toggle-2', class: 'cmn-toggle cmn-toggle-round' %>
 					<label for="cmn-toggle-2"></label>
-					<p id='private-messages'>Display LinkedIn</p>
-				</div>
+					<p id='private-messages'>Display LinkedIn profile</p>
+				</div> -->
+
 					<%=f.hidden_field :lat, id: 'lat'%>
 					<%=f.hidden_field :lon, id: 'lon'%>
 					
