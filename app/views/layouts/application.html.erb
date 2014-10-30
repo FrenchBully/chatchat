@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MetaMeetup - Meet the right people</title>
-    <%= favicon_link_tag 'favicon.ico' %>
-    <%= favicon_link_tag 'apple-touch-icon-114x114.png', rel: 'apple-touch-icon', type: 'image/png', sizes: '114x114' %>
-    <link rel="manifest" href="manifest.json">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
-    
-    <!-- strange that data-no-turbolink didn't work. Had to comment this out instead -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    
-    <%= csrf_meta_tags %>
+    <head>
+        <title>MetaMeetup - Meet the right people</title>
+        <%= favicon_link_tag 'favicon.ico' %>
+        <%= favicon_link_tag 'apple-touch-icon-114x114.png', rel: 'apple-touch-icon', type: 'image/png', sizes: '114x114' %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1, content=minimal-ui">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- sets meta data for view used for chats-->
-    <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <meta name="viewport" content="width=device-width, initial-scale=1, content=minimal-ui">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <!-- To allow Google Chrome users to save shortcut to desktop -->
+        <link rel="manifest" href="manifest.json">
 
-  </head>
-
-  <body data-no-turbolink id='body' class=<%= params[:controller] == 'devise/sessions' ? 'homepage' : ''%>>
-    		<% if flash[:alert] %>
+        <!-- sets meta data for view used for chats-->
+        <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
+    </head>
+    <body data-no-turbolink id='body' class=<%= params[:controller] == 'devise/sessions' ? 'homepage' : ''%>>
+        <% if flash[:alert] %>
   		    <p id="alert"><%= alert %></p>
   		<% end %>
   		<% if flash[:notice] %>
   		    <p class="notice"><%= notice %></p>
   		<% end %>
-      <% if params[:controller] == 'events' %>
-        <div id="menu"><%= render 'layouts/menu' %></div>
-        <div id="site"><%= render 'layouts/header' %>
+        <% if params[:controller] == 'events' %>
+            <div id="menu"><%= render 'layouts/menu' %></div>
+            <div id="site"><%= render 'layouts/header' %>
         <% end %>
-      <% if params[:action] == 'select_location' %>
-        <p class='sign-out'>Signed in as <%= @user.email %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
-      <% end %>
-      <%= yield %></div>
+        <% if params[:action] == 'select_location' %>
+            <p class='sign-out'>Signed in as <%= @user.email %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></p>
+        <% end %>
+        <%= yield %>
+            </div>
       
   </body>
 </html>

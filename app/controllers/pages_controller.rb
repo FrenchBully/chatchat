@@ -48,6 +48,6 @@ class PagesController < ApplicationController
 		elsif @events_today.length > 1
 			# stay here
 		end
-		
+
 	end
 end

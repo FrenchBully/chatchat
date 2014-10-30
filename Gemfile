@@ -8,6 +8,8 @@ gem 'pg'
 gem 'devise'
 # Way better than WEBrick
 gem 'thin'
+# Turns out, you need this for Heroku
+gem 'rails_12factor', group: :production
 # Have you tried this yet? Do it
 group :development do
   gem "better_errors"
@@ -20,8 +22,6 @@ group :development, :test do
 end
 # Bind that shit
 gem 'pry'
-# A necessary evil
-gem 'ruby_meetup2'
 # Ugh
 gem 'omniauth'
 # Double-ugh

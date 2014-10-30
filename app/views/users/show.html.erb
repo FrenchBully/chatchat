@@ -1,4 +1,6 @@
 <%= render 'layouts/header' %>
+
+<!-- This section is outside the container so it wraps edge-to-edge -->
 	<section id='profile-details'>
 		<div id='photo-container'>
 			<%= image_tag @user.photo, class: 'photo' %>
@@ -8,22 +10,28 @@
 			<p id='location'><%= truncate(@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['name'], length: 28) %></p>
 		</div>
 	</section>
+
 <div class="container">
  	<% if @user.bio != '' %>
-	 <section id="bio">
-		<label>EVENT STATUS</label>
-		<p><%= @user.bio %></p>
-	</section>
+	 	<section id="bio">
+			<label>EVENT STATUS</label>
+			<p><%= @user.bio %></p>
+		</section>
 	<% end %>
 
 	<section id='interests'>
 		<label>INTERESTS</label>
 		<ul class='interest-cloud'>
 			<% @user.interests.each do |interest| %>
+
+			<!-- Click to spawn a new room based on the user's interest -->
 				<li class="interest">
-					<a class="green button start-chat" data-category= <%= '#' + interest.name %> data-event_id=<%= @user.event_id.to_s %> href="#">#<%= interest.name %> </a>
-					</li>
+					<a class="green button start-chat" data-category= <%= '#' + interest.name %> data-event_id=<%= @user.event_id.to_s %> href="#">
+						#<%= interest.name %> 
+					</a>
+				</li>
 			<% end %>
 		</ul>
 	</section>
+
 </div>
