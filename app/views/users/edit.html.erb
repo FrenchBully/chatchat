@@ -15,7 +15,7 @@
 	<%= form_for :update_interest do |f| %>
 		<section>
 			<label>YOUR INTRO:</label>
-			<%= f.text_area :bio, value: @user.bio, placeholder: '140 characters max',maxlength: 140, id: 'bio-field', class: 'expand' %>			
+			<%= f.text_area :bio, value: @user.bio, placeholder: '140 characters max', maxlength: 140, id: 'bio-field', class: 'expand' %>			
 
 		</section>
 
@@ -61,7 +61,7 @@
 					<p id='private-messages'>Allow private messages</p>
 					<div id='phone'>
 					<%= label_tag 'phone' %>
-					<%= f.text_field :phone, value: @user.phone, placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
+					<%= f.text_field :phone, value: @user.phone,maxlength: 10 placeholder: 'ex) 555-555-5555', class: 'expand center', id: 'phone-input' %>
 					</div>
 				</div>
 				<!-- <div class="switch">
