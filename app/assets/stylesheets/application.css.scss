@@ -14,8 +14,39 @@
  *= require_self
  */
 
+@mixin fade{
+   -webkit-animation: fadeIn 3s; 
+   -moz-animation:    fadeIn 3s; 
+   -o-animation:      fadeIn 3s; 
+   animation:         fadeIn 3s;
+}
+@-webkit-keyframes fadeIn {
+  0%   { opacity: 0;}
+  33%  {opacity: 1;}
+  66%  {opacity: 0;} 
+  100%{ opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+  0%   { opacity: 0; }
+  33%  {opacity: 1;}
+  66%  {opacity: 0;} 
+  100%{ opacity: 1; }
+}
+@-o-keyframes fadeIn {
+  0%   { opacity: 0; }
+  33%  {opacity: 1;}
+  66%  {opacity: 0;} 
+  100%{ opacity: 1; }
+}
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  33%  {opacity: 1;}
+  66%  {opacity: 0;} 
+  100%{ opacity: 1; }
+}
+
+
 body {
-    /*background-color: #323232;*/
     margin: 0;
     height: 100%;
     box-sizing: border-box;
@@ -149,6 +180,8 @@ label {
     min-height: 100%;  
     padding: 0px;  
     background-color: rgba(0,0,0,.8); 
+    /*display:none;*/
+    /*@include fade;*/
 }
 
 #menu-user-info {
@@ -764,6 +797,7 @@ select {
     float:right;
     position: relative;
     top: 17px;
+    @include fade;
 }
 
 .time-div{

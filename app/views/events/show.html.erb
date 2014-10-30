@@ -3,6 +3,7 @@
 	<script>
 		// on load, make first chat room based on event params
 		console.log("starting chat");
+
 		// grabs data out of the item that was clicked which is setup through html tags
 		var category = "<%= @event_category %>";  
 		var event_id = <%=@event_id%>;
@@ -36,6 +37,8 @@
 		// replace data with new data in menu
 		$('.main-menu').click(function (e) {
 			e.preventDefault();
+			// make menu show now
+			$( "#menu" ).show();
 			$.get("/event_update", function (data) {
 			    $('#navigation').html(data);
 			}, "html");
@@ -61,6 +64,8 @@
 			$('html > head').append(widthstyle);
 
 		});
+
+		$('#menu').hide();
 	</script>
 
 

@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
     @message.save!
     @path = chat_path(@chat)
     # path is chats/:id to show chat
-    # executes create.js.erb file
+    # then to create.js.erb file
     # which uses faye to publish(push) to the channel the 
     # new message
   end
