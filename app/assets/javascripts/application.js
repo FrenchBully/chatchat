@@ -62,7 +62,6 @@ var ready = function(){
 
 		$(document).delegate(".close", "click", function (e) {
 					e.preventDefault();
-					alert();
 				$(this).parent().parent().hide();
 		});
 
