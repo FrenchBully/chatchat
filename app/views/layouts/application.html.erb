@@ -13,7 +13,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, content=minimal-ui">
+
+        <!-- Display pretty on mobile browsers -->
         <meta name="mobile-web-app-capable" content="yes">
+
+        <!-- Make it look more like an app on iphones -->
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -46,8 +50,19 @@
         <!-- Render the magic here -->
         <%= yield %>
 
-        <!-- Disjointed closing div to wrap the site in an element to allow it to slide when the menu opens -->
+            <!-- Disjointed closing div to wrap the site in an element to allow it to slide when the menu opens -->
             </div>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53470484-5', 'auto');
+        ga('send', 'pageview');
+    </script>
   </body>
   
 </html>

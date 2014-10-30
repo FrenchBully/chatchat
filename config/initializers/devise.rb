@@ -234,8 +234,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-   # config.omniauth :meetup, 'ng7fn9r3du3gdb74f5d1c5bp8e', 'ejn7brts0rq94uinqse3f6d38h' #PRODUCTION
-   config.omniauth :meetup, 'epnsloj980ljauc7u0i085tv8v', '5r9od38er9b6ok1g4uitnqsbb5' #LOCAL
+   config.omniauth :meetup, 'ng7fn9r3du3gdb74f5d1c5bp8e', 'ejn7brts0rq94uinqse3f6d38h' #PRODUCTION
+   # config.omniauth :meetup, 'epnsloj980ljauc7u0i085tv8v', '5r9od38er9b6ok1g4uitnqsbb5' #LOCAL
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
