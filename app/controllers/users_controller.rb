@@ -12,7 +12,24 @@ class UsersController < ApplicationController
   end
 
   def show
+    # gets user entered in params
     @member = @user.show_user(@user)
+    @interests = @user.interests
+
+    # all the chats that are active
+    chats = @user.event.chats
+
+    # add hashtag to match with chats and add interest if a chat exists for it
+    @interests_with_chats = {}
+    @interests.each do |interest|
+      @interests_with_chats[interest.name] = false
+      chats.each do |chat| 
+        if ("#"+interest.name) == chat.category
+          @interests_with_chats[interest.name] = true
+        end
+      end
+    end
+
   end
 
   def edit

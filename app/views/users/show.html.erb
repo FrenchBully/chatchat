@@ -22,16 +22,47 @@
 	<section id='interests'>
 		<label>INTERESTS</label>
 		<ul class='interest-cloud'>
-			<% @user.interests.each do |interest| %>
+			<% @interests_with_chats.each do |interestname, present| %>
+				 
+				<% if present %> 
+				<!-- Click to spawn a new room based on the user's interest -->
+					<li class="interest start-chat active-chats" data-category= <%= '#' + interestname %> data-event_id=<%= @user.event_id.to_s %> id=<%=interestname%>>
+						<a class="green button active-chats" href="#">
+							#<%= interestname %> 
+						</a>
+					</li>
+				<% else %>
+					<li class="interest start-chat" data-category= <%= '#' + interestname %> data-event_id=<%= @user.event_id.to_s %> id=<%=interestname%>>
+						<a class="green button" href="#">
+							#<%= interestname %> 
+						</a>
+					</li>
+				<% end %>				
 
-			<!-- Click to spawn a new room based on the user's interest -->
-				<li class="interest">
-					<a class="green button start-chat" data-category= <%= '#' + interest.name %> data-event_id=<%= @user.event_id.to_s %> href="#">
-						#<%= interest.name %> 
-					</a>
-				</li>
 			<% end %>
 		</ul>
 	</section>
 
 </div>
+
+<script>
+
+
+	$(document).delegate(".start-chat", "click", function (e) {
+		e.preventDefault();
+        var category = $(this).data('category');  
+        var event_id = $(this).data('event_id');
+
+        // menu is finnicky with its labeling of data fields - set if unset
+        if (event_id == null){
+        	event_id = $(this).data('event-id');
+        }
+        $.post("/chats", { category: category, event_id: event_id}, function (data) {
+        	// success
+        	if(data.chat_name != "main"){
+        		$(data.chat_name + "> a").css('background-color', '#407bfb');
+        		$(data.chat_name).css('background-color', '#407bfb');
+        	}
+        }); 
+    });	
+</script>
