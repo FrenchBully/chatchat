@@ -40,16 +40,19 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     # gets and sets auth token for user
-      where(provider: auth.provider, uid: auth.uid.to_s).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid.to_s
-      user.auth_token = auth.credentials.token
-      user.refresh_token = auth.credentials.refresh_token
-      user.expires_at = auth.credentials.expires_at
-      user.name = auth.info.name
-      user.photo = auth.info.photo_url
-      # user.location = auth.extra.raw_info.city
-      user.private_messages = true
+    where(provider: auth.provider, uid: auth.uid.to_s).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid.to_s
+        user.auth_token = auth.credentials.token
+        user.refresh_token = auth.credentials.refresh_token
+        user.expires_at = auth.credentials.expires_at
+        user.name = auth.info.name
+        user.private_messages = true
+
+      if auth.info.photo_url != nil
+        user.photo = auth.info.photo_url
+        # user.location = auth.extra.raw_info.city
+      end  
 
     end
   end
