@@ -655,6 +655,13 @@ input.cmn-toggle-round:checked + label:after {
     color: #FFF;
 }
 
+
+/*Overflow of people in sidebar*/
+.autoscrollpeopleatevent{
+    overflow-y:auto;
+}
+
+
 /*Chat styling*/
 .chatbox {
     position: relative;
