@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
     events_today = []
     if events["results"] != nil
       while i < events["results"].length 
-        if Time.at(events["results"][i]["time"] / 1000) - Time.now < 120.hours
+        if Time.at(events["results"][i]["time"] / 1000) - Time.now < 1200.hours
           
           events_today << {
           :name => events["results"][i]["name"],

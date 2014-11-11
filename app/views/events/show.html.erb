@@ -8,11 +8,13 @@
 		  		left: '0px'  
 		 	}, "slow");   
 		}
-		// function openSidepage() {  
-		// 	$('#site').animate({  
-		//   		left: '250px'  
-		//  	}, "fast");   
-		// }   
+		// for overflow of people
+		function reSizeMenuPeople(){
+			// 266 for other elements, 50 for buffer
+			var peopleatevent = $(window).height()-266 - 150;
+			$('.autoscrollpeopleatevent').css('height', peopleatevent);
+		}
+		  
 		// on load, make first chat room based on event params
 		// grabs data out of the item that was clicked which is setup through html tags
 		var category = "<%= @event_category %>";  
@@ -29,7 +31,7 @@
 	        var category = $(this).data('category');  
 	        var event_id = $(this).data('event_id');
 
-	        // menu is finnicky with its labeling of data fields - set if unset
+	        // menu is finnicky with its labeling of data fields - so set if unset
 	        if (event_id == null){
 	        	event_id = $(this).data('event-id');
 	        }
@@ -40,6 +42,8 @@
 	        // refresh if tag was clicked
 	        $.get("/event_update", function (data) {
 	            $('#navigation').html(data);
+	            // auto scroll if too many people
+	            reSizeMenuPeople();
 	        }, "html");
 	    });
 	    // close chat if user clicks on text box
@@ -50,9 +54,11 @@
 		$(document).delegate(".start-chat.hide-menu","click", function(e){
 			closeSidepage();
 		});
+
+		// Future implementation for mobile for swiping
 		// $(".chatboxtextarea").on( "swipeleft", function(e){
 		// 	alert();
-	 //   		closeSidepage();  
+	 	//   		closeSidepage();  
 		// });
 		// $(".chatboxtextarea").on( "swiperight", function(e){
 		// 	alert();
@@ -69,9 +75,10 @@
 
 			$.get("/event_update", function (data) {
 			    $('#navigation').html(data);
+			    reSizeMenuPeople();
 			}, "html");
-		}); 
-		
+		});
+
 		// set chatboxcontent to size of current open window subtract to size appropriately
 	    heightpixels = $(window).height()-118;
 	    var style = $('<style>.chatboxcontent { height: '+heightpixels+'px; }</style>');
@@ -90,6 +97,7 @@
 			widthpixels = $(window).width()-90;
 			var widthstyle = $('<style>.textcontentofmessage { width: '+widthpixels+'px; }</style>');
 			$('html > head').append(widthstyle);
+			reSizeMenuPeople();
 		});
 		$('#menu').hide();
 	</script>
