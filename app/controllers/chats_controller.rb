@@ -35,7 +35,7 @@ class ChatsController < ApplicationController
       else
 
       # render main chat if user is maxed out on number of chats
-        render json: { chat_id: current_user.chats.first.id, chat_name: "main", users_count: current_user.chats.first.users.count, event_name: current_user.event.name[0..15]}
+        render json: { chat_id: current_user.chats.first.id, chat_name: "main", user_count: current_user.chats.first.users.count, event_name: current_user.event.name[0..15]}
       end
     end
   end
