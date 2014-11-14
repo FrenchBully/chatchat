@@ -19,24 +19,6 @@
 
 var ready = function(){
 
-	// setting dynamic height of main landing page
-	$(window).load(function() {
-	$('#welcome-container').css('height', window.innerHeight+'px');
-	});
-
-	$(window).resize(function() {
-	$('#welcome-container').css('height', window.innerHeight+'px');
-	});
-
-	// function that allows user to click on arrow to display About text
-	$('#scroll-down').click(function() {
-		$(this).parent().append( "<div id='about-text'><h1>About</h1>Tired of having the same old conversations with the wrong people? MetaMeetup helps people connect with the right people at Meetup.com events. Sign into MetaMeetup when you arrive and spend your time wisely. <br><br>Don't yet have a meetup.com account? Sign up for one <a href='http://meetup.com'>here</a><br><br>MetaMeetup was created by Andy Chen, Kevin Ng, and Ran Craycraft in the heart of Silicon Beach.</div>" );
-		$('html, body').animate({
-	        scrollTop: $("#about-text").offset().top
-	    }, 1000);
-	    $('#scroll-down').hide();
-	});
-
 	// hides chatrooms from view when the user clicks X
 	$(document).delegate(".close", "click", function (e) {
 				e.preventDefault();

@@ -1,14 +1,100 @@
-<div class='color-filter'>
-<div class="container">
-	<div id="welcome-container">
-		<%= image_tag 'metameetup-logo-white.png', id: 'logo' %>
-	<h1 class='welcome'>Meet the right people at your next meetup.</h1>
-		<div id="devise">
-			<%= render "devise/shared/links" %>
+<style>
+	.about-text{
+		display:none;
+	}
+	#about-text{
+		position:relative;
+		max-width: 600px;
+		margin:0 auto;
+	}
+	#scroll-down, #scroll-up {
+	    position: relative;
+	    background-color: rgba(255,255,255,.4);
+	    width: 40px;
+	    height: 40px;
+	    border-radius: 20px;
+	    padding: 9px 5px 5px 5px;
+	    margin:0 auto;
+	}
+	#scroll-down:hover{
+	    background-color: rgba(255,255,255,.8);    
+	}
+	#scroll-up{
+	    background-color: rgba(50,50,50,.2);
+		-ms-transform: rotate(180deg); 
+	    -webkit-transform: rotate(180deg); 
+	    transform: rotate(180deg);
+	}
+	 #scroll-up:hover{
+	    background-color: rgba(50,50,50,.05);    
+	 }
+</style>
+
+<div class='background-one'>
+	<div class="container">
+		<div id='scroll-down'>
+			<%= image_tag 'down-arrow.png' %>
 		</div>
-	<div id='scroll-down'>
+		<div id="welcome-container">
+			<%= image_tag 'metameetup-logo-white.png', id: 'logo' %>
+		<h1 class='welcome'>Meet the right people at your next meetup.</h1>
+			<div id="devise">
+				<%= render "devise/shared/links" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="about-text">
+	<div id='scroll-up'>
 		<%= image_tag 'down-arrow.png' %>
 	</div>
-	</div>
+	<div id='about-text'>
+	<h1>About</h1>
+	Tired of having the same old conversations with the wrong people? MetaMeetup helps people connect with the right people at Meetup.com events. Sign into MetaMeetup when you arrive and spend your time wisely. <br><br>Don't yet have a meetup.com account? Sign up for one <a href='http://meetup.com'>here</a><br><br>MetaMeetup was created by Andy Chen, Kevin Ng, and Ran Craycraft in the heart of Silicon Beach.</div>
 </div>
-</div>
+
+<script>
+	function backgroundOne(){
+		var windowHeight = $(window).height();
+		$('.background-one').css('height', windowHeight);
+		$('#scroll-down').css('top', windowHeight*.8);
+	}
+
+	function aboutText(){
+		var windowHeight = $(window).height();
+		$('.about-text').css('height', windowHeight);
+		$('#scroll-up').css('top', windowHeight/15);
+		if($(window).width()>=537){
+			$('#about-text').css('top', windowHeight/6);
+		}
+		else{
+			$('#about-text').css('top', windowHeight/20);
+		}
+	}
+
+	$(window).resize(function(){
+		backgroundOne();
+		aboutText();
+	});
+
+	backgroundOne();
+	aboutText();
+	
+	
+
+	// function that allows user to click on arrow to display About text
+	$('#scroll-down').click(function() {
+
+		$('.about-text').show();
+		$('html, body').animate({
+	        scrollTop: $("#about-text").offset().top
+	    }, 1000);
+	    // $('#scroll-down').hide();
+	});
+	$('#scroll-up').click(function(){
+		$('html, body').animate({
+	        scrollTop: $(".background-one").offset().top
+	    }, 1000);
+	})
+</script>
