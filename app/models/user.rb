@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
     # control number of events in select_location dropdown
     options = { 
         member_id: user.uid,
-        time: "0d,6d"
+        time: "0d,8d"
     }
     meetup_api = MeetupApi.new
     return meetup_api.events(options)
@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
     events_today = []
     if events["results"] != nil
       while i < events["results"].length 
-        if Time.at(events["results"][i]["time"] / 1000) - Time.now < 1300.hours
+        if Time.at(events["results"][i]["time"] / 1000) - Time.now < 1200.hours
           
           events_today << {
           :name => events["results"][i]["name"],
