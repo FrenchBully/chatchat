@@ -1,39 +1,42 @@
 <ul id="navigation">
-  <label id='menu-label'>CONVERSATIONS</label>
-    <% @user.chats.order('created_at ASC').each do |c| %>
-      <li class='menu-item'>
-        <% if c.category == 'main' %>
-          <%= link_to "#{c.category}"+" - #{truncate(c.event.name, length: 23)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
-        <% else %>
-          <%= link_to "#{truncate(c.category, length: 30)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
-        <% end %>
-        <% if c.category != 'main' %>
-          <%= link_to remove_chat_path(c), method: :delete, remote: true do %>
-          <span class='close fa fa-times'></span>
+    <label id='menu-label'>CONVERSATIONS</label>
+      <% @user.chats.order('created_at ASC').each do |c| %>
+        <li class='menu-item convo-joined'>
+          <% if c.category == 'main' %>
+            <%= link_to "#{c.category}"+" - #{truncate(c.event.name, length: 23)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
+          <% else %>
+            <%= link_to "#{truncate(c.category, length: 30)}", '#', :data => {category: c.category, event_id: c.event_id}, class: 'start-chat hide-menu' %>
           <% end %>
-        <% end %>
-      </li>
-    <% end %>
-
-
-
-    <div class='menu-section'>
-      <label id='menu-label'>PEOPLE</label>
-      <div class="autoscrollpeopleatevent">
-        <% @users.each do |u| %>
-          <li class='menu-item'>
-            <%= image_tag u.photo, class: 'menu-photo' %>
-            <%= link_to u.name, user_path(u) %>
-          </li>
-        <% end %>
-      </div>
+          <% if c.category != 'main' %>
+            <%= link_to remove_chat_path(c), method: :delete, remote: true do %>
+            <span class='close fa fa-times'></span>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
     </div>
 
 
-<div class='menu-section'>
-    <label id='menu-label'>SETTINGS</label>
-    <li class='left-padding'><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
-    <li class='left-padding'><%= link_to 'Account Settings', edit_user_registration_path %></li>
-    <li class='left-padding'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-</div>
+  <div class="autoscroll-menu">
+    <%# if distance < 100.0 %>
+      <div class='menu-section'>
+        <label id='menu-label'>PEOPLE</label>
+          <% @users.each do |u| %>
+            <li class='menu-item'>
+              <%= image_tag u.photo, class: 'menu-photo' %>
+              <%= link_to u.name, user_path(u) %>
+            </li>
+          <% end %>
+      </div>
+    <%# end %>
+
+
+    <div class='menu-section'>
+        <label id='menu-label'>SETTINGS</label>
+        <li class='left-padding'><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
+        <li class='left-padding'><%= link_to 'Account Settings', edit_user_registration_path %></li>
+        <li class='left-padding'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    </div>
+  </div>
+</ul>
   

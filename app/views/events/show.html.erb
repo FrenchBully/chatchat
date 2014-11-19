@@ -1,5 +1,6 @@
 <!-- if the user is less than X (.25 in this case miles away) from the event, do not show the chat room -->
-<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 0.25 %>
+<!-- revert -->
+<% if @distance < 0.25 %>
 	<script>
 		function closeSidepage() { 
 			$("#navigation li a").removeClass("open");  
@@ -9,9 +10,11 @@
 		}
 		// for overflow of people
 		function reSizeMenuPeople(){
-			// 266 for other elements, 50 for buffer
-			var peopleatevent = $(window).height()-266 - 150;
-			$('.autoscrollpeopleatevent').css('height', peopleatevent);
+		
+			var heightOfConvos = $('.convo-joined').length*31;
+			// subtract to see remaining space in menu
+			var peopleatevent = $(window).height()-heightOfConvos-100;
+			$('.autoscroll-menu').css('height', peopleatevent);
 		}
 		  
 		// on load, make first chat room based on event params
@@ -105,7 +108,11 @@
 
 	<!-- if the user isn't at the event location, display this message -->
 	<div class='container center' id='welcome-container'>
-		<p class='apologies'>Oops, you're still <%= @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) %> miles away from the event! Once you arrive, check back again.</p>
+		<p class='apologies'>Oops, you're still <%= @distance.round(1) %> miles away from the event! Once you arrive, check back again.</p>
 		<%= link_to 'Refresh', event_path, class: 'button expand' %>
+		<script>
+			var remainingscreen = $(window).height()-$('header').height();
+			$('#welcome-container').css('height', remainingscreen);
+		</script>
 	</div> 
 <% end %>

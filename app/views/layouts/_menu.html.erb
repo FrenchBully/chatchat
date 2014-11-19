@@ -27,8 +27,7 @@
 	<% end %>
 
 	<!-- If the user is less than x miles from the event venue, then let them see the attendees/profiles -->
-	<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 1 %>
-
+	<% if @distance < 0.25 %>
 		<div class='menu-section'>
 			<label id='menu-label'>PEOPLE</label>
 			<% get_current_users.each do |u| %>
