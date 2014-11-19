@@ -16,8 +16,9 @@ class PagesController < ApplicationController
 	def select_location
 		@no_events = false
 		@user = current_user
-	    @events = @user.get_user_event_list(@user)
-	    @events_today = @user.get_user_events_today(@events)
+    @events = @user.get_user_event_list(@user)
+    @events_today = @user.get_user_events_today(@events)
+
 
 		# if user has one possible event, auto select and bypass them to edit user
 		if @events_today.length == 1

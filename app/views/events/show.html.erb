@@ -1,6 +1,5 @@
-<!-- if the user is less than X miles away from the event, do not show the chat room -->
-<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 1000 %>
-
+<!-- if the user is less than X (.25 in this case miles away) from the event, do not show the chat room -->
+<% if @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon]) < 0.25 %>
 	<script>
 		function closeSidepage() { 
 			$("#navigation li a").removeClass("open");  

@@ -29,7 +29,8 @@ class User < ActiveRecord::Base
 
 	  meters = rm * c # Delta in meters
 	  miles = meters * 0.000621371
-	  miles.round(1)
+	  # get exact difference instead above
+    # miles.round(1)
 	end
 
 
@@ -80,7 +81,7 @@ class User < ActiveRecord::Base
     # control number of events in select_location dropdown
     options = { 
         member_id: user.uid,
-        time: "0d,8d"
+        time: "0d,1d"
     }
     meetup_api = MeetupApi.new
     return meetup_api.events(options)
