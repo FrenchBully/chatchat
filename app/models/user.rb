@@ -81,10 +81,11 @@ class User < ActiveRecord::Base
     # control number of events in select_location dropdown
     options = { 
         member_id: user.uid,
-        time: "0d,3d"
+        time: "-2d,2d"
     }
     meetup_api = MeetupApi.new
     return meetup_api.events(options)
+    binding.pry
   end 
 
   def get_user_events_today events

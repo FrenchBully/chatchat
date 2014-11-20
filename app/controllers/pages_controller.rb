@@ -19,7 +19,6 @@ class PagesController < ApplicationController
     @events = @user.get_user_event_list(@user)
     @events_today = @user.get_user_events_today(@events)
 
-
 		# if user has one possible event, auto select and bypass them to edit user
 		if @events_today.length == 1
 			current_user.chat_users.destroy_all
