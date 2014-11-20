@@ -1,6 +1,6 @@
 <style>
 	.about-text{
-		display:none;
+		/*display:none;*/
 	}
 	#about-text{
 		position:relative;
@@ -66,10 +66,11 @@
 		$('.about-text').css('height', windowHeight);
 		$('#scroll-up').css('top', windowHeight/15);
 		if($(window).width()>=537){
-			$('#about-text').css('top', windowHeight/6);
+			$('#about-text').css('top', windowHeight/5);
 		}
 		else{
-			$('#about-text').css('top', windowHeight/20);
+			$('#about-text').css('top', windowHeight/14);
+			$('#about-text').css('padding', 20);
 		}
 	}
 
@@ -86,7 +87,7 @@
 	// function that allows user to click on arrow to display About text
 	$('#scroll-down').click(function() {
 
-		$('.about-text').show();
+		// $('.about-text').show();
 		$('html, body').animate({
 	        scrollTop: $("#about-text").offset().top
 	    }, 1000);

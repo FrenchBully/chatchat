@@ -835,7 +835,12 @@ input.cmn-toggle-round:checked + label:after {
   }
 }
 /*end of chat styling*/
-
+.aboutlink{
+    /*color:white;*/
+    text-align: center;
+    display: block;
+    font-size: 10px;
+}
 input#user_email {
     color: black;
 }
