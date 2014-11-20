@@ -10,7 +10,7 @@
 
 	<!-- Display all of the user's chatrooms -->
 	<% @user.chats.order('created_at ASC').each do |c| %>
-		<li class='menu-item'>
+		<li class='menu-item convo-joined'>
 
 			<!-- If the chatroom name is 'main', display the meetup event name and don't let the user delete it -->
 			<% if c.category == 'main' %>
