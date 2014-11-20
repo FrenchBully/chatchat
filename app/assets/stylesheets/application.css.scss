@@ -835,6 +835,11 @@ input.cmn-toggle-round:checked + label:after {
   }
 }
 /*end of chat styling*/
+a.remote-delete.button.green {
+    display: inline-block;
+    padding-top:0;
+    padding-bottom:0;
+}
 .aboutlink{
     /*color:white;*/
     text-align: center;
