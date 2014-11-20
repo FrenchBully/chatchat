@@ -13,13 +13,16 @@
 	    background-color: rgba(255,255,255,.8);   
 	}
 	#about-text{
-		font-size: 20px;
+		font-size: 16px;
 		max-width: 500px;
 		margin:0 auto;
 		position: relative;
 		top: 45%;
 		-webkit-transform: translateY(-50%);
 		transform: translateY(-50%);
+	}
+	.aboutparagraphs{
+		font-size: 20px;
 	}
 	#about-title{text-align:center;}
 	@media (max-width: 550px) {
@@ -55,18 +58,21 @@
 			</div>
 			
 		</div>
-		<!-- <div id='scroll-down'> -->
-			<%#= image_tag 'down-arrow.png' %>
-		<!-- </div> -->
+		<div id='scroll-down'>
+			<%= image_tag 'down-arrow.png' %>
+		</div>
 	</div>
 </div>
 
-<!-- <div class="background-two">
+<div class="background-two">
 	<div id='about-text'>
 		<h1 id="about-title">About</h1>
-		Tired of having the same old conversations with the wrong people? MetaMeetup helps people connect with the right people at Meetup.com events. Sign into MetaMeetup when you arrive and spend your time wisely. <br><br>Don't yet have a meetup.com account? Sign up for one <a target="_blank" href='http://meetup.com'>here</a><br><br>MetaMeetup was created by <a target="_blank" href="http://wildebee.st/">Wildebeest</a> in the heart of Silicon Beach.
+		<p class="aboutparagraphs">Tired of having the same old conversations with the wrong people? MetaMeetup helps people connect with the right people at Meetup.com events. Sign into MetaMeetup when you arrive and spend your time wisely.</p>
+		<p class="aboutparagraphs">Don't yet have a meetup.com account? Sign up for one <a target="_blank" href='http://meetup.com'>here</a></p>
+
+		<p class="aboutparagraphs">MetaMeetup was created by <a target="_blank" href="http://wildebee.st/">Wildebeest</a> in the heart of Silicon Beach.</p>
 	</div>
-</div> -->
+</div>
 
 <script>
 	// function that allows user to click on arrow to display About text
