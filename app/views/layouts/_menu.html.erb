@@ -26,26 +26,28 @@
 		</li>
 	<% end %>
 
-	<!-- If the user is less than x miles from the event venue, then let them see the attendees/profiles -->
-	<!-- inital load prevents user list from showing if user is too far here -->
-	<% if @distance < 0.25 %>
-		<div class='menu-section'>
-			<label id='menu-label'>PEOPLE</label>
-			<% get_current_users.each do |u| %>
-				<li class='menu-item'>
-					<%= image_tag u.photo, class: 'menu-photo' %>
-					<%= link_to u.name, user_path(u) %>
-				</li>
-			<% end %>
-		</div>
-	<% end %>
+	<div class="autoscroll-menu">
+		<!-- If the user is less than x miles from the event venue, then let them see the attendees/profiles -->
+		<!-- inital load prevents user list from showing if user is too far here -->
+		<% if @distance < 0.25 %>
+			<div class='menu-section'>
+				<label id='menu-label'>PEOPLE</label>
+				<% get_current_users.each do |u| %>
+					<li class='menu-item'>
+						<%= image_tag u.photo, class: 'menu-photo' %>
+						<%= link_to u.name, user_path(u) %>
+					</li>
+				<% end %>
+			</div>
+		<% end %>
 
-	<div class='menu-section'>
-		<label id='menu-label'>SETTINGS</label>
-		<li class='left-padding'><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
-		<li class='left-padding'><%= link_to 'Account Settings', edit_user_registration_path %></li>
-		<!-- <li class='left-padding'><a target="_blank" href='/#about-text'>About</a></li> -->
-		<li class='left-padding'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+		<div class='menu-section'>
+			<label id='menu-label'>SETTINGS</label>
+			<li class='left-padding'><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
+			<li class='left-padding'><%= link_to 'Account Settings', edit_user_registration_path %></li>
+			<!-- <li class='left-padding'><a target="_blank" href='/#about-text'>About</a></li> -->
+			<li class='left-padding'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+		</div>
 	</div>
   	<a target="_blank" class="aboutlink" href="http://wildebee.st/">Created By wildbeest</a>
 </ul>

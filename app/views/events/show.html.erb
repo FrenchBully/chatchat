@@ -113,6 +113,14 @@
 		<script>
 			var remainingscreen = $(window).height()-$('header').height();
 			$('#welcome-container').css('height', remainingscreen);
+			function reSizeMenuPeople(){
+			
+				var heightOfConvos = $('.convo-joined').length*31;
+				// subtract to see remaining space in menu
+				var peopleatevent = $(window).height()-heightOfConvos-140;
+				$('.autoscroll-menu').css('height', peopleatevent);
+			}
+			reSizeMenuPeople();
 		</script>
 	</div> 
 <% end %>
