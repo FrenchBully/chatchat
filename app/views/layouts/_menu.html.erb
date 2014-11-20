@@ -29,7 +29,7 @@
 	<div class="autoscroll-menu">
 		<!-- If the user is less than x miles from the event venue, then let them see the attendees/profiles -->
 		<!-- inital load prevents user list from showing if user is too far here -->
-		<% if @distance < 0.25 %>
+		<% if @distance < 10.25 %>
 			<div class='menu-section'>
 				<label id='menu-label'>PEOPLE</label>
 				<% get_current_users.each do |u| %>

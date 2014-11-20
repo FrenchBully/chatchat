@@ -1,6 +1,6 @@
 <!-- if the user is less than X (.25 in this case miles away) from the event, do not show the chat room -->
 <!-- revert -->
-<% if @distance < 0.25 %>
+<% if @distance < 10.25 %>
 	<script>
 		function closeSidepage() { 
 			$("#navigation li a").removeClass("open");  
