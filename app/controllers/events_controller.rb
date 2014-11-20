@@ -23,6 +23,7 @@ class EventsController < ApplicationController
     # find main chat so partial header can load with chat info
     @chat = current_user.chats.find_by(event_id: @event.id, category: @event_category)
 
+    # find user's distance to event
     @distance = @user.distance([@user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lat'], @user.get_user_event_details(@user.event.meetup_event_id)['results'][0]['venue']['lon']], [@user.lat, @user.lon])
   end
 

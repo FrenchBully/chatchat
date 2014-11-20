@@ -149,7 +149,7 @@ a:hover {
     position: relative;
     width: 90%;
     max-width: 600px;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
 }
 
 // positions and sets about text information on main page
@@ -828,6 +828,11 @@ input.cmn-toggle-round:checked + label:after {
     background-color: #78c978;
     text-decoration: none;
     color: #FFF;
+}
+@media (min-width: 1231px) {
+  .apologies {
+    padding-top: 0;
+  }
 }
 /*end of chat styling*/
 

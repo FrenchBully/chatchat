@@ -108,7 +108,7 @@
 
 	<!-- if the user isn't at the event location, display this message -->
 	<div class='container center' id='welcome-container'>
-		<p class='apologies'>Oops, you're still <%= @distance.round(1) %> miles away from the event! Once you arrive, check back again.</p>
+		<p class='apologies sorry'>Oops, you're still <%= @distance.round(1) %> miles away from the event! Once you arrive, check back again.</p>
 		<%= link_to 'Refresh', event_path, class: 'button expand' %>
 		<script>
 			var remainingscreen = $(window).height()-$('header').height();
