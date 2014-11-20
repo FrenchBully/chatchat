@@ -85,7 +85,6 @@ class User < ActiveRecord::Base
     }
     meetup_api = MeetupApi.new
     return meetup_api.events(options)
-    binding.pry
   end 
 
   def get_user_events_today events
